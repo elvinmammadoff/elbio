@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumora — SaaS Analytics Platform | Elbio</title>
+  <meta name="description" content="Case study: End-to-end design of a real-time analytics dashboard for B2B marketing teams.">
+
+  <script src="assets/js/theme-init.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Big+Shoulders+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/motion.css" media="all" onerror="this.remove()">
+</head>
+<body>
+
+  <div id="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Elbio — Home" data-cursor="link">
+        <span class="logo-text">Elbio<span class="logo-dot">.</span></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-menu" role="list">
+          <li class="nav-item"><a href="index.html#about" class="nav-link" data-cursor="link">About</a></li>
+          <li class="nav-item"><a href="index.html#projects" class="nav-link is-active" data-cursor="link" aria-current="page">Work</a></li>
+          <li class="nav-item"><a href="index.html#services" class="nav-link" data-cursor="link">Services</a></li>
+          <li class="nav-item"><a href="index.html#pricing" class="nav-link" data-cursor="link">Pricing</a></li>
+          <li class="nav-item"><a href="blog-single.html" class="nav-link" data-cursor="link">Journal</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" data-cursor="link">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+        <a href="contact.html" class="btn btn-primary nav-cta" data-cursor="link">Hire Me</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" data-cursor="link">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <ul class="mobile-nav-menu" role="list">
+      <li class="mobile-nav-item"><a href="index.html#about" class="mobile-nav-link">About</a></li>
+      <li class="mobile-nav-item"><a href="index.html#projects" class="mobile-nav-link">Work</a></li>
+      <li class="mobile-nav-item"><a href="index.html#services" class="mobile-nav-link">Services</a></li>
+      <li class="mobile-nav-item"><a href="index.html#pricing" class="mobile-nav-link">Pricing</a></li>
+      <li class="mobile-nav-item"><a href="blog-single.html" class="mobile-nav-link">Journal</a></li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-socials">
+        <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- PROJECT HERO BANNER -->
+    <section class="project-hero" aria-labelledby="project-title">
+      <div class="container">
+        <div class="project-hero-label">
+          <span class="section-label">Case Study</span>
+        </div>
+
+        <h1 class="project-hero-title" id="project-title" data-motion="word-mask" data-project-field="title">
+          <span class="word-wrap"><span class="word">Lumora</span></span><br>
+          <span class="word-wrap"><span class="word">SaaS Analytics</span></span><br>
+          <span class="word-wrap"><span class="word">Platform</span></span>
+        </h1>
+
+        <!-- Role / Year metadata -->
+        <div class="project-meta-row" data-motion="reveal-stagger">
+          <div class="project-meta-item">
+            <div class="project-meta-label">Role</div>
+            <div class="project-meta-value" data-project-field="role">Lead Product Designer</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Year</div>
+            <div class="project-meta-value" data-project-field="year">2024</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Deliverables</div>
+            <div class="project-meta-value" data-project-field="tags">UI Design, Design System, Prototypes</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Client</div>
+            <div class="project-meta-value" data-project-field="title-short">Lumora Inc.</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Duration</div>
+            <div class="project-meta-value">4 months</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COVER IMAGE — full bleed -->
+    <div class="project-cover-wrap" data-motion="reveal-clip">
+      <img
+        src="assets/images/projects/lumora-saas-dashboard/cover.jpg"
+        alt="Lumora analytics dashboard — overview screen"
+        class="project-cover-img"
+        loading="eager"
+        data-project-field="cover"
+      >
+    </div>
+
+    <!-- CASE STUDY CONTENT -->
+    <div class="case-study">
+      <div class="container">
+
+        <!-- Problem statement -->
+        <div class="case-study-section" data-motion="reveal">
+          <span class="section-label">The Problem</span>
+          <h2 class="case-study-section-title" data-project-field="challenge-heading">Marketing teams drowning in data, starving for insight.</h2>
+          <p data-project-field="challenge">
+            Lumora's customers were marketing teams at mid-market B2B companies — 10 to 200 people, managing campaigns across 6–12 channels. The existing dashboard had been patched incrementally over four years. What started as a clean reporting tool had become a maze.
+          </p>
+        </div>
+
+        <!-- Solution section -->
+        <div class="case-study-section" data-motion="reveal">
+          <span class="section-label">The Solution</span>
+          <h2 class="case-study-section-title" data-project-field="solution-heading">Three mental models. One coherent system.</h2>
+          <p data-project-field="solution">
+            The first two weeks were research-only: 18 user interviews, a competitive audit across 9 analytics tools, and a card sorting exercise with 24 participants to understand how users mentally categorize their work.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Full-width mockup grid -->
+      <div class="container container-wide">
+        <div class="mockup-grid" data-motion="reveal-stagger">
+          <div class="mockup-grid-featured">
+            <img
+              src="assets/images/projects/lumora-saas-dashboard/mockup-01.jpg"
+              alt="Lumora overview dashboard with campaign performance cards"
+              loading="lazy"
+            >
+          </div>
+          <div class="mockup-grid-row">
+            <div class="mockup-grid-item">
+              <img
+                src="assets/images/projects/lumora-saas-dashboard/mockup-02.jpg"
+                alt="Lumora drill-down panel for channel analysis"
+                loading="lazy"
+              >
+            </div>
+            <div class="mockup-grid-item">
+              <img
+                src="assets/images/projects/lumora-saas-dashboard/mockup-03.jpg"
+                alt="Lumora alert triage view with action recommendations"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+
+        <!-- Results -->
+        <div class="case-study-section" data-motion="reveal">
+          <span class="section-label">The Results</span>
+          <h2 class="case-study-section-title" data-project-field="results-heading">68% to 19% abandonment. Measured, not estimated.</h2>
+          <ul class="case-results-list" data-project-field="results">
+            <li class="case-result-item">
+              <span class="case-result-metric">2.3<span class="case-result-unit">min</span></span>
+              <div class="case-result-body">
+                <strong class="case-result-title">Time-to-insight</strong>
+                <span class="case-result-desc">Down from 14 minutes. Measured via session replay across 340 users.</span>
+              </div>
+            </li>
+            <li class="case-result-item">
+              <span class="case-result-metric">-49%</span>
+              <div class="case-result-body">
+                <strong class="case-result-title">Insights page abandonment</strong>
+                <span class="case-result-desc">From 68% to 19%. Users are now completing the analysis flow they start.</span>
+              </div>
+            </li>
+            <li class="case-result-item">
+              <span class="case-result-metric">4×</span>
+              <div class="case-result-body">
+                <strong class="case-result-title">Design system adoption</strong>
+                <span class="case-result-desc">Adopted by 4 additional product teams within 3 months of launch.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tech stack -->
+        <div class="case-study-section" data-motion="reveal">
+          <span class="section-label">Tech Stack</span>
+          <h2 class="case-study-section-title">Tools &amp; technologies.</h2>
+          <p>Design toolchain for this project — from research through to dev handoff.</p>
+          <div class="tech-stack" data-project-field="tech">
+            <span class="tech-badge">Figma</span>
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">Recharts</span>
+            <span class="tech-badge">Storybook</span>
+            <span class="tech-badge">Zeroheight</span>
+            <span class="tech-badge">Maze</span>
+            <span class="tech-badge">Dovetail</span>
+          </div>
+        </div>
+
+        <!-- Prev / Next navigation -->
+        <nav class="project-nav" aria-label="Project navigation">
+          <a href="project-single.html?project=nomo-restaurant-web" class="project-nav-item" data-cursor="link" data-project-prev>
+            <span class="project-nav-direction">← Previous</span>
+            <span class="project-nav-title">Nomo — Restaurant Brand &amp; Web</span>
+          </a>
+          <a href="project-single.html?project=vanta-brand-identity" class="project-nav-item is-next" data-cursor="link" data-project-next>
+            <span class="project-nav-direction">Next →</span>
+            <span class="project-nav-title">Vanta — Brand Identity &amp; Web</span>
+          </a>
+        </nav>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-name" data-cursor="link">Elbio<span style="color:var(--el-accent)">.</span></a>
+          <p class="footer-tagline">Product design &amp; creative direction</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="index.html#about" data-cursor="link">About</a>
+          <a href="index.html#projects" data-cursor="link">Work</a>
+          <a href="blog-single.html" data-cursor="link">Journal</a>
+          <a href="contact.html" data-cursor="link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span data-year></span> Elbio. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts — CDN order required by Motion API (no defer — must be synchronous) -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/motion/index.js?v=2"></script>
+  <script src="assets/js/main.js" type="module"></script>
+  <script type="module" src="assets/js/project-loader.js"></script>
+
+</body>
+</html>

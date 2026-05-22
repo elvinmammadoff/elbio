@@ -1,0 +1,324 @@
+/**
+ * ELBIO Motion CSS
+ * Owned by team-motion. DO NOT modify in team-frontend.
+ *
+ * Contains only what's required by the JS motion system:
+ *   - Custom cursor elements
+ *   - Page transition overlay
+ *   - Word-mask / split-line structural styles
+ *   - Grain texture overlay
+ *   - Reduced-motion overrides
+ */
+
+/* ================================================================
+   MAGIC CURSOR (Jesper-parity)
+   DOM: <div id="magic-cursor"><div id="ball"></div></div>
+   API: data-cursor="Label Text" — value renders inside ball
+        data-cursor="link" or "" — expand, no label
+   ================================================================ */
+
+/* Hide system cursor when custom cursor is active */
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+#magic-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform;
+}
+
+#magic-cursor #ball {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: #ffffff;
+  /* The critical fix: stays visible on every background */
+  mix-blend-mode: difference;
+  pointer-events: none;
+  font-family: var(--el-ff-body, "DM Sans", sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+  color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    width  0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    margin 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease,
+    color 0.3s ease,
+    mix-blend-mode 0.3s ease;
+  will-change: width, height, transform, background-color;
+}
+
+/* Expanded state — applied when hovering [data-cursor] */
+#magic-cursor.is-active #ball {
+  width: 96px;
+  height: 96px;
+  margin: -48px 0 0 -48px;
+  background: #e8a020;
+  color: #0a0a0a;
+  mix-blend-mode: normal;
+}
+
+/* Labelled state — text shown inside ball */
+#magic-cursor.is-active.has-label #ball {
+  background: #e8a020;
+  color: #0a0a0a;
+}
+
+
+/* ================================================================
+   PAGE TRANSITION OVERLAY
+   ================================================================ */
+
+#page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: #222222; /* --el-bg-overlay */
+  z-index: 99999;
+  transform-origin: center left;
+  transform: scaleX(0);
+  display: none;
+  pointer-events: none;
+  will-change: transform;
+}
+
+
+/* ================================================================
+   WORD-MASK REVEAL STRUCTURE
+   ================================================================ */
+
+/**
+ * .word-wrap — outer mask container
+ * overflow: hidden clips the .word span as it slides up.
+ * display: inline-block preserves inline text flow.
+ */
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  /* Tiny vertical margin prevents adjacent lines from clipping each other */
+  vertical-align: bottom;
+  /* Reset any inherited transforms */
+  transform-origin: bottom left;
+}
+
+/**
+ * .word — the animated span
+ * GSAP animates yPercent on this element.
+ * display: inline-block required for yPercent to apply.
+ */
+.word {
+  display: inline-block;
+  will-change: transform;
+}
+
+
+/* ================================================================
+   SPLIT-LINE REVEAL STRUCTURE (paragraph rotationX)
+   ================================================================ */
+
+.split-line {
+  display: block;
+  overflow: hidden;
+}
+
+.split-line-inner {
+  display: block;
+  will-change: transform, opacity;
+  transform-origin: top center;
+}
+
+
+/* ================================================================
+   PARALLAX / TILT CONTAINERS
+   ================================================================ */
+
+/* Elements with tilt need perspective on their parent */
+[data-motion="tilt"] {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Inner tilt content layer */
+[data-motion="tilt"] .tilt-inner,
+[data-motion="tilt"] .card-inner,
+[data-motion="tilt"] .project-card__inner {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Parallax containers — overflow hidden prevents gap bleed */
+[data-motion="parallax"] {
+  will-change: transform;
+}
+
+.parallax-wrap {
+  overflow: hidden;
+}
+
+
+/* ================================================================
+   MARQUEE
+   ================================================================ */
+
+[data-motion="marquee"] {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+
+/* ================================================================
+   GRAIN TEXTURE OVERLAY (M-10)
+   ================================================================ */
+
+#el-grain {
+  position: fixed;
+  inset: -6%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  /* SVG feTurbulence noise as data URI */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: el-grain 0.4s steps(1) infinite;
+  will-change: transform;
+}
+
+@keyframes el-grain {
+  0%, 100% { transform: translate(0,    0);    }
+  10%       { transform: translate(-2%, -3%);  }
+  20%       { transform: translate( 3%,  1%);  }
+  30%       { transform: translate(-1%,  4%);  }
+  40%       { transform: translate( 2%, -2%);  }
+  50%       { transform: translate(-3%,  2%);  }
+  60%       { transform: translate( 1%, -1%);  }
+  70%       { transform: translate(-2%,  3%);  }
+  80%       { transform: translate( 3%, -3%);  }
+  90%       { transform: translate(-1%,  2%);  }
+}
+
+
+/* ================================================================
+   CLIP-PATH REVEAL ELEMENTS
+   ================================================================ */
+
+[data-motion="reveal-clip"] {
+  will-change: clip-path;
+}
+
+[data-motion="clip-circle"] {
+  will-change: clip-path, transform;
+}
+
+
+/* ================================================================
+   REDUCED MOTION — override everything
+   Never show blank page; apply final visible state immediately
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  #el-grain {
+    animation: none;
+  }
+
+  .word {
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .word-wrap {
+    overflow: visible;
+  }
+
+  .split-line-inner {
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  [data-motion] {
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    clip-path: none !important;
+  }
+
+  #magic-cursor {
+    display: none;
+  }
+
+  #page-transition-overlay {
+    display: none !important;
+  }
+}
+
+
+/* ================================================================
+   MOBILE — hide cursor elements entirely on touch
+   ================================================================ */
+
+@media (pointer: coarse) {
+  #magic-cursor {
+    display: none !important;
+  }
+
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: auto !important;
+  }
+}
+
+
+/* ================================================================
+   SCROLL INDICATOR (optional, teams may use)
+   ================================================================ */
+
+.scroll-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-indicator__ring {
+  animation: el-rotate 8s infinite linear;
+  transform-origin: center;
+}
+
+@keyframes el-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

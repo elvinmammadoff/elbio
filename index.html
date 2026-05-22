@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elbio — Creative Portfolio</title>
+  <meta name="description" content="Award-winning product designer crafting digital experiences that are bold, functional, and built to last.">
+
+  <!-- Theme init — must run before any render to prevent FOUC -->
+  <script src="assets/js/theme-init.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Big+Shoulders+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Cabinet Grotesk via Fontshare -->
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <!-- motion.css owned by team-motion — loaded if present -->
+  <link rel="stylesheet" href="assets/css/motion.css" media="all" onerror="this.remove()">
+</head>
+<body>
+
+  <!-- Page transition overlay (team-motion animates) -->
+  <div id="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- Custom cursor (team-motion drives) -->
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Elbio — Home" data-cursor="link">
+        <span class="logo-text">Elbio<span class="logo-dot">.</span></span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-menu" role="list">
+          <li class="nav-item"><a href="#about" class="nav-link" data-cursor="link"><span data-motion="scramble">About</span></a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link" data-cursor="link"><span data-motion="scramble">Work</span></a></li>
+          <li class="nav-item"><a href="#services" class="nav-link" data-cursor="link"><span data-motion="scramble">Services</span></a></li>
+          <li class="nav-item"><a href="#pricing" class="nav-link" data-cursor="link"><span data-motion="scramble">Pricing</span></a></li>
+          <li class="nav-item"><a href="blog-single.html" class="nav-link" data-cursor="link"><span data-motion="scramble">Journal</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" data-cursor="link">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+        <a href="contact.html" class="btn btn-primary nav-cta" data-cursor="link">Hire Me</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" data-cursor="link">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <ul class="mobile-nav-menu" role="list">
+      <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link">About</a></li>
+      <li class="mobile-nav-item"><a href="#projects" class="mobile-nav-link">Work</a></li>
+      <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">Services</a></li>
+      <li class="mobile-nav-item"><a href="#pricing" class="mobile-nav-link">Pricing</a></li>
+      <li class="mobile-nav-item"><a href="blog-single.html" class="mobile-nav-link">Journal</a></li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-socials">
+        <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Dribbble" data-cursor="link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.952-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.017-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.816zm-11.62-2.073c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.176zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.477 0-.945.04-1.4.112zm13.44 9.483c-.232.08-4.122 1.26-8.586.672l-.108.02c.24.585.467 1.178.676 1.773.106.303.205.61.305.916 3.395-.43 6.77.257 7.082.337-.02-1.02-.148-2.016-.37-2.917v-.8z"/></svg>
+        </a>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="container">
+        <div class="hero-inner">
+
+          <p class="hero-eyebrow">
+            <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+            Available for new projects
+          </p>
+
+          <!-- data-motion="reveal" for M-02 word-mask reveal -->
+          <h1 class="hero-name" data-motion="word-mask">
+            <span class="hero-name-line">
+              <span class="word-wrap"><span class="word">Design</span></span>
+              <span class="word-wrap"><span class="word">&nbsp;that</span></span>
+            </span>
+            <span class="hero-name-line">
+              <span class="word-wrap"><span class="word">moves</span></span>
+              <span class="word-wrap"><span class="word">&nbsp;people</span></span>
+            </span>
+            <span class="hero-name-line hero-name-stroke">
+              <span class="word-wrap"><span class="word">forward</span></span>
+            </span>
+          </h1>
+
+          <p class="hero-role" data-motion="line-reveal">
+            Product designer &amp; creative director with 8+ years turning complex problems into elegant, purposeful experiences.
+          </p>
+
+          <div class="hero-social" data-motion="reveal-stagger">
+            <a href="#" class="hero-social-link" aria-label="Twitter / X" data-cursor="link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="hero-social-link" aria-label="LinkedIn" data-cursor="link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="hero-social-link" aria-label="GitHub" data-cursor="link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+            <a href="#" class="hero-social-link" aria-label="Dribbble" data-cursor="link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.952-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.017-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.816zm-11.62-2.073c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.176zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.477 0-.945.04-1.4.112zm13.44 9.483c-.232.08-4.122 1.26-8.586.672l-.108.02c.24.585.467 1.178.676 1.773.106.303.205.61.305.916 3.395-.43 6.77.257 7.082.337-.02-1.02-.148-2.016-.37-2.917v-.8z"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-divider" aria-hidden="true" data-motion="rule-wipe"></div>
+
+          <div class="hero-actions" data-motion="reveal-stagger">
+            <a href="#projects" class="btn btn-primary" data-motion="magnetic" data-cursor="link">View My Work</a>
+            <a href="contact.html" class="btn btn-outline" data-motion="magnetic" data-cursor="link">Start a Project</a>
+          </div>
+
+          <div class="hero-stats" data-hero-stats data-motion="reveal-stagger">
+            <div class="stat-item">
+              <span class="stat-number"><span data-motion="counter">9</span><span>+</span></span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number"><span data-motion="counter">8</span><span>+</span></span>
+              <span class="stat-label">Years</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number"><span data-motion="counter">40</span><span>+</span></span>
+              <span class="stat-label">Clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portrait — clip-circle reveal at 1.0s, parallax on scroll -->
+      <div class="hero-portrait" aria-hidden="true" data-motion="clip-circle">
+        <img
+          src="assets/images/hero-portrait.jpg"
+          alt=""
+          class="hero-portrait-img"
+          loading="eager"
+        >
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <span class="scroll-indicator-line"></span>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image-wrap" data-motion="reveal-clip">
+            <img
+              src="assets/images/about-photo.jpg"
+              alt="Elbio at work in the studio"
+              class="about-image"
+              loading="lazy"
+            >
+            <div class="about-badge">
+              <div class="about-badge-number">8+</div>
+              <div class="about-badge-label">Years of craft</div>
+            </div>
+          </div>
+
+          <div class="about-content" data-motion="reveal-stagger">
+            <span class="section-label">About me</span>
+            <h2 class="section-heading" id="about-heading">
+              I design with intention, not decoration.
+            </h2>
+            <p>
+              My work sits at the intersection of systematic thinking and visual wit. I've shipped products for Series A startups and Fortune 500s — and I bring the same obsessive care to both.
+            </p>
+            <p>
+              Before going independent, I led design at two Y Combinator-backed companies and spent three years at a boutique branding studio in Berlin. That experience gave me both the strategic vocabulary of product and the craft vocabulary of brand.
+            </p>
+            <p>
+              Right now I'm particularly interested in: editorial interfaces, design systems that scale without losing soul, and products that genuinely respect the user's attention.
+            </p>
+
+            <div class="about-signature" aria-hidden="true">— Elbio</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SKILLS MARQUEE
+         ============================================================ -->
+    <section class="section" id="skills" aria-label="Skills">
+      <div class="container">
+        <span class="section-label">Capabilities</span>
+        <h2 class="section-heading" data-motion="reveal">
+          What I bring to every project.
+        </h2>
+      </div>
+
+      <!-- Marquee — data-motion="marquee" for M-08 -->
+      <div class="skills-marquee-wrap" aria-hidden="true">
+        <div data-motion="marquee" data-motion-speed="80">
+          <div class="marquee-track">
+            <div class="marquee-group">
+              <span class="skill-item"><span class="skill-dot"></span>Product Design</span>
+              <span class="skill-item"><span class="skill-dot"></span>Brand Identity</span>
+              <span class="skill-item"><span class="skill-dot"></span>Design Systems</span>
+              <span class="skill-item"><span class="skill-dot"></span>Motion Design</span>
+              <span class="skill-item"><span class="skill-dot"></span>UX Research</span>
+              <span class="skill-item"><span class="skill-dot"></span>Art Direction</span>
+              <span class="skill-item"><span class="skill-dot"></span>Interaction Design</span>
+              <span class="skill-item"><span class="skill-dot"></span>Creative Direction</span>
+              <span class="skill-item"><span class="skill-dot"></span>Front-End</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="skills-grid" data-motion="reveal-stagger">
+          <div class="skill-card">
+            <span class="skill-card-icon" aria-hidden="true">◈</span>
+            <h3 class="skill-card-title">Product Design</h3>
+            <p class="skill-card-desc">End-to-end product design from research and wireframes through polished UI and dev handoff. Figma-native, systems-first.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-card-icon" aria-hidden="true">◆</span>
+            <h3 class="skill-card-title">Brand & Identity</h3>
+            <p class="skill-card-desc">Visual identities that hold up at 16px and 16 feet. Logo, type, color, motion, and brand guidelines that actually get used.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-card-icon" aria-hidden="true">⬡</span>
+            <h3 class="skill-card-title">Design Systems</h3>
+            <p class="skill-card-desc">Scalable component libraries and token architectures that reduce design debt and make engineering faster — not slower.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-card-icon" aria-hidden="true">◎</span>
+            <h3 class="skill-card-title">Motion & Interaction</h3>
+            <p class="skill-card-desc">GSAP, Lenis, and Framer Motion. Animation that communicates, not just decorates. Micro-interactions with purposeful feedback.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-card-icon" aria-hidden="true">▣</span>
+            <h3 class="skill-card-title">UX Research</h3>
+            <p class="skill-card-desc">User interviews, contextual inquiry, synthesis, and journey mapping. Evidence-based decisions, not gut-led assumptions.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-card-icon" aria-hidden="true">◉</span>
+            <h3 class="skill-card-title">Front-End Craft</h3>
+            <p class="skill-card-desc">HTML, CSS, and enough JavaScript to prototype in the browser and write meaningful design specs for engineering teams.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECTS
+         ============================================================ -->
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="projects-header">
+          <div>
+            <span class="section-label">Selected work</span>
+            <h2 class="section-heading" id="projects-heading" data-motion="reveal">
+              Projects I'm proud of.
+            </h2>
+          </div>
+          <a href="#" class="btn btn-outline" data-cursor="link">All Projects</a>
+        </div>
+
+        <!-- Filter chips -->
+        <div class="filter-chips" role="group" aria-label="Filter projects by category" data-motion="reveal-stagger">
+          <button class="filter-chip is-active" data-filter="all" type="button" data-cursor="link">All</button>
+          <button class="filter-chip" data-filter="ui design" type="button" data-cursor="link">UI Design</button>
+          <button class="filter-chip" data-filter="branding" type="button" data-cursor="link">Branding</button>
+          <button class="filter-chip" data-filter="mobile" type="button" data-cursor="link">Mobile</button>
+          <button class="filter-chip" data-filter="saas" type="button" data-cursor="link">SaaS</button>
+          <button class="filter-chip" data-filter="design system" type="button" data-cursor="link">Design System</button>
+        </div>
+
+        <!-- Projects grid — data loaded from projects.json, rendered here statically -->
+        <div class="projects-grid" data-motion="reveal-stagger">
+
+          <!-- Project 1 — featured (spans 2 cols) -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="UI Design, Design System, SaaS">
+            <div class="project-card-image">
+              <img
+                src="assets/images/projects/lumora-saas-dashboard/cover.jpg"
+                alt="Lumora SaaS Analytics Platform dashboard interface"
+                class="project-card-img"
+                loading="lazy"
+              >
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">UI Design</span>
+                <span class="tag">Design System</span>
+                <span class="tag tag-accent">SaaS</span>
+              </div>
+              <h3 class="project-card-title">
+                <a href="project-single.html?project=lumora-saas-dashboard" data-cursor="link">Lumora — SaaS Analytics Platform</a>
+              </h3>
+              <p class="project-card-desc">End-to-end design of a real-time analytics dashboard for B2B marketing teams, built around clarity at scale.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2024</span>
+                <a href="project-single.html?project=lumora-saas-dashboard" class="project-card-arrow" aria-label="View Lumora project" data-cursor="link">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2v7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Branding, Web Design, Motion">
+            <div class="project-card-image">
+              <img
+                src="assets/images/projects/vanta-brand-identity/cover.jpg"
+                alt="Vanta brand identity system showcase"
+                class="project-card-img"
+                loading="lazy"
+              >
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Branding</span>
+                <span class="tag">Web Design</span>
+              </div>
+              <h3 class="project-card-title">
+                <a href="project-single.html?project=vanta-brand-identity" data-cursor="link">Vanta — Brand Identity & Web</a>
+              </h3>
+              <p class="project-card-desc">Full brand identity and marketing website for a Series A cybersecurity startup.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2024</span>
+                <a href="project-single.html?project=vanta-brand-identity" class="project-card-arrow" aria-label="View Vanta project" data-cursor="link">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2v7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="E-Commerce, UI Design, UX Research">
+            <div class="project-card-image">
+              <img
+                src="assets/images/projects/forma-ecommerce/cover.jpg"
+                alt="Forma luxury furniture e-commerce redesign"
+                class="project-card-img"
+                loading="lazy"
+              >
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">E-Commerce</span>
+                <span class="tag">UI Design</span>
+              </div>
+              <h3 class="project-card-title">
+                <a href="project-single.html?project=forma-ecommerce" data-cursor="link">Forma — Luxury E-Commerce</a>
+              </h3>
+              <p class="project-card-desc">Full UX overhaul focused on the consideration-to-purchase funnel for high-ticket furniture.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2023</span>
+                <a href="project-single.html?project=forma-ecommerce" class="project-card-arrow" aria-label="View Forma project" data-cursor="link">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2v7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Mobile, Product Design, iOS">
+            <div class="project-card-image">
+              <img
+                src="assets/images/projects/meridian-mobile-app/cover.jpg"
+                alt="Meridian travel app iOS screens"
+                class="project-card-img"
+                loading="lazy"
+              >
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Mobile</span>
+                <span class="tag">iOS</span>
+              </div>
+              <h3 class="project-card-title">
+                <a href="project-single.html?project=meridian-mobile-app" data-cursor="link">Meridian — Travel Planning App</a>
+              </h3>
+              <p class="project-card-desc">iOS travel planning app combining itinerary management with local discovery for independent travelers.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2023</span>
+                <a href="project-single.html?project=meridian-mobile-app" class="project-card-arrow" aria-label="View Meridian project" data-cursor="link">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2v7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Design System, UI Design, Documentation">
+            <div class="project-card-image">
+              <img
+                src="assets/images/projects/atlas-design-system/cover.jpg"
+                alt="Atlas design system documentation and components"
+                class="project-card-img"
+                loading="lazy"
+              >
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Design System</span>
+                <span class="tag">UI Design</span>
+              </div>
+              <h3 class="project-card-title">
+                <a href="project-single.html?project=atlas-design-system" data-cursor="link">Atlas — Enterprise Design System</a>
+              </h3>
+              <p class="project-card-desc">Scalable design system serving 14 product teams across a 1,200-person enterprise software company.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2022</span>
+                <a href="project-single.html?project=atlas-design-system" class="project-card-arrow" aria-label="View Atlas project" data-cursor="link">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2v7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Editorial, Typography, Web Design">
+            <div class="project-card-image">
+              <img
+                src="assets/images/projects/grove-editorial/cover.jpg"
+                alt="Grove digital magazine editorial design"
+                class="project-card-img"
+                loading="lazy"
+              >
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Editorial</span>
+                <span class="tag">Typography</span>
+              </div>
+              <h3 class="project-card-title">
+                <a href="project-single.html?project=grove-editorial" data-cursor="link">Grove — Digital Magazine</a>
+              </h3>
+              <p class="project-card-desc">Art direction and web design for an independent digital magazine covering architecture, craft, and slow living.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2022</span>
+                <a href="project-single.html?project=grove-editorial" class="project-card-arrow" aria-label="View Grove project" data-cursor="link">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2v7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 7 -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Fintech, UX Design, Onboarding">
+            <div class="project-card-image">
+              <img
+                src="assets/images/projects/helix-fintech/cover.jpg"
+                alt="Helix fintech onboarding flow"
+                class="project-card-img"
+                loading="lazy"
+              >
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Fintech</span>
+                <span class="tag">UX Design</span>
+                <span class="tag tag-accent">Onboarding</span>
+              </div>
+              <h3 class="project-card-title">
+                <a href="project-single.html?project=helix-fintech" data-cursor="link">Helix — Fintech Onboarding</a>
+              </h3>
+              <p class="project-card-desc">Redesign of the onboarding flow for a neobank targeting freelancers — reducing KYC drop-off while meeting regulatory requirements.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2023</span>
+                <a href="project-single.html?project=helix-fintech" class="project-card-arrow" aria-label="View Helix project" data-cursor="link">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2v7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 8 -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Mobile, UI Design, Health">
+            <div class="project-card-image">
+              <img
+                src="assets/images/projects/solstice-wellness-app/cover.jpg"
+                alt="Solstice wellness and mindfulness app"
+                class="project-card-img"
+                loading="lazy"
+              >
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Mobile</span>
+                <span class="tag">UI Design</span>
+              </div>
+              <h3 class="project-card-title">
+                <a href="project-single.html?project=solstice-wellness-app" data-cursor="link">Solstice — Wellness &amp; Mindfulness</a>
+              </h3>
+              <p class="project-card-desc">Meditation and sleep wellness app with personalized programs — designed to minimize cognitive load for users in distress.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2022</span>
+                <a href="project-single.html?project=solstice-wellness-app" class="project-card-arrow" aria-label="View Solstice project" data-cursor="link">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2v7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 9 -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Branding, Web Design, Hospitality">
+            <div class="project-card-image">
+              <img
+                src="assets/images/projects/nomo-restaurant-web/cover.jpg"
+                alt="Nomo restaurant brand and website"
+                class="project-card-img"
+                loading="lazy"
+              >
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Branding</span>
+                <span class="tag">Web Design</span>
+              </div>
+              <h3 class="project-card-title">
+                <a href="project-single.html?project=nomo-restaurant-web" data-cursor="link">Nomo — Restaurant Brand &amp; Web</a>
+              </h3>
+              <p class="project-card-desc">Brand identity and immersive website for a high-concept Tokyo-inspired omakase restaurant in New York.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2021</span>
+                <a href="project-single.html?project=nomo-restaurant-web" class="project-card-arrow" aria-label="View Nomo project" data-cursor="link">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2v7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="projects-footer" data-motion="reveal">
+          <a href="#" class="btn btn-outline" data-cursor="link">View All 9 Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES
+         ============================================================ -->
+    <section class="section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="services-header">
+          <div>
+            <span class="section-label">Services</span>
+            <h2 class="section-heading" id="services-heading" data-motion="reveal">
+              How I can help.
+            </h2>
+          </div>
+          <p class="section-subheading services-header-desc" data-motion="reveal">
+            I work with a small number of clients at a time, giving each project the full depth of attention it deserves. Here's where I can make the most impact.
+          </p>
+        </div>
+
+        <div class="services-list" data-motion="reveal-stagger">
+
+          <div class="service-item">
+            <span class="service-number">01</span>
+            <div class="service-content">
+              <h3 class="service-title">Product Design</h3>
+              <p class="service-desc">From discovery workshops and user research through to hi-fi Figma files and dev-ready specs. I embed with your team as a thought partner, not just a pixel-pusher.</p>
+              <div class="service-tags">
+                <span class="tag">UX Strategy</span>
+                <span class="tag">UI Design</span>
+                <span class="tag">Prototyping</span>
+                <span class="tag">Design QA</span>
+              </div>
+            </div>
+            <div class="service-icon" aria-hidden="true">◈</div>
+          </div>
+
+          <div class="service-item">
+            <span class="service-number">02</span>
+            <div class="service-content">
+              <h3 class="service-title">Brand Identity</h3>
+              <p class="service-desc">Visual identities that hold up under pressure — from startup pitch decks to global campaign materials. Logo, type system, color, motion, and brand guidelines.</p>
+              <div class="service-tags">
+                <span class="tag">Logo Design</span>
+                <span class="tag">Type System</span>
+                <span class="tag">Brand Guidelines</span>
+              </div>
+            </div>
+            <div class="service-icon" aria-hidden="true">◆</div>
+          </div>
+
+          <div class="service-item">
+            <span class="service-number">03</span>
+            <div class="service-content">
+              <h3 class="service-title">Design Systems</h3>
+              <p class="service-desc">Scalable component libraries and token architectures that reduce design debt and make engineering 3x faster. Built in Figma + Storybook, token-first.</p>
+              <div class="service-tags">
+                <span class="tag">Figma Libraries</span>
+                <span class="tag">Token Architecture</span>
+                <span class="tag">Documentation</span>
+              </div>
+            </div>
+            <div class="service-icon" aria-hidden="true">⬡</div>
+          </div>
+
+          <div class="service-item">
+            <span class="service-number">04</span>
+            <div class="service-content">
+              <h3 class="service-title">Motion & Web</h3>
+              <p class="service-desc">High-craft web experiences with GSAP animation, smooth scroll, and page transitions. For teams that care about the difference between a good website and a memorable one.</p>
+              <div class="service-tags">
+                <span class="tag">GSAP</span>
+                <span class="tag">Webflow</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">Creative Dev</span>
+              </div>
+            </div>
+            <div class="service-icon" aria-hidden="true">◎</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CLIENTS / LOGOS MARQUEE
+         ============================================================ -->
+    <section class="clients" id="clients" aria-label="Clients">
+      <div class="container clients-label-wrap">
+        <span class="section-label">Trusted by</span>
+      </div>
+      <div class="clients-marquee-wrap">
+        <div data-motion="marquee" data-motion-speed="60">
+          <div class="marquee-track">
+            <div class="marquee-group">
+              <span class="client-logo">Lumora Inc.</span>
+              <span class="client-logo">Vanta Security</span>
+              <span class="client-logo">Forma Living</span>
+              <span class="client-logo">Meridian App</span>
+              <span class="client-logo">Helix Finance</span>
+              <span class="client-logo">Grove Media</span>
+              <span class="client-logo">Atlas Software</span>
+              <span class="client-logo">Solstice Health</span>
+              <span class="client-logo">Nomo Hospitality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRICING
+         ============================================================ -->
+    <section class="section" id="pricing" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-center">
+          <span class="section-label section-label-center">Pricing</span>
+          <h2 class="section-heading" id="pricing-heading" data-motion="reveal">
+            Transparent, no-surprises pricing.
+          </h2>
+          <p class="section-subheading pricing-subheading" data-motion="reveal">
+            Every engagement is scoped carefully before work begins. These tiers give you a starting point.
+          </p>
+        </div>
+
+        <div class="pricing-grid" data-motion="reveal-stagger">
+
+          <!-- Starter -->
+          <div class="pricing-card">
+            <div class="pricing-tier">Starter</div>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">2,500</span>
+            </div>
+            <p class="pricing-desc">For founders and small teams who need focused design help on a single deliverable.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature">1 core deliverable (landing page, app screen, or brand mark)</li>
+              <li class="pricing-feature">2 revision rounds</li>
+              <li class="pricing-feature">Figma source files</li>
+              <li class="pricing-feature">1-week turnaround</li>
+              <li class="pricing-feature is-disabled">Research &amp; strategy</li>
+              <li class="pricing-feature is-disabled">Design system</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline btn-full" data-cursor="link">Get Started</a>
+          </div>
+
+          <!-- Professional (featured) -->
+          <div class="pricing-card is-featured">
+            <div class="pricing-featured-badge">Most Popular</div>
+            <div class="pricing-tier">Professional</div>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">8,500</span>
+            </div>
+            <p class="pricing-desc">For companies ready to invest in design that drives measurable business outcomes.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature">Full product or brand project</li>
+              <li class="pricing-feature">Research &amp; strategy phase</li>
+              <li class="pricing-feature">Unlimited revisions</li>
+              <li class="pricing-feature">Figma source + design tokens</li>
+              <li class="pricing-feature">3–4 week delivery</li>
+              <li class="pricing-feature">30-day post-launch support</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary btn-full" data-cursor="link">Book a Discovery Call</a>
+          </div>
+
+          <!-- Studio -->
+          <div class="pricing-card">
+            <div class="pricing-tier">Studio</div>
+            <div class="pricing-price">
+              <span class="pricing-amount">Custom</span>
+            </div>
+            <p class="pricing-desc">For larger teams and agencies who need an embedded design partner for extended work.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature">Monthly retainer engagement</li>
+              <li class="pricing-feature">Multiple projects in parallel</li>
+              <li class="pricing-feature">Design system ownership</li>
+              <li class="pricing-feature">Team mentoring available</li>
+              <li class="pricing-feature">Priority turnaround</li>
+              <li class="pricing-feature">Dedicated Slack channel</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline btn-full" data-cursor="link">Let's Talk</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BLOG TEASER
+         ============================================================ -->
+    <section class="section" id="blog" aria-labelledby="blog-heading">
+      <div class="container">
+        <div class="section-header-flex">
+          <div>
+            <span class="section-label">Journal</span>
+            <h2 class="section-heading" id="blog-heading" data-motion="reveal">
+              Thinking out loud.
+            </h2>
+          </div>
+          <a href="blog-single.html" class="btn btn-outline" data-cursor="link">All Articles</a>
+        </div>
+
+        <div class="blog-grid" data-motion="reveal-stagger">
+
+          <article class="blog-card" data-motion="tilt" data-cursor="View">
+            <div class="blog-card-image">
+              <img
+                src="assets/images/blog/post-01.jpg"
+                alt="Abstract representation of design systems hierarchy"
+                class="blog-card-img"
+                loading="lazy"
+              >
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Design Systems</span>
+                <span class="blog-card-date">May 14, 2025</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-single.html" data-cursor="link">Why Most Design Systems Die in Year Two</a>
+              </h3>
+              <p class="blog-card-excerpt">The failure mode isn't technical — it's organizational. Here's what actually kills design systems after the initial excitement fades.</p>
+              <div class="blog-card-footer">
+                <a href="blog-single.html" class="blog-card-read-more" data-cursor="link">
+                  Read Article
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6"/></svg>
+                </a>
+                <span class="blog-card-date">8 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card" data-motion="tilt" data-cursor="View">
+            <div class="blog-card-image">
+              <img
+                src="assets/images/blog/post-02.jpg"
+                alt="Typography specimens on dark background"
+                class="blog-card-img"
+                loading="lazy"
+              >
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Typography</span>
+                <span class="blog-card-date">Apr 28, 2025</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-single.html" data-cursor="link">The Case for Variable Fonts in Product UI</a>
+              </h3>
+              <p class="blog-card-excerpt">Variable fonts aren't just for editorial work. Used correctly, they can reduce bundle size, improve accessibility, and add expressive micro-interactions to any product.</p>
+              <div class="blog-card-footer">
+                <a href="blog-single.html" class="blog-card-read-more" data-cursor="link">
+                  Read Article
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6"/></svg>
+                </a>
+                <span class="blog-card-date">6 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card" data-motion="tilt" data-cursor="View">
+            <div class="blog-card-image">
+              <img
+                src="assets/images/blog/post-03.jpg"
+                alt="Animation frames on a timeline"
+                class="blog-card-img"
+                loading="lazy"
+              >
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Motion</span>
+                <span class="blog-card-date">Apr 10, 2025</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-single.html" data-cursor="link">Animation Without Purpose is Just Noise</a>
+              </h3>
+              <p class="blog-card-excerpt">Every animation should earn its place. A framework for deciding when motion communicates, when it decorates, and when it gets in the way.</p>
+              <div class="blog-card-footer">
+                <a href="blog-single.html" class="blog-card-read-more" data-cursor="link">
+                  Read Article
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6"/></svg>
+                </a>
+                <span class="blog-card-date">5 min read</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT (teaser)
+         ============================================================ -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-center" data-motion="reveal">
+          <span class="section-label section-label-center">Contact</span>
+          <h2 class="section-heading" id="contact-heading">
+            Let's make something great.
+          </h2>
+          <p class="section-subheading contact-subheading">
+            I'm selective about new projects — which means when I take yours on, it gets my full attention. Tell me what you're working on.
+          </p>
+          <a href="contact.html" class="btn btn-primary" data-motion="magnetic" data-cursor="link">Go to Contact Page</a>
+        </div>
+
+        <!-- Quick contact form -->
+        <div class="contact-inner">
+          <div class="contact-info" data-motion="reveal-stagger">
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true">✉</div>
+              <div>
+                <div class="contact-info-label">Email</div>
+                <div class="contact-info-value">
+                  <a href="mailto:hello@elbio.design" data-cursor="link">hello@elbio.design</a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true">◎</div>
+              <div>
+                <div class="contact-info-label">Based in</div>
+                <div class="contact-info-value">New York, NY — working globally</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true">⬡</div>
+              <div>
+                <div class="contact-info-label">Availability</div>
+                <div class="contact-info-value contact-availability-row">
+                  <span class="availability-dot"></span>
+                  Available from July 2025
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form
+            class="contact-form"
+            data-web3forms-key="YOUR_WEB3FORMS_ACCESS_KEY"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            aria-label="Contact form"
+            novalidate
+          >
+            <!-- Honeypot field — leave empty -->
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New inquiry from elbio.design">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name-home">Name</label>
+                <input type="text" id="name-home" name="name" class="form-input" placeholder="Your name" required aria-label="Name" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email-home">Email</label>
+                <input type="email" id="email-home" name="email" class="form-input" placeholder="your@email.com" required aria-label="Email address" autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project-type-home">Project type</label>
+              <select id="project-type-home" name="project_type" class="form-select" aria-label="Project type">
+                <option value="">Select a service…</option>
+                <option value="product-design">Product Design</option>
+                <option value="brand-identity">Brand Identity</option>
+                <option value="design-system">Design System</option>
+                <option value="motion-web">Motion &amp; Web</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message-home">Message</label>
+              <textarea id="message-home" name="message" class="form-textarea" placeholder="Tell me about your project…" required aria-label="Message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" data-cursor="link">
+              Send Message
+            </button>
+
+            <div class="form-status" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-name" data-cursor="link">Elbio<span style="color:var(--el-accent)">.</span></a>
+          <p class="footer-tagline">Product design &amp; creative direction</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#about" data-cursor="link">About</a>
+          <a href="project-single.html" data-cursor="link">Work</a>
+          <a href="blog-single.html" data-cursor="link">Journal</a>
+          <a href="contact.html" data-cursor="link">Contact</a>
+          <a href="documentation/index.html" data-cursor="link">Docs</a>
+          <a href="preview.html" data-cursor="link">Preview</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span data-year></span> Elbio. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Dribbble" data-cursor="link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.952-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.017-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.816zm-11.62-2.073c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.176zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.477 0-.945.04-1.4.112zm13.44 9.483c-.232.08-4.122 1.26-8.586.672l-.108.02c.24.585.467 1.178.676 1.773.106.303.205.61.305.916 3.395-.43 6.77.257 7.082.337-.02-1.02-.148-2.016-.37-2.917v-.8z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts — CDN order required by Motion API (no defer — must be synchronous) -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/motion/index.js?v=2"></script>
+  <script src="assets/js/main.js" type="module"></script>
+  <script src="assets/js/forms.js" defer></script>
+
+</body>
+</html>
