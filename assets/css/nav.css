@@ -144,7 +144,9 @@
   background: var(--el-accent-glow);
 }
 
-.theme-toggle svg {
+.theme-toggle svg,
+.theme-toggle i {
+  font-size: 18px;
   width: 18px;
   height: 18px;
   position: absolute;

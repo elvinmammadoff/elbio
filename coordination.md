@@ -178,6 +178,7 @@ Builders append entries here when a deliverable is ready for reviewer audit. For
 - [2026-05-21] Scroll choreography (fix pass) — by team-frontend — paths: `index.html`, `assets/css/sections.css` — notes: Skills and clients marquee HTML rewritten to .marquee-track/.marquee-group pattern matching scroll.js initMarquee(); manually-duplicated items removed; .marquee-track and .marquee-group CSS added.
 - [2026-05-21] Responsive (fix pass) — by team-frontend — paths: `documentation/index.html`, `index.html`, `assets/css/sections.css` — notes: Mobile TOC (<nav class="docs-toc-mobile">) added to docs page with 9 jump links; inline services/contact/pricing/blog layout styles moved to CSS classes resolving responsive override conflicts; docs sidebar breakpoint corrected from 900px to 767px.
 - [2026-05-22] Phase 3 cleanup: extracted remaining contact.html inline styles to sections.css classes — owns: contact.html, sections.css
+- [2026-05-22] FontAwesome 6 icon migration: added FA 6.6.0 CDN to all 8 HTML files; replaced all inline SVG icons (moon, sun, Twitter/X, LinkedIn, GitHub, Dribbble, 14px project arrows, 12px blog arrows) and all Unicode symbols (◈→fa-pen-ruler, ◆→fa-palette, ⬡→fa-code, ◎→fa-bullseye, ▣→fa-film, ◉→fa-diagram-project, ✉→fa-envelope) with FontAwesome 6 Free `<i>` tags across index.html, index-2.html, index-3.html, contact.html, blog-single.html, project-single.html, preview.html, documentation/index.html — zero inline SVGs remain in any main HTML page — owns: all 8 HTML files
 
 ---
 
