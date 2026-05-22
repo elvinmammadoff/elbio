@@ -423,6 +423,7 @@
 }
 
 .project-card-image {
+  display: block;
   position: relative;
   overflow: hidden;
   aspect-ratio: 16/9;
