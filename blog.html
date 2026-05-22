@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal | Elbio</title>
+  <meta name="description" content="Observations on design, systems thinking, and the craft of building digital products. Essays by Elbio.">
+
+  <script src="assets/js/theme-init.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Big+Shoulders+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/motion.css" media="all" onerror="this.remove()">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* ---- Blog listing page ---------------------------------- */
+    .blog-hero {
+      padding: calc(var(--el-space-nav) + var(--el-space-16)) 0 var(--el-space-12);
+      border-bottom: 1px solid var(--el-border-subtle);
+    }
+
+    .blog-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: var(--el-space-8);
+    }
+
+    .blog-hero-title {
+      font-family: var(--el-ff-display);
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: var(--el-fw-black);
+      letter-spacing: var(--el-ls-tighter);
+      line-height: 1;
+      color: var(--el-text-primary);
+      margin-top: var(--el-space-4);
+    }
+
+    .blog-hero-desc {
+      font-size: var(--el-fz-body);
+      color: var(--el-text-secondary);
+      line-height: var(--el-lh-body);
+      max-width: 480px;
+      margin-top: var(--el-space-5);
+    }
+
+    .blog-hero-count {
+      font-family: var(--el-ff-mono);
+      font-size: var(--el-fz-label);
+      color: var(--el-text-muted);
+      letter-spacing: var(--el-ls-wide);
+      text-transform: uppercase;
+      padding-bottom: var(--el-space-3);
+      white-space: nowrap;
+    }
+
+    .blog-listing {
+      padding: var(--el-space-16) 0;
+    }
+
+    /* Featured first post — full width */
+    .blog-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--el-gap-md);
+      margin-bottom: var(--el-space-16);
+      background: var(--el-bg-surface);
+      border: 1px solid var(--el-border-subtle);
+      border-radius: var(--el-radius-xl);
+      overflow: hidden;
+      transition: border-color var(--el-transition-base),
+                  box-shadow var(--el-transition-base);
+    }
+
+    .blog-featured:hover {
+      border-color: var(--el-border-default);
+      box-shadow: var(--el-shadow-hover);
+    }
+
+    .blog-featured-image {
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: block;
+    }
+
+    .blog-featured-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--el-transition-slow);
+    }
+
+    .blog-featured:hover .blog-featured-img {
+      transform: scale(1.04);
+    }
+
+    .blog-featured-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--el-space-12) var(--el-space-12) var(--el-space-12) 0;
+      gap: var(--el-space-5);
+    }
+
+    .blog-featured-label {
+      font-size: var(--el-fz-label);
+      font-weight: var(--el-fw-medium);
+      letter-spacing: var(--el-ls-wide);
+      text-transform: uppercase;
+      color: var(--el-accent);
+    }
+
+    .blog-featured-title {
+      font-family: var(--el-ff-display);
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: var(--el-fw-bold);
+      letter-spacing: var(--el-ls-tight);
+      line-height: 1.15;
+      color: var(--el-text-primary);
+      text-decoration: none;
+      transition: color var(--el-transition-base);
+    }
+
+    .blog-featured:hover .blog-featured-title {
+      color: var(--el-accent);
+    }
+
+    .blog-featured-excerpt {
+      font-size: var(--el-fz-body);
+      color: var(--el-text-secondary);
+      line-height: var(--el-lh-body);
+    }
+
+    .blog-featured-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--el-space-4);
+      padding-top: var(--el-space-5);
+      border-top: 1px solid var(--el-border-subtle);
+    }
+
+    .blog-featured-date {
+      font-size: var(--el-fz-label);
+      color: var(--el-text-muted);
+    }
+
+    .blog-featured-read {
+      font-size: var(--el-fz-label);
+      font-weight: var(--el-fw-medium);
+      letter-spacing: var(--el-ls-wide);
+      text-transform: uppercase;
+      color: var(--el-accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--el-space-2);
+      margin-left: auto;
+      transition: gap var(--el-transition-base);
+    }
+
+    .blog-featured-read:hover {
+      gap: var(--el-space-4);
+    }
+
+    /* Section divider */
+    .blog-section-label {
+      font-size: var(--el-fz-label);
+      font-weight: var(--el-fw-medium);
+      letter-spacing: var(--el-ls-wide);
+      text-transform: uppercase;
+      color: var(--el-text-muted);
+      margin-bottom: var(--el-space-8);
+      padding-bottom: var(--el-space-4);
+      border-bottom: 1px solid var(--el-border-subtle);
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .blog-featured {
+        grid-template-columns: 1fr;
+      }
+      .blog-featured-body {
+        padding: var(--el-space-8);
+      }
+      .blog-featured-image {
+        aspect-ratio: 16/9;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Elbio — Home" data-cursor="link">
+        <span class="logo-text">Elbio<span class="logo-dot">.</span></span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-menu" role="list">
+          <li class="nav-item has-dropdown">
+            <a href="index.html" class="nav-link nav-link--has-dropdown" data-cursor="link" aria-haspopup="true">Home <i class="fa-solid fa-chevron-down nav-dropdown-icon" aria-hidden="true"></i></a>
+            <ul class="nav-dropdown" role="menu">
+              <li><a href="index.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio</a></li>
+              <li><a href="index-2.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio 2</a></li>
+              <li><a href="index-3.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio 3</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="index.html#about" class="nav-link" data-cursor="link">About</a></li>
+          <li class="nav-item"><a href="index.html#projects" class="nav-link" data-cursor="link">Work</a></li>
+          <li class="nav-item"><a href="index.html#services" class="nav-link" data-cursor="link">Services</a></li>
+          <li class="nav-item"><a href="index.html#pricing" class="nav-link" data-cursor="link">Pricing</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link is-active" aria-current="page" data-cursor="link">Journal</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" data-cursor="link">
+          <i class="fa-regular fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-regular fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
+        <a href="contact.html" class="btn btn-primary nav-cta" data-cursor="link">Hire Me</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" data-cursor="link">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <ul class="mobile-nav-menu" role="list">
+      <li class="mobile-nav-item has-dropdown">
+        <button class="mobile-nav-toggle" aria-expanded="false">Home <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <ul class="mobile-nav-sub">
+          <li><a href="index.html" class="mobile-nav-sub-link">Creative Portfolio</a></li>
+          <li><a href="index-2.html" class="mobile-nav-sub-link">Creative Portfolio 2</a></li>
+          <li><a href="index-3.html" class="mobile-nav-sub-link">Creative Portfolio 3</a></li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item"><a href="index.html#about" class="mobile-nav-link">About</a></li>
+      <li class="mobile-nav-item"><a href="index.html#projects" class="mobile-nav-link">Work</a></li>
+      <li class="mobile-nav-item"><a href="index.html#services" class="mobile-nav-link">Services</a></li>
+      <li class="mobile-nav-item"><a href="index.html#pricing" class="mobile-nav-link">Pricing</a></li>
+      <li class="mobile-nav-item"><a href="blog.html" class="mobile-nav-link">Journal</a></li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-socials">
+        <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+        <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        <a href="#" class="social-link" aria-label="Dribbble" data-cursor="link"><i class="fa-brands fa-dribbble" aria-hidden="true"></i></a>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="blog-hero" aria-label="Journal header">
+      <div class="container">
+        <div class="blog-hero-inner">
+          <div>
+            <span class="section-label">Journal</span>
+            <h1 class="blog-hero-title" data-motion="word-mask">
+              <span class="word-wrap"><span class="word">Thinking</span></span>
+              <span class="word-wrap"><span class="word">out loud.</span></span>
+            </h1>
+            <p class="blog-hero-desc" data-motion="reveal">Observations on design, systems thinking, and the craft of building digital products.</p>
+          </div>
+          <p class="blog-hero-count">6 articles</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG LISTING -->
+    <section class="blog-listing" aria-labelledby="blog-listing-heading">
+      <div class="container">
+
+        <!-- Featured article -->
+        <h2 class="blog-section-label" id="blog-listing-heading">Latest</h2>
+
+        <article class="blog-featured" data-motion="reveal">
+          <a href="blog-single.html" class="blog-featured-image" data-cursor="View" aria-label="Read: Why Most Design Systems Die in Year Two">
+            <img
+              src="assets/images/blog/post-01.jpg"
+              alt="Abstract representation of design systems hierarchy"
+              class="blog-featured-img"
+              loading="eager"
+            >
+          </a>
+          <div class="blog-featured-body">
+            <span class="blog-featured-label">Design Systems</span>
+            <a href="blog-single.html" class="blog-featured-title" data-cursor="link">
+              Why Most Design Systems Die in Year Two
+            </a>
+            <p class="blog-featured-excerpt">The failure mode isn't technical — it's organizational. Here's what actually kills design systems after the initial excitement fades, and what to do about it.</p>
+            <div class="blog-featured-meta">
+              <span class="blog-featured-date">May 14, 2025 · 8 min read</span>
+              <a href="blog-single.html" class="blog-featured-read" data-cursor="link">
+                Read Article
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- All posts grid -->
+        <h2 class="blog-section-label">All Articles</h2>
+
+        <div class="blog-grid" data-motion="reveal-stagger">
+
+          <article class="blog-card" data-motion="tilt" data-cursor="View">
+            <a href="blog-single.html" class="blog-card-image" style="display:block; overflow:hidden;" data-cursor="View" aria-label="Read: The Case for Variable Fonts in Product UI">
+              <img src="assets/images/blog/post-02.jpg" alt="Typography specimens on dark background" class="blog-card-img" loading="lazy">
+            </a>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Typography</span>
+                <span class="blog-card-date">Apr 28, 2025</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-single.html" data-cursor="link">The Case for Variable Fonts in Product UI</a>
+              </h3>
+              <p class="blog-card-excerpt">Variable fonts aren't just for editorial work. Used correctly, they can reduce bundle size, improve accessibility, and add expressive micro-interactions to any product.</p>
+              <div class="blog-card-footer">
+                <a href="blog-single.html" class="blog-card-read-more" data-cursor="link">
+                  Read Article
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+                <span class="blog-card-date">6 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card" data-motion="tilt" data-cursor="View">
+            <a href="blog-single.html" class="blog-card-image" style="display:block; overflow:hidden;" data-cursor="View" aria-label="Read: Animation Without Purpose is Just Noise">
+              <img src="assets/images/blog/post-03.jpg" alt="Animation frames on a timeline" class="blog-card-img" loading="lazy">
+            </a>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Motion</span>
+                <span class="blog-card-date">Apr 10, 2025</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-single.html" data-cursor="link">Animation Without Purpose is Just Noise</a>
+              </h3>
+              <p class="blog-card-excerpt">Every animation should earn its place. A framework for deciding when motion communicates, when it decorates, and when it gets in the way.</p>
+              <div class="blog-card-footer">
+                <a href="blog-single.html" class="blog-card-read-more" data-cursor="link">
+                  Read Article
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+                <span class="blog-card-date">5 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card" data-motion="tilt" data-cursor="View">
+            <a href="blog-single.html" class="blog-card-image" style="display:block; overflow:hidden;" data-cursor="View" aria-label="Read: The Discovery Phase Nobody Talks About">
+              <img src="assets/images/blog/post-01.jpg" alt="Design system components on a whiteboard" class="blog-card-img" loading="lazy">
+            </a>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Process</span>
+                <span class="blog-card-date">Mar 22, 2025</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-single.html" data-cursor="link">The Discovery Phase Nobody Talks About</a>
+              </h3>
+              <p class="blog-card-excerpt">Most design processes skip the most important step: understanding what the business actually needs before opening Figma.</p>
+              <div class="blog-card-footer">
+                <a href="blog-single.html" class="blog-card-read-more" data-cursor="link">
+                  Read Article
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+                <span class="blog-card-date">7 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card" data-motion="tilt" data-cursor="View">
+            <a href="blog-single.html" class="blog-card-image" style="display:block; overflow:hidden;" data-cursor="View" aria-label="Read: Designing for Trust in Fintech">
+              <img src="assets/images/blog/post-02.jpg" alt="Fintech app interface showing trust signals" class="blog-card-img" loading="lazy">
+            </a>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">UX Research</span>
+                <span class="blog-card-date">Feb 15, 2025</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-single.html" data-cursor="link">Designing for Trust in Fintech</a>
+              </h3>
+              <p class="blog-card-excerpt">Trust isn't a UI pattern — it's an accumulation of micro-decisions across the entire experience. What financial products get wrong about credibility design.</p>
+              <div class="blog-card-footer">
+                <a href="blog-single.html" class="blog-card-read-more" data-cursor="link">
+                  Read Article
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+                <span class="blog-card-date">9 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card" data-motion="tilt" data-cursor="View">
+            <a href="blog-single.html" class="blog-card-image" style="display:block; overflow:hidden;" data-cursor="View" aria-label="Read: Color Systems in Dark-Mode First Design">
+              <img src="assets/images/blog/post-03.jpg" alt="Color palette swatches for dark mode" class="blog-card-img" loading="lazy">
+            </a>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Visual Design</span>
+                <span class="blog-card-date">Jan 20, 2025</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-single.html" data-cursor="link">Color Systems in Dark-Mode First Design</a>
+              </h3>
+              <p class="blog-card-excerpt">Building a semantic color system that works in both dark and light contexts requires a completely different mental model than traditional color palettes.</p>
+              <div class="blog-card-footer">
+                <a href="blog-single.html" class="blog-card-read-more" data-cursor="link">
+                  Read Article
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+                <span class="blog-card-date">6 min read</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-name" data-cursor="link">Elbio<span style="color:var(--el-accent)">.</span></a>
+          <p class="footer-tagline">Product design &amp; creative direction</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="index.html#about" data-cursor="link">About</a>
+          <a href="project-single.html" data-cursor="link">Work</a>
+          <a href="blog.html" data-cursor="link">Journal</a>
+          <a href="contact.html" data-cursor="link">Contact</a>
+          <a href="documentation/index.html" data-cursor="link">Docs</a>
+          <a href="preview.html" data-cursor="link">Preview</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span data-year></span> Elbio. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link">
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Dribbble" data-cursor="link">
+            <i class="fa-brands fa-dribbble" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script type="module" src="assets/js/motion/index.js"></script>
+
+</body>
+</html>
