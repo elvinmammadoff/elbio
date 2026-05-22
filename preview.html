@@ -33,11 +33,14 @@
 
       <nav aria-label="Primary navigation">
         <ul class="nav-menu" role="list">
-          <li class="nav-item"><a href="index.html" class="nav-link" data-cursor="link">Home v.1</a></li>
-          <li class="nav-item"><a href="index-2.html" class="nav-link" data-cursor="link">Home v.2</a></li>
-          <li class="nav-item"><a href="index-3.html" class="nav-link" data-cursor="link">Home v.3</a></li>
-          <li class="nav-item"><a href="index-4.html" class="nav-link" data-cursor="link">Home v.4</a></li>
-          <li class="nav-item"><a href="index-5.html" class="nav-link" data-cursor="link">Home v.5</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="index.html" class="nav-link nav-link--has-dropdown" data-cursor="link" aria-haspopup="true">Home <i class="fa-solid fa-chevron-down nav-dropdown-icon" aria-hidden="true"></i></a>
+            <ul class="nav-dropdown" role="menu">
+              <li><a href="index.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio</a></li>
+              <li><a href="index-2.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio 2</a></li>
+              <li><a href="index-3.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio 3</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a href="documentation/index.html" class="nav-link" data-cursor="link">Docs</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link" data-cursor="link">Contact</a></li>
         </ul>
@@ -58,11 +61,14 @@
 
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
     <ul class="mobile-nav-menu" role="list">
-      <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">Home v.1 (Dark)</a></li>
-      <li class="mobile-nav-item"><a href="index-2.html" class="mobile-nav-link">Home v.2 (Cream Light)</a></li>
-      <li class="mobile-nav-item"><a href="index-3.html" class="mobile-nav-link">Home v.3 (Neon Dark)</a></li>
-      <li class="mobile-nav-item"><a href="index-4.html" class="mobile-nav-link">Home v.4 (Cream Dark)</a></li>
-      <li class="mobile-nav-item"><a href="index-5.html" class="mobile-nav-link">Home v.5 (Neon Light)</a></li>
+      <li class="mobile-nav-item has-dropdown">
+        <button class="mobile-nav-toggle" aria-expanded="false">Home <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <ul class="mobile-nav-sub">
+          <li><a href="index.html" class="mobile-nav-sub-link">Creative Portfolio</a></li>
+          <li><a href="index-2.html" class="mobile-nav-sub-link">Creative Portfolio 2</a></li>
+          <li><a href="index-3.html" class="mobile-nav-sub-link">Creative Portfolio 3</a></li>
+        </ul>
+      </li>
       <li class="mobile-nav-item"><a href="documentation/index.html" class="mobile-nav-link">Docs</a></li>
       <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
     </ul>
@@ -195,54 +201,6 @@
               <div class="project-card-meta">
                 <span class="project-card-year">Neon</span>
                 <a href="index-3.html" class="project-card-arrow" aria-label="Open Home v.3" data-cursor="link">
-                  <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Home v.4 (Cream Dark) -->
-          <article class="project-card" data-tags="home">
-            <a href="index-4.html" class="project-card-image" data-cursor="View Demo" aria-label="Open Home v.4 Dark Warm">
-              <img src="assets/images/demo/home-4.jpg" alt="Home v.4 — Dark Warm preview" class="project-card-img" loading="lazy">
-              <div class="project-card-overlay" aria-hidden="true"></div>
-            </a>
-            <div class="project-card-body">
-              <div class="project-card-tags">
-                <span class="tag tag-accent">Home</span>
-                <span class="tag">Dark Warm</span>
-              </div>
-              <h3 class="project-card-title">
-                <a href="index-4.html" data-cursor="link">Home v.4 — Dark Warm</a>
-              </h3>
-              <p class="project-card-desc">Cream-minimal layout in a rich earthy dark palette. Amber accent on deep walnut tones — the boutique studio gone after-hours.</p>
-              <div class="project-card-meta">
-                <span class="project-card-year">Dark</span>
-                <a href="index-4.html" class="project-card-arrow" aria-label="Open Home v.4" data-cursor="link">
-                  <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Home v.5 (Neon Light) -->
-          <article class="project-card" data-tags="home">
-            <a href="index-5.html" class="project-card-image" data-cursor="View Demo" aria-label="Open Home v.5 Neon Light">
-              <img src="assets/images/demo/home-5.jpg" alt="Home v.5 — Neon Light preview" class="project-card-img" loading="lazy">
-              <div class="project-card-overlay" aria-hidden="true"></div>
-            </a>
-            <div class="project-card-body">
-              <div class="project-card-tags">
-                <span class="tag tag-accent">Home</span>
-                <span class="tag">Neon Light</span>
-              </div>
-              <h3 class="project-card-title">
-                <a href="index-5.html" data-cursor="link">Home v.5 — Neon Light</a>
-              </h3>
-              <p class="project-card-desc">Cyberpunk layout in a lime-tinted bright palette. Neon-green accent on a crisp light canvas — high-visibility, high-energy.</p>
-              <div class="project-card-meta">
-                <span class="project-card-year">Light</span>
-                <a href="index-5.html" class="project-card-arrow" aria-label="Open Home v.5" data-cursor="link">
                   <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i>
                 </a>
               </div>

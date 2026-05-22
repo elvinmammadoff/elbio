@@ -76,7 +76,7 @@
       }
     });
 
-    // Close on mobile nav link click
+    // Close on mobile nav link click (but not dropdown toggle buttons)
     mobileNav.querySelectorAll('.mobile-nav-link').forEach(function (link) {
       link.addEventListener('click', closeMenu);
     });
@@ -187,6 +187,28 @@
   }
 
   /* ===========================================================
+     MOBILE NAV DROPDOWNS
+     =========================================================== */
+  function initMobileDropdowns() {
+    document.querySelectorAll('.mobile-nav-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.mobile-nav-item.has-dropdown');
+        if (!item) return;
+        var isOpen = item.classList.contains('is-open');
+        // Close all others
+        document.querySelectorAll('.mobile-nav-item.has-dropdown.is-open').forEach(function (el) {
+          el.classList.remove('is-open');
+          el.querySelector('.mobile-nav-toggle').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  /* ===========================================================
      SMOOTH ANCHOR SCROLL (fallback when Lenis is absent)
      =========================================================== */
   function initAnchorScroll() {
@@ -216,6 +238,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
     initMobileMenu();
+    initMobileDropdowns();
     initActiveNavLink();
     initFooterYear();
     initProjectFilter();
