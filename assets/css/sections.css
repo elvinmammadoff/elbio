@@ -1901,6 +1901,7 @@
 .marquee-track {
   display: flex;
   align-items: center;
+  gap: var(--el-gap-lg);
   overflow: hidden;
 }
 

@@ -37,7 +37,7 @@ except ImportError:
     sys.exit("Install dependencies first: pip install google-genai Pillow")
 
 BASE_DIR = Path(__file__).resolve().parent / "assets" / "images"
-MODEL = "gemini-2.5-flash-image-preview"
+MODEL = "gemini-3.1-flash-image-preview"
 
 # The owner shared this key explicitly for this script.
 DEFAULT_KEY = "AIzaSyBPG4nLBncc4hAVwGTFSY3HACbKvomB7CQ"
@@ -548,7 +548,7 @@ def generate(client: genai.Client, slot: Slot) -> Optional[bytes]:
         model=MODEL,
         contents=slot.prompt,
         config=genai_types.GenerateContentConfig(
-            response_modalities=["IMAGE"],
+            response_modalities=["IMAGE", "TEXT"],
         ),
     )
     for candidate in response.candidates or []:

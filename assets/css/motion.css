@@ -40,13 +40,12 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 14px;
-  height: 14px;
-  margin: -7px 0 0 -7px;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
   border-radius: 50%;
-  background: #ffffff;
-  /* The critical fix: stays visible on every background */
-  mix-blend-mode: difference;
+  background: var(--el-accent);
+  mix-blend-mode: normal;
   pointer-events: none;
   font-family: var(--el-ff-body, "DM Sans", sans-serif);
   font-size: 11px;
@@ -73,19 +72,22 @@
 
 /* Expanded state — applied when hovering [data-cursor] */
 #magic-cursor.is-active #ball {
-  width: 96px;
-  height: 96px;
-  margin: -48px 0 0 -48px;
-  background: #e8a020;
-  color: #0a0a0a;
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  background: color-mix(in srgb, var(--el-accent) 18%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--el-accent) 55%, transparent);
+  color: var(--el-accent);
   mix-blend-mode: normal;
 }
 
 /* Labelled state — text shown inside ball */
 #magic-cursor.is-active.has-label #ball {
-  background: #e8a020;
-  color: #0a0a0a;
+  background: color-mix(in srgb, var(--el-accent) 18%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--el-accent) 55%, transparent);
+  color: var(--el-accent);
 }
+
 
 
 /* ================================================================

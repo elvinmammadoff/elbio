@@ -1,29 +1,18 @@
 /**
- * ELBIO Magic Cursor — Jesper-parity rebuild
+ * ELBIO Magic Cursor
  *
- * DOM (matches Jesper's "tt-magic-cursor"):
- *   <div id="magic-cursor"><div id="ball"></div></div>
- *
- * API — single attribute, value becomes the inner label:
- *   data-cursor="View Demo"   → ring expands, "View Demo" rendered inside
- *   data-cursor="View<br>Demo" → HTML allowed, two-line label
- *   data-cursor="link"        → ring expands, no label
- *   data-cursor=""            → ring expands, no label
- *   (no attribute)            → default small ring
- *
- * Visibility on any background: ring uses mix-blend-mode: difference.
- * Disabled on touch (pointer: coarse) and reduced motion (CSS).
+ * API:
+ *   data-cursor="link"       → ring expands, no label
+ *   data-cursor="View Demo"  → ring expands, label inside
+ *   (no attribute)           → default small dot
  */
 
-const LERP_DURATION = 0.4;   // GSAP quickTo duration — slight lag for feel
-const MORPH_DURATION = 0.4;  // Size/state morph
-const Z_INDEX = 99999;
+const LERP_DURATION = 0.4;
 
 export function initCursor() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
   if (typeof gsap === 'undefined') return;
 
-  // Build DOM if not present
   let wrap = document.getElementById('magic-cursor');
   let ball = document.getElementById('ball');
 
@@ -39,7 +28,6 @@ export function initCursor() {
     wrap.appendChild(ball);
   }
 
-  // GSAP quickTo for buttery position updates
   const setX = gsap.quickTo(wrap, 'x', { duration: LERP_DURATION, ease: 'power3' });
   const setY = gsap.quickTo(wrap, 'y', { duration: LERP_DURATION, ease: 'power3' });
 
@@ -66,18 +54,18 @@ export function initCursor() {
     }
   });
 
-  // State machine — read data-cursor value, render as label, expand ring
   function applyCursor(target) {
-    const raw = target.getAttribute('data-cursor');
-    const hasLabel = raw && raw.trim() !== '' && raw.trim().toLowerCase() !== 'link';
+    const raw  = target.getAttribute('data-cursor');
+    const mode = raw ? raw.trim().toLowerCase() : '';
 
-    if (hasLabel) {
+    wrap.classList.remove('is-active', 'has-label');
+
+    if (mode && mode !== 'link') {
       ball.innerHTML = raw;
       wrap.classList.add('is-active', 'has-label');
     } else {
       ball.innerHTML = '';
       wrap.classList.add('is-active');
-      wrap.classList.remove('has-label');
     }
   }
 
@@ -86,7 +74,6 @@ export function initCursor() {
     wrap.classList.remove('is-active', 'has-label');
   }
 
-  // Event delegation — works with dynamically injected DOM (project loader, etc.)
   document.addEventListener('mouseover', (e) => {
     const target = e.target.closest && e.target.closest('[data-cursor]');
     if (!target) return;
@@ -100,7 +87,6 @@ export function initCursor() {
     if (!next) resetCursor();
   });
 
-  // Click feedback — quick scale dip + elastic settle
   document.addEventListener('mousedown', () => {
     gsap.to(ball, { scale: 0.7, duration: 0.18, ease: 'power2.out' });
   });
@@ -108,6 +94,5 @@ export function initCursor() {
     gsap.to(ball, { scale: 1, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
   });
 
-  // Hide system cursor
   document.documentElement.classList.add('custom-cursor-active');
 }
