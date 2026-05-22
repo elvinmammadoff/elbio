@@ -215,3 +215,38 @@
   /* Lime-green is too light for white text — always use dark text on accent */
   --el-text-inverse:   #030308;
 }
+
+/* Dark warm version of cream-minimal (index-4) — no data-theme="light" */
+[data-variant="cream-minimal"]:not([data-theme="light"]) {
+  --el-bg-base:        #1c1814;
+  --el-bg-surface:     #26211c;
+  --el-bg-elevated:    #302b24;
+  --el-text-primary:   #f5ede3;
+  --el-text-secondary: #b09880;
+  --el-text-muted:     #7a6858;
+  --el-text-inverse:   #1c1814;
+  --el-border-subtle:  rgba(245, 237, 227, 0.06);
+  --el-border-default: rgba(245, 237, 227, 0.12);
+  --el-border-strong:  rgba(245, 237, 227, 0.24);
+  --el-shadow-card:    0 8px 32px -8px rgba(0, 0, 0, 0.40);
+  --el-shadow-hover:   0 20px 48px -12px rgba(0, 0, 0, 0.55);
+  --el-shadow-glow:    0 0 40px rgba(196, 124, 16, 0.30);
+}
+
+/* Light version of neon-cyberpunk (index-5) — lime-tinted bright palette */
+[data-variant="neon-cyberpunk"][data-theme="light"] {
+  --el-bg-base:        #f2f8e8;
+  --el-bg-surface:     #e6f0d4;
+  --el-bg-elevated:    #d8e8c0;
+  --el-text-primary:   #141a08;
+  --el-text-secondary: #3c5018;
+  --el-text-muted:     #6a8040;
+  --el-text-inverse:   #141a08;
+  --el-border-subtle:  rgba(20, 26, 8, 0.06);
+  --el-border-default: rgba(20, 26, 8, 0.12);
+  --el-border-strong:  rgba(20, 26, 8, 0.24);
+  --el-shadow-card:    0 8px 32px -8px rgba(60, 80, 24, 0.12);
+  --el-shadow-hover:   0 20px 48px -12px rgba(60, 80, 24, 0.20);
+  --el-shadow-glow:    0 0 40px rgba(100, 160, 40, 0.35);
+  --el-accent-glow:    rgba(168, 255, 62, 0.25);
+}
