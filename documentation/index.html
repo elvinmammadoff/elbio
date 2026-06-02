@@ -1004,12 +1004,15 @@
           The <code class="docs-inline-code">.theme-toggle</code> button in the nav is handled by <code class="docs-inline-code">assets/js/main.js</code>. On click it flips the <code class="docs-inline-code">data-theme</code> attribute and writes the new value to <code class="docs-inline-code">localStorage</code>. The button's <code class="docs-inline-code">aria-label</code> is updated to reflect the current state.
         </p>
 
-        <h2 class="docs-section-subtitle">Defaulting to light mode</h2>
+        <h2 class="docs-section-subtitle">Per-page default theme</h2>
         <p class="docs-p">
-          To make light mode the default, edit the preference check in <code class="docs-inline-code">assets/js/theme-init.js</code>:
+          Each page can declare its own default theme by adding <code class="docs-inline-code">data-theme</code> to the <code class="docs-inline-code">&lt;html&gt;</code> tag. The light-first demos (Cream Editorial and Photography) use this. The resolution order in <code class="docs-inline-code">assets/js/theme-init.js</code> is: saved user choice (localStorage) → page-level <code class="docs-inline-code">data-theme</code> → OS <code class="docs-inline-code">prefers-color-scheme</code> → dark.
         </p>
-        <code class="docs-code">// Change the fallback from 'dark' to 'light'
-var savedTheme = localStorage.getItem('el-theme') || 'light';</code>
+        <code class="docs-code">&lt;!-- Make a page light-first by default --&gt;
+&lt;html lang="en" data-theme="light"&gt;</code>
+        <p class="docs-p">
+          A visitor's explicit toggle is saved to <code class="docs-inline-code">localStorage['elbio-theme']</code> and always wins on subsequent visits. To make the whole template default to light, change the final fallback from <code class="docs-inline-code">'dark'</code> to <code class="docs-inline-code">'light'</code> in <code class="docs-inline-code">getPreferredTheme()</code>.
+        </p>
       </section>
 
       <!-- =========================================================
@@ -1094,6 +1097,11 @@ var savedTheme = localStorage.getItem('el-theme') || 'light';</code>
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer&gt;&lt;/script&gt;
 &lt;!-- 4. Motion system entry point (ES module) --&gt;
 &lt;script type="module" src="assets/js/motion/index.js"&gt;&lt;/script&gt;</code>
+
+        <h2 class="docs-section-subtitle">Scroll behaviour (reversible)</h2>
+        <p class="docs-p">
+          Reveal animations are bidirectional: they play as an element scrolls into view and reverse as it scrolls back out of view (via GSAP ScrollTrigger <code class="docs-inline-code">toggleActions: 'play none none reverse'</code>). Stat counters reset and re-count on re-entry. The <code class="docs-inline-code">zoom-parallax</code> effect is scrubbed, so it tracks scroll position in both directions. To make any reveal play only once, set its trigger's <code class="docs-inline-code">toggleActions</code> to <code class="docs-inline-code">'play none none none'</code> in <code class="docs-inline-code">assets/js/motion/reveals.js</code>.
+        </p>
 
         <h2 class="docs-section-subtitle">data-motion attribute reference</h2>
         <table class="docs-table">

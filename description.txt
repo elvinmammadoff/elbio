@@ -26,6 +26,8 @@
     <li>05+ Homepage Demos (incl. two multipage demos: agency &amp; photography)</li>
     <li>19+ HTML Pages</li>
     <li>Scroll Zoom-Parallax on images (Azurio-style)</li>
+    <li>Scroll-reversible reveal animations (play on scroll down, reverse on scroll up)</li>
+    <li>Per-page default theme (light-first or dark-first) with user toggle</li>
     <li>GSAP 3.x + ScrollTrigger Animations</li>
     <li>Lenis Smooth Scroll integrated with GSAP ticker</li>
     <li>Custom Magic Cursor with per-element labels</li>
@@ -94,8 +96,12 @@
          a constant zoom and panned vertically on scroll, Lenis-synced (Azurio-style)
   - New: Masonry gallery with mixed aspect ratios and hover captions
   - New: Full-bleed banner statements + minimal editorial about section
+  - New: Scroll-reversible reveal animations — reveals play on scroll down and
+         reverse on scroll up; stat counters reset and re-count
   - Added: Home v.5 demo card + photography inner-page cards to preview.html
   - Improved: Home dropdown now lists all 5 demos across every page
+  - Improved: Per-page default theme — light-first demos (Cream Editorial,
+         Photography) now render light by default; user toggle still persists
   - Tweak: Updated Documentation (file structure + motion attribute table)
 </pre><br>
 <pre>  June 02, 2026: Elbio v1.1.0
