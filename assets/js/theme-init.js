@@ -12,7 +12,10 @@
 
   /**
    * Resolve preferred theme.
-   * Priority: localStorage → prefers-color-scheme → 'dark' (default)
+   * Priority: localStorage (explicit user choice)
+   *           → inline data-theme on <html> (per-page default)
+   *           → prefers-color-scheme
+   *           → 'dark' (fallback)
    */
   function getPreferredTheme() {
     var stored = null;
@@ -24,6 +27,13 @@
 
     if (stored === 'light' || stored === 'dark') {
       return stored;
+    }
+
+    // Respect a page-level default declared as <html data-theme="…">
+    // (e.g. the light-first Cream Editorial and Photography demos).
+    var pageDefault = document.documentElement.getAttribute('data-theme');
+    if (pageDefault === 'light' || pageDefault === 'dark') {
+      return pageDefault;
     }
 
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {

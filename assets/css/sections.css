@@ -2864,3 +2864,197 @@
     aspect-ratio: 16 / 10;
   }
 }
+
+/* =============================================================
+   HOME-VARIANT — Visual / Photography (index-5.html)
+   Light-first, full-bleed imagery, minimal UI, masonry gallery.
+   ============================================================= */
+
+/* ---- Visual hero: oversized type + tall editorial portrait ---- */
+.visual-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--el-hero-pt);
+  padding-bottom: var(--el-space-16);
+}
+
+.visual-hero .container { width: 100%; }
+
+.visual-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--el-gap-lg);
+}
+
+.visual-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.visual-hero-name {
+  font-family: var(--el-ff-display);
+  font-weight: var(--el-fw-black);
+  font-size: clamp(64px, 12vw, 168px);
+  line-height: 0.92;
+  letter-spacing: var(--el-ls-tight);
+  color: var(--el-text-primary);
+  margin-bottom: var(--el-space-6);
+}
+
+.visual-hero-name em {
+  font-style: italic;
+  font-weight: var(--el-fw-light);
+}
+
+.visual-hero-role {
+  font-size: var(--el-fz-h5);
+  color: var(--el-text-secondary);
+  line-height: var(--el-lh-relaxed);
+  max-width: 44ch;
+  margin-bottom: var(--el-space-8);
+}
+
+.visual-hero-media {
+  position: relative;
+  border-radius: var(--el-radius-lg);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.visual-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visual-hero-tag {
+  position: absolute;
+  bottom: var(--el-space-6);
+  left: var(--el-space-6);
+  font-family: var(--el-ff-mono);
+  font-size: var(--el-fz-label);
+  letter-spacing: var(--el-ls-wide);
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: var(--el-radius-pill);
+}
+
+/* ---- Masonry gallery (mixed aspect ratios) ---- */
+.gallery {
+  column-count: 1;
+  column-gap: var(--el-gap-md);
+}
+
+.gallery-item {
+  position: relative;
+  break-inside: avoid;
+  margin-bottom: var(--el-gap-md);
+  border-radius: var(--el-radius-lg);
+  overflow: hidden;
+  display: block;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  will-change: transform;
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--el-space-6);
+  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.72) 100%);
+  opacity: 0;
+  transition: opacity var(--el-transition-base);
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 1;
+}
+
+.gallery-item-cat {
+  font-family: var(--el-ff-mono);
+  font-size: var(--el-fz-label);
+  letter-spacing: var(--el-ls-wider);
+  text-transform: uppercase;
+  color: var(--el-accent-bright);
+  margin-bottom: var(--el-space-1);
+}
+
+.gallery-item-title {
+  font-size: var(--el-fz-h5);
+  color: #fff;
+}
+
+/* ---- Visual about: large image + minimal copy ---- */
+.visual-about-media {
+  border-radius: var(--el-radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.visual-about-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Full-bleed banner break ---- */
+.visual-banner {
+  position: relative;
+  height: 70vh;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.visual-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visual-banner-quote {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--el-container-pad);
+}
+
+.visual-banner-quote blockquote {
+  font-family: var(--el-ff-display);
+  font-size: var(--el-fz-h2);
+  font-weight: var(--el-fw-bold);
+  letter-spacing: var(--el-ls-tight);
+  line-height: var(--el-lh-heading);
+  color: #fff;
+  max-width: 20ch;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ---- Responsive: Visual / Photography ---- */
+@media (min-width: 768px) {
+  .visual-hero-grid   { grid-template-columns: 1.1fr 0.9fr; }
+  .gallery            { column-count: 2; }
+}
+
+@media (min-width: 1280px) {
+  .gallery            { column-count: 3; }
+}

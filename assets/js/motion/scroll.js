@@ -25,6 +25,7 @@ export function initScroll(lenis) {
     initPinStack();
     initMarquee();
     initParallax(1.0);
+    initZoomParallax(1.0);
     initMagnetic(1.0);
   });
 
@@ -36,14 +37,16 @@ export function initScroll(lenis) {
     initPinStack();
     initMarquee();
     initParallax(0.5);
+    initZoomParallax(0.6);
     initMagnetic(0.6);
   });
 
   // ----------------------------------------------------------------
-  // Mobile (<768px) — no tilt, no parallax, no magnetic; marquee only
+  // Mobile (<768px) — marquee + gentle zoom parallax only
   // ----------------------------------------------------------------
   mm.add('(max-width: 767px)', () => {
     initMarquee();
+    initZoomParallax(0.45);
   });
 }
 
@@ -235,6 +238,49 @@ function initParallax(rangeMultiplier) {
         scrub: true,
       },
     });
+  });
+}
+
+// ----------------------------------------------------------------
+// Zoom parallax for [data-motion="zoom-parallax"] images
+//
+// mix_design / Azurio-style effect: the image is held at a constant
+// zoom (so it overfills its frame) and pans vertically as the frame
+// scrolls through the viewport. Scrubbed and Lenis-synced via the
+// GSAP ticker + ScrollTrigger. The image MUST sit inside an
+// overflow:hidden frame (mark it with [data-zoom-frame]) so the
+// over-scaled image is cropped cleanly.
+//
+// Optional per-element overrides:
+//   data-motion-zoom="1.25"  — constant scale (default 1.2)
+//   data-motion-pan="14"     — vertical travel in % (default 12)
+// ----------------------------------------------------------------
+function initZoomParallax(rangeMultiplier) {
+  if (typeof ScrollTrigger === 'undefined') return;
+
+  document.querySelectorAll('[data-motion="zoom-parallax"]').forEach((el) => {
+    // Image both grows (zoom) and pans vertically as the frame transits
+    // the viewport. Scrubbed → naturally reverses with scroll direction.
+    const zStart = parseFloat(el.dataset.motionZoom || 1.2);   // scale at entry
+    const zEnd = parseFloat(el.dataset.motionZoomEnd || 1.32); // scale at exit
+    const pan = parseFloat(el.dataset.motionPan || 9) * rangeMultiplier;
+
+    gsap.fromTo(
+      el,
+      { yPercent: -pan, scale: zStart, transformOrigin: 'center center' },
+      {
+        yPercent: pan,
+        scale: zEnd,
+        ease: 'none',
+        force3D: true,
+        scrollTrigger: {
+          trigger: el.closest('[data-zoom-frame]') || el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      }
+    );
   });
 }
 

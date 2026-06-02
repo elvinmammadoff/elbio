@@ -459,6 +459,7 @@
               <li><a href="../index-2.html" class="nav-dropdown-link" data-cursor="link">Cream Editorial</a></li>
               <li><a href="../index-3.html" class="nav-dropdown-link" data-cursor="link">Neon Cyberpunk</a></li>
               <li><a href="../index-4.html" class="nav-dropdown-link" data-cursor="link">Studio Agency</a></li>
+              <li><a href="../index-5.html" class="nav-dropdown-link" data-cursor="link">Photography</a></li>
             </ul>
           </li>
           <li class="nav-item"><a href="../index.html#about" class="nav-link" data-cursor="link">About</a></li>
@@ -491,6 +492,7 @@
           <li><a href="../index-2.html" class="mobile-nav-sub-link">Cream Editorial</a></li>
           <li><a href="../index-3.html" class="mobile-nav-sub-link">Neon Cyberpunk</a></li>
           <li><a href="../index-4.html" class="mobile-nav-sub-link">Studio Agency</a></li>
+          <li><a href="../index-5.html" class="mobile-nav-sub-link">Photography</a></li>
         </ul>
       </li>
       <li class="mobile-nav-item"><a href="../index.html#about" class="mobile-nav-link">About</a></li>
@@ -635,10 +637,14 @@
 ├── <span class="ft-accent">index-2.html</span>         <span class="ft-comment">— Homepage variant 2 (Cream Editorial)</span>
 ├── <span class="ft-accent">index-3.html</span>         <span class="ft-comment">— Homepage variant 3 (Neon Cyberpunk)</span>
 ├── <span class="ft-accent">index-4.html</span>         <span class="ft-comment">— Homepage variant 4 (Studio Agency — multipage)</span>
+├── <span class="ft-accent">index-5.html</span>         <span class="ft-comment">— Homepage variant 5 (Visual / Photography)</span>
 ├── <span class="ft-accent">agency-about.html</span>    <span class="ft-comment">— Studio: About page (story, values, team)</span>
 ├── <span class="ft-accent">agency-services.html</span> <span class="ft-comment">— Studio: Services page (process, pricing)</span>
 ├── <span class="ft-accent">agency-work.html</span>     <span class="ft-comment">— Studio: Work page (filterable portfolio grid)</span>
 ├── <span class="ft-accent">agency-contact.html</span>  <span class="ft-comment">— Studio: Contact page (enquiry form)</span>
+├── <span class="ft-accent">photo-gallery.html</span>   <span class="ft-comment">— Photography: full masonry gallery (zoom-parallax)</span>
+├── <span class="ft-accent">photo-about.html</span>     <span class="ft-comment">— Photography: About page</span>
+├── <span class="ft-accent">photo-contact.html</span>   <span class="ft-comment">— Photography: Contact / booking page</span>
 ├── <span class="ft-accent">project.html</span>         <span class="ft-comment">— Full project listing page (9 projects, filterable)</span>
 ├── <span class="ft-accent">project-single.html</span>  <span class="ft-comment">— Case study page (loads project data via URL param)</span>
 ├── <span class="ft-accent">blog.html</span>            <span class="ft-comment">— Journal listing page (all articles)</span>
@@ -1158,6 +1164,11 @@ var savedTheme = localStorage.getItem('el-theme') || 'light';</code>
               <td>parallax</td>
               <td>Scroll-linked vertical offset</td>
               <td>Background images, decorative elements</td>
+            </tr>
+            <tr>
+              <td>zoom-parallax</td>
+              <td>Image held at constant zoom, pans vertically on scroll (Azurio-style). Put on the <code class="docs-inline-code">&lt;img&gt;</code>; mark its overflow-hidden wrapper with <code class="docs-inline-code">data-zoom-frame</code>. Tune with <code class="docs-inline-code">data-motion-zoom</code> / <code class="docs-inline-code">data-motion-pan</code>.</td>
+              <td>Gallery / cover images (Photography demo)</td>
             </tr>
             <tr>
               <td>marquee</td>

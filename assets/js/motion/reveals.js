@@ -142,12 +142,19 @@ function scrambleText(el) {
 // Counter animation (M-04 counter)
 // ----------------------------------------------------------------
 function animateCounter(el) {
-  const raw = el.textContent.replace(/[^0-9.]/g, '');
+  // Prefer the captured original target (text gets overwritten while running)
+  const raw = el.dataset.counterTarget != null
+    ? el.dataset.counterTarget
+    : el.textContent.replace(/[^0-9.]/g, '');
   const target = parseFloat(raw);
   if (isNaN(target)) return;
 
-  const prefix = el.textContent.replace(raw, '').split(raw)[0] || '';
-  const suffix = el.textContent.replace(raw, '').split(raw)[1] || '';
+  const prefix = el.dataset.counterPrefix != null
+    ? el.dataset.counterPrefix
+    : (el.textContent.replace(raw, '').split(raw)[0] || '');
+  const suffix = el.dataset.counterSuffix != null
+    ? el.dataset.counterSuffix
+    : (el.textContent.replace(raw, '').split(raw)[1] || '');
 
   gsap.fromTo(
     { value: 0 },
@@ -217,8 +224,7 @@ function initRevealSingle(yDist) {
         scrollTrigger: {
           trigger: el,
           start: 'top 88%',
-          toggleActions: 'play none none none',
-          once: true,
+          toggleActions: 'play none none reverse',
         },
       }
     );
@@ -246,8 +252,7 @@ function initRevealStagger(yDist) {
         scrollTrigger: {
           trigger: parent,
           start: 'top 88%',
-          toggleActions: 'play none none none',
-          once: true,
+          toggleActions: 'play none none reverse',
         },
       }
     );
@@ -269,8 +274,7 @@ function initRevealClip() {
         scrollTrigger: {
           trigger: el,
           start: 'top 85%',
-          toggleActions: 'play none none none',
-          once: true,
+          toggleActions: 'play none none reverse',
         },
       }
     );
@@ -303,8 +307,7 @@ function initLineReveals() {
         scrollTrigger: {
           trigger: el,
           start: 'top 88%',
-          toggleActions: 'play none none none',
-          once: true,
+          toggleActions: 'play none none reverse',
         },
       }
     );
@@ -335,8 +338,7 @@ function initWordMaskScroll() {
         scrollTrigger: {
           trigger: el,
           start: 'top 88%',
-          toggleActions: 'play none none none',
-          once: true,
+          toggleActions: 'play none none reverse',
         },
       }
     );
@@ -357,11 +359,22 @@ function initScramble() {
 // ----------------------------------------------------------------
 function initCounters() {
   document.querySelectorAll('[data-motion="counter"]').forEach((el) => {
+    // Capture the original target + affixes once, before the text is overwritten
+    if (el.dataset.counterTarget == null) {
+      const raw = el.textContent.replace(/[^0-9.]/g, '');
+      el.dataset.counterTarget = raw;
+      el.dataset.counterPrefix = el.textContent.split(raw)[0] || '';
+      el.dataset.counterSuffix = el.textContent.split(raw)[1] || '';
+    }
+
     ScrollTrigger.create({
       trigger: el,
       start: 'top 88%',
-      once: true,
       onEnter: () => animateCounter(el),
+      // Reset to zero on scroll-up so it re-counts when scrolled back into view
+      onLeaveBack: () => {
+        el.textContent = `${el.dataset.counterPrefix}0${el.dataset.counterSuffix}`;
+      },
     });
   });
 }

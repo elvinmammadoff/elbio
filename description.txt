@@ -1,16 +1,17 @@
-<h3 id="item-description__elbio-creative-portfolio-agency-html-template">Elbio – Creative Portfolio &amp; Agency HTML Template</h3>
-<p>Welcome to <strong>Elbio</strong>, a premium, motion-rich HTML template for creatives, freelancers, designers, developers, and studios. With <strong>04 distinct homepage demos</strong> (including a full <strong>multipage agency</strong> demo), <strong>15+ pages</strong>, a hand-built <strong>GSAP animation system</strong>, a custom magic cursor, and clean, well-commented code, Elbio gives you everything you need to launch a portfolio that genuinely stands out.</p>
+<div class="user-html user-html__with-lazy-load"><h3 id="item-description__elbio-creative-portfolio-agency-html-template">Elbio – Creative Portfolio &amp; Agency HTML Template</h3>
+<p>Welcome to <strong>Elbio</strong>, a premium, motion-rich HTML template for creatives, freelancers, designers, developers, and studios. With <strong>05 distinct homepage demos</strong> (including two full <strong>multipage</strong> demos — an agency and a photography portfolio), <strong>19+ pages</strong>, a hand-built <strong>GSAP animation system</strong> with scroll <strong>zoom-parallax</strong>, a custom magic cursor, and clean, well-commented code, Elbio gives you everything you need to launch a portfolio that genuinely stands out.</p>
 
 <p><strong>Elbio</strong> is built for people who care about craft. Every interaction — the word-mask hero reveal, the clip-path portrait, the scroll-linked tilt cards, the page-transition wipes — is purposeful, smooth, and performant. No page builders, no bloat: just fast, accessible, framework-free HTML, CSS, and JavaScript you can fully control.</p>
 
 <h3 id="item-description__why-choose-elbio"><strong>Why choose Elbio?</strong></h3>
 <ul>
-    <li><strong>4 Homepage Demos</strong>
+    <li><strong>5 Homepage Demos</strong>
         <ul>
             <li><strong>Dark Industrial</strong> — bold portrait hero with amber accents, the flagship personal-portfolio look.</li>
             <li><strong>Cream Editorial</strong> — light, gallery-like, typography-led layout for boutique studios.</li>
             <li><strong>Neon Cyberpunk</strong> — asymmetric monospace hero with scan-line portrait for technical, systems-first creatives.</li>
             <li><strong>Studio Agency (Multipage)</strong> — a complete agency demo with separate About, Services, Work, and Contact pages routed from the menu.</li>
+            <li><strong>Photography (Visual, Multipage)</strong> — a light, image-led portfolio with separate Gallery, About, and Contact pages, a full masonry gallery, and scroll <strong>zoom-parallax</strong> on every image. For photographers and visual artists.</li>
         </ul>
     </li>
     <li><strong>Advanced Motion System</strong> — GSAP 3 + ScrollTrigger + Lenis smooth scroll, all hand-tuned: word-mask reveals, clip-circle, 3D tilt, magnetic buttons, text scramble, animated counters, marquees, and page-transition wipes.</li>
@@ -22,8 +23,9 @@
 
 <h3 id="item-description__elbio-core-features"><strong>Elbio Core Features</strong></h3>
 <ul>
-    <li>04+ Homepage Demos (incl. multipage agency)</li>
-    <li>15+ HTML Pages</li>
+    <li>05+ Homepage Demos (incl. two multipage demos: agency &amp; photography)</li>
+    <li>19+ HTML Pages</li>
+    <li>Scroll Zoom-Parallax on images (Azurio-style)</li>
     <li>GSAP 3.x + ScrollTrigger Animations</li>
     <li>Lenis Smooth Scroll integrated with GSAP ticker</li>
     <li>Custom Magic Cursor with per-element labels</li>
@@ -84,6 +86,18 @@
 <p>Thank you so much for choosing Elbio. Your comments and ratings are hugely appreciated. We update this template regularly and would love to hear your wishes for future updates.</p>
 
 <h3 id="item-description__change-log">Change Log</h3>
+<pre>  June 03, 2026: Elbio v1.2.0
+  ---------------------------------------
+  - New: Home version 5 — "Photography / Visual", a light, image-led MULTIPAGE demo
+  - New: Separate routed pages — photo-gallery, photo-about, photo-contact
+  - New: Scroll zoom-parallax motion (data-motion="zoom-parallax") — image held at
+         a constant zoom and panned vertically on scroll, Lenis-synced (Azurio-style)
+  - New: Masonry gallery with mixed aspect ratios and hover captions
+  - New: Full-bleed banner statements + minimal editorial about section
+  - Added: Home v.5 demo card + photography inner-page cards to preview.html
+  - Improved: Home dropdown now lists all 5 demos across every page
+  - Tweak: Updated Documentation (file structure + motion attribute table)
+</pre><br>
 <pre>  June 02, 2026: Elbio v1.1.0
   ---------------------------------------
   - New: Home version 4 — "Studio Agency", a full multipage demo
@@ -102,4 +116,4 @@
   - 3 homepage demos (Dark Industrial, Cream Editorial, Neon Cyberpunk)
   - GSAP + ScrollTrigger + Lenis motion system, magic cursor, page transitions
   - 9 JSON-driven case studies, Web3Forms contact, full HTML documentation
-</pre>
+</pre></div>

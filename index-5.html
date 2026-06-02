@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elbio — Visual (Photography Portfolio)</title>
+  <meta name="description" content="Elbio Visual — a light, image-led multipage photography portfolio demo with scroll zoom-parallax and a full masonry gallery.">
+
+  <!-- Theme init — must run before any render to prevent FOUC -->
+  <script src="assets/js/theme-init.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Big+Shoulders+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/motion.css" media="all" onerror="this.remove()">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Page transition overlay -->
+  <div id="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVIGATION — Photography multipage (real routed pages)
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index-5.html" class="nav-logo" aria-label="Elbio Visual — Home" data-cursor="link">
+        <span class="logo-text">Elbio<span class="logo-dot">.</span></span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-menu" role="list">
+          <li class="nav-item has-dropdown">
+            <a href="index-5.html" class="nav-link nav-link--has-dropdown" data-cursor="link" aria-haspopup="true">Home <i class="fa-solid fa-chevron-down nav-dropdown-icon" aria-hidden="true"></i></a>
+            <ul class="nav-dropdown" role="menu">
+              <li><a href="index.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio</a></li>
+              <li><a href="index-2.html" class="nav-dropdown-link" data-cursor="link">Cream Editorial</a></li>
+              <li><a href="index-3.html" class="nav-dropdown-link" data-cursor="link">Neon Cyberpunk</a></li>
+              <li><a href="index-4.html" class="nav-dropdown-link" data-cursor="link">Studio Agency</a></li>
+              <li><a href="index-5.html" class="nav-dropdown-link is-current" data-cursor="link">Photography</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="photo-gallery.html" class="nav-link" data-cursor="link">Gallery</a></li>
+          <li class="nav-item"><a href="photo-about.html" class="nav-link" data-cursor="link">About</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link" data-cursor="link">Journal</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" data-cursor="link">
+          <i class="fa-regular fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-regular fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
+        <a href="photo-contact.html" class="btn btn-primary nav-cta" data-cursor="link">Book a Shoot</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" data-cursor="link">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <ul class="mobile-nav-menu" role="list">
+      <li class="mobile-nav-item has-dropdown">
+        <button class="mobile-nav-toggle" aria-expanded="false">Home <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <ul class="mobile-nav-sub">
+          <li><a href="index.html" class="mobile-nav-sub-link">Creative Portfolio</a></li>
+          <li><a href="index-2.html" class="mobile-nav-sub-link">Cream Editorial</a></li>
+          <li><a href="index-3.html" class="mobile-nav-sub-link">Neon Cyberpunk</a></li>
+          <li><a href="index-4.html" class="mobile-nav-sub-link">Studio Agency</a></li>
+          <li><a href="index-5.html" class="mobile-nav-sub-link is-current">Photography</a></li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item"><a href="photo-gallery.html" class="mobile-nav-link">Gallery</a></li>
+      <li class="mobile-nav-item"><a href="photo-about.html" class="mobile-nav-link">About</a></li>
+      <li class="mobile-nav-item"><a href="blog.html" class="mobile-nav-link">Journal</a></li>
+      <li class="mobile-nav-item"><a href="photo-contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-socials">
+        <a href="#" class="social-link" aria-label="Instagram" data-cursor="link"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="#" class="social-link" aria-label="Behance" data-cursor="link"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
+        <a href="#" class="social-link" aria-label="Pinterest" data-cursor="link"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a>
+      </div>
+      <a href="photo-contact.html" class="btn btn-primary">Book a Shoot</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         VISUAL HERO
+         ============================================================ -->
+    <section class="section visual-hero" aria-label="Hero">
+      <div class="container">
+        <div class="visual-hero-grid">
+          <div class="visual-hero-content">
+            <p class="hero-eyebrow">
+              <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+              Photographer &amp; Visual Artist
+            </p>
+            <h1 class="visual-hero-name" data-motion="word-mask">
+              <span class="word-wrap"><span class="word">Stories</span></span>
+              <span class="word-wrap"><span class="word"><em>in light</em></span></span>
+              <span class="word-wrap"><span class="word">&amp; frame.</span></span>
+            </h1>
+            <p class="visual-hero-role" data-motion="line-reveal">
+              I'm Mara Voss — an editorial and portrait photographer capturing quiet, deliberate moments for brands, magazines, and people worth remembering.
+            </p>
+            <div class="hero-actions" data-motion="reveal-stagger">
+              <a href="photo-gallery.html" class="btn btn-primary" data-motion="magnetic" data-cursor="link">View Gallery</a>
+              <a href="photo-contact.html" class="btn btn-outline" data-motion="magnetic" data-cursor="link">Book a Shoot</a>
+            </div>
+          </div>
+          <div class="visual-hero-media" data-zoom-frame data-motion="reveal-clip">
+            <img src="assets/images/hero/001.jpg" alt="Editorial portrait — woman with parasol in a field" loading="eager" data-motion="zoom-parallax">
+            <span class="visual-hero-tag">Editorial · 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GALLERY TEASER (zoom-parallax)
+         ============================================================ -->
+    <section class="section" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="projects-header">
+          <div>
+            <span class="section-label">Selected work</span>
+            <h2 class="section-heading" id="gallery-heading" data-motion="reveal">
+              A frame for every story.
+            </h2>
+          </div>
+          <a href="photo-gallery.html" class="btn btn-outline" data-cursor="link">Full Gallery</a>
+        </div>
+
+        <div class="gallery" data-motion="reveal-stagger">
+          <a href="photo-gallery.html" class="gallery-item" data-zoom-frame data-cursor="View">
+            <img src="assets/images/hero/002.jpg" alt="Editorial fashion portrait" loading="lazy" data-motion="zoom-parallax">
+            <div class="gallery-item-overlay" aria-hidden="true">
+              <span class="gallery-item-cat">Editorial</span>
+              <span class="gallery-item-title">Golden Hour</span>
+            </div>
+          </a>
+          <a href="photo-gallery.html" class="gallery-item" data-zoom-frame data-cursor="View">
+            <img src="assets/images/portfolio/portfolio-img-1.jpg" alt="Portrait in winter light" loading="lazy" data-motion="zoom-parallax">
+            <div class="gallery-item-overlay" aria-hidden="true">
+              <span class="gallery-item-cat">Portrait</span>
+              <span class="gallery-item-title">Still / Cold</span>
+            </div>
+          </a>
+          <a href="photo-gallery.html" class="gallery-item" data-zoom-frame data-cursor="View">
+            <img src="assets/images/banners/banner-1.jpg" alt="Underwater diver, monochrome" loading="lazy" data-motion="zoom-parallax">
+            <div class="gallery-item-overlay" aria-hidden="true">
+              <span class="gallery-item-cat">Documentary</span>
+              <span class="gallery-item-title">The Deep</span>
+            </div>
+          </a>
+          <a href="photo-gallery.html" class="gallery-item" data-zoom-frame data-cursor="View">
+            <img src="assets/images/hero/004.jpg" alt="Editorial portrait in studio light" loading="lazy" data-motion="zoom-parallax">
+            <div class="gallery-item-overlay" aria-hidden="true">
+              <span class="gallery-item-cat">Editorial</span>
+              <span class="gallery-item-title">Quiet Room</span>
+            </div>
+          </a>
+          <a href="photo-gallery.html" class="gallery-item" data-zoom-frame data-cursor="View">
+            <img src="assets/images/portfolio/portfolio-img-2.jpg" alt="Detail portrait study" loading="lazy" data-motion="zoom-parallax">
+            <div class="gallery-item-overlay" aria-hidden="true">
+              <span class="gallery-item-cat">Portrait</span>
+              <span class="gallery-item-title">Texture</span>
+            </div>
+          </a>
+          <a href="photo-gallery.html" class="gallery-item" data-zoom-frame data-cursor="View">
+            <img src="assets/images/banners/banner-2.jpg" alt="Cinematic landscape" loading="lazy" data-motion="zoom-parallax">
+            <div class="gallery-item-overlay" aria-hidden="true">
+              <span class="gallery-item-cat">Landscape</span>
+              <span class="gallery-item-title">Wide Silence</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FULL-BLEED BANNER QUOTE (zoom-parallax)
+         ============================================================ -->
+    <section class="visual-banner" data-zoom-frame aria-label="Statement">
+      <img src="assets/images/banners/banner-3.jpg" alt="" data-motion="zoom-parallax">
+      <div class="visual-banner-quote">
+        <blockquote data-motion="reveal">Light is the language. I just listen.</blockquote>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT TEASER
+         ============================================================ -->
+    <section class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-split">
+          <div class="visual-about-media" data-zoom-frame data-motion="reveal-clip">
+            <img src="assets/images/hero/003.jpg" alt="Mara Voss, photographer" loading="lazy" data-motion="zoom-parallax">
+          </div>
+          <div data-motion="reveal-stagger">
+            <span class="section-label">About</span>
+            <h2 class="section-heading" id="about-heading">
+              Twelve years behind the lens.
+            </h2>
+            <p>
+              I shoot on a mix of medium-format film and digital, chasing natural light and honest expression. My work has appeared in editorial features, brand campaigns, and gallery shows across three continents.
+            </p>
+            <p>
+              Whether it's a quiet portrait or a sprawling location shoot, my approach is the same: slow down, pay attention, and let the moment arrive.
+            </p>
+            <a href="photo-about.html" class="btn btn-outline" data-cursor="link" style="margin-top:var(--el-space-6)">More About Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA BAND
+         ============================================================ -->
+    <section class="section cta-band" aria-labelledby="cta-heading">
+      <div class="cta-band-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-band-inner">
+          <span class="section-label" style="justify-content:center">Let's create</span>
+          <h2 class="cta-band-title" id="cta-heading" data-motion="word-mask">
+            <span class="word-wrap"><span class="word">Have a story</span></span>
+            <span class="word-wrap"><span class="word">to tell?</span></span>
+          </h2>
+          <p class="cta-band-sub" data-motion="reveal">
+            I take a handful of editorial and portrait commissions each month. Tell me about yours.
+          </p>
+          <div class="cta-band-actions" data-motion="reveal-stagger">
+            <a href="photo-contact.html" class="btn btn-primary" data-motion="magnetic" data-cursor="link">Book a Shoot</a>
+            <a href="photo-gallery.html" class="btn btn-outline" data-motion="magnetic" data-cursor="link">View Gallery</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index-5.html" class="brand-name" data-cursor="link">Elbio<span class="brand-dot">.</span></a>
+          <p class="footer-tagline">Editorial &amp; portrait photography</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="photo-gallery.html" data-cursor="link">Gallery</a>
+          <a href="photo-about.html" data-cursor="link">About</a>
+          <a href="blog.html" data-cursor="link">Journal</a>
+          <a href="photo-contact.html" data-cursor="link">Contact</a>
+          <a href="preview.html" data-cursor="link">Demos</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span data-year></span> Elbio Visual. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Instagram" data-cursor="link"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Behance" data-cursor="link"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Pinterest" data-cursor="link"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/motion/index.js?v=2"></script>
+  <script src="assets/js/main.js" type="module"></script>
+
+</body>
+</html>
