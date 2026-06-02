@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elbio — Studio (Agency Multipage)</title>
+  <meta name="description" content="Elbio Studio — an independent creative agency building brands, products, and digital experiences that move people forward.">
+
+  <!-- Theme init — must run before any render to prevent FOUC -->
+  <script src="assets/js/theme-init.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Big+Shoulders+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/motion.css" media="all" onerror="this.remove()">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Page transition overlay -->
+  <div id="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVIGATION — Studio multipage (real routed pages)
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index-4.html" class="nav-logo" aria-label="Elbio Studio — Home" data-cursor="link">
+        <span class="logo-text">Elbio<span class="logo-dot">.</span></span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-menu" role="list">
+          <li class="nav-item has-dropdown">
+            <a href="index-4.html" class="nav-link nav-link--has-dropdown" data-cursor="link" aria-haspopup="true">Home <i class="fa-solid fa-chevron-down nav-dropdown-icon" aria-hidden="true"></i></a>
+            <ul class="nav-dropdown" role="menu">
+              <li><a href="index.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio</a></li>
+              <li><a href="index-2.html" class="nav-dropdown-link" data-cursor="link">Cream Editorial</a></li>
+              <li><a href="index-3.html" class="nav-dropdown-link" data-cursor="link">Neon Cyberpunk</a></li>
+              <li><a href="index-4.html" class="nav-dropdown-link is-current" data-cursor="link">Studio Agency</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="agency-about.html" class="nav-link" data-cursor="link">About</a></li>
+          <li class="nav-item"><a href="agency-services.html" class="nav-link" data-cursor="link">Services</a></li>
+          <li class="nav-item"><a href="agency-work.html" class="nav-link" data-cursor="link">Work</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link" data-cursor="link">Journal</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" data-cursor="link">
+          <i class="fa-regular fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-regular fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
+        <a href="agency-contact.html" class="btn btn-primary nav-cta" data-cursor="link">Start a Project</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" data-cursor="link">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <ul class="mobile-nav-menu" role="list">
+      <li class="mobile-nav-item has-dropdown">
+        <button class="mobile-nav-toggle" aria-expanded="false">Home <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <ul class="mobile-nav-sub">
+          <li><a href="index.html" class="mobile-nav-sub-link">Creative Portfolio</a></li>
+          <li><a href="index-2.html" class="mobile-nav-sub-link">Cream Editorial</a></li>
+          <li><a href="index-3.html" class="mobile-nav-sub-link">Neon Cyberpunk</a></li>
+          <li><a href="index-4.html" class="mobile-nav-sub-link is-current">Studio Agency</a></li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item"><a href="agency-about.html" class="mobile-nav-link">About</a></li>
+      <li class="mobile-nav-item"><a href="agency-services.html" class="mobile-nav-link">Services</a></li>
+      <li class="mobile-nav-item"><a href="agency-work.html" class="mobile-nav-link">Work</a></li>
+      <li class="mobile-nav-item"><a href="blog.html" class="mobile-nav-link">Journal</a></li>
+      <li class="mobile-nav-item"><a href="agency-contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-socials">
+        <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+        <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        <a href="#" class="social-link" aria-label="Dribbble" data-cursor="link"><i class="fa-brands fa-dribbble" aria-hidden="true"></i></a>
+      </div>
+      <a href="agency-contact.html" class="btn btn-primary">Start a Project</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         AGENCY HERO
+         ============================================================ -->
+    <section class="agency-hero" aria-label="Hero">
+      <div class="agency-hero-bg" aria-hidden="true" data-motion="parallax" data-motion-speed="0.2">
+        <img src="assets/images/bg/bg-image-1.jpg" alt="" loading="eager">
+      </div>
+      <div class="container">
+        <div class="agency-hero-inner">
+          <p class="hero-eyebrow">
+            <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+            Independent creative studio — Est. 2016
+          </p>
+
+          <h1 class="agency-hero-title" data-motion="word-mask">
+            <span class="word-wrap"><span class="word">We build</span></span>
+            <span class="word-wrap"><span class="word">brands that</span></span>
+            <span class="word-wrap"><span class="word"><em>move</em>&nbsp;people.</span></span>
+          </h1>
+
+          <div class="agency-hero-meta">
+            <p class="agency-hero-lead" data-motion="reveal">
+              Elbio is a multidisciplinary studio crafting identities, digital products, and motion-rich experiences for ambitious teams worldwide.
+            </p>
+            <div class="hero-actions" data-motion="reveal-stagger">
+              <a href="agency-work.html" class="btn btn-primary" data-motion="magnetic" data-cursor="link">View Our Work</a>
+              <a href="agency-contact.html" class="btn btn-outline" data-motion="magnetic" data-cursor="link">Let's Talk</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STAT BAND
+         ============================================================ -->
+    <section class="stat-band" aria-label="Studio at a glance">
+      <div class="container-wide">
+        <div class="stat-band-grid" data-motion="reveal-stagger">
+          <div class="stat-band-item">
+            <div class="stat-band-number"><span data-motion="counter">120</span><span class="text-accent">+</span></div>
+            <div class="stat-band-label">Projects Shipped</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-number"><span data-motion="counter">40</span><span class="text-accent">+</span></div>
+            <div class="stat-band-label">Global Clients</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-number"><span data-motion="counter">9</span><span class="text-accent">yrs</span></div>
+            <div class="stat-band-label">In Business</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-number"><span data-motion="counter">12</span><span class="text-accent">★</span></div>
+            <div class="stat-band-label">Industry Awards</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INTRO / ABOUT TEASER
+         ============================================================ -->
+    <section class="section" aria-labelledby="intro-heading">
+      <div class="container">
+        <div class="about-split">
+          <div class="about-split-media" data-motion="reveal-clip">
+            <img src="assets/images/about/about04.webp" alt="Elbio studio team collaborating in the workspace" loading="lazy">
+          </div>
+          <div data-motion="reveal-stagger">
+            <span class="section-label">Who we are</span>
+            <h2 class="section-heading" id="intro-heading">
+              A small studio with an outsized obsession for craft.
+            </h2>
+            <p>
+              We're a tight-knit team of designers, strategists, and engineers who believe great work comes from deep collaboration — not handoffs. Every project gets senior attention from kickoff to launch.
+            </p>
+            <p>
+              From Series A startups to established brands, we partner with teams who care about the details as much as we do.
+            </p>
+            <a href="agency-about.html" class="btn btn-outline" data-cursor="link" style="margin-top:var(--el-space-6)">More About Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES TEASER
+         ============================================================ -->
+    <section class="section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="projects-header">
+          <div>
+            <span class="section-label">What we do</span>
+            <h2 class="section-heading" id="services-heading" data-motion="reveal">
+              Capabilities, end to end.
+            </h2>
+          </div>
+          <a href="agency-services.html" class="btn btn-outline" data-cursor="link">All Services</a>
+        </div>
+
+        <div class="services-list" data-motion="reveal-stagger">
+          <a href="agency-services.html" class="service-item" data-cursor="link">
+            <span class="service-number">01</span>
+            <div class="service-content">
+              <h3 class="service-title">Brand Identity</h3>
+              <p class="service-desc">Naming, logo systems, type, color, and guidelines that hold up everywhere — from a 16px favicon to a building wrap.</p>
+              <div class="service-tags"><span class="tag">Strategy</span><span class="tag">Logo</span><span class="tag">Guidelines</span></div>
+            </div>
+            <span class="service-icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></span>
+          </a>
+          <a href="agency-services.html" class="service-item" data-cursor="link">
+            <span class="service-number">02</span>
+            <div class="service-content">
+              <h3 class="service-title">Product Design</h3>
+              <p class="service-desc">Research-led UX and pixel-perfect UI for web and mobile apps, backed by scalable design systems.</p>
+              <div class="service-tags"><span class="tag">UX</span><span class="tag">UI</span><span class="tag">Design Systems</span></div>
+            </div>
+            <span class="service-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
+          </a>
+          <a href="agency-services.html" class="service-item" data-cursor="link">
+            <span class="service-number">03</span>
+            <div class="service-content">
+              <h3 class="service-title">Web Development</h3>
+              <p class="service-desc">Fast, accessible, motion-rich front-ends built with modern tooling — handcrafted, never templated.</p>
+              <div class="service-tags"><span class="tag">Front-End</span><span class="tag">GSAP</span><span class="tag">Webflow</span></div>
+            </div>
+            <span class="service-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+          </a>
+          <a href="agency-services.html" class="service-item" data-cursor="link">
+            <span class="service-number">04</span>
+            <div class="service-content">
+              <h3 class="service-title">Motion & Art Direction</h3>
+              <p class="service-desc">Animation, 3D, and art direction that gives a brand a living, breathing voice across every touchpoint.</p>
+              <div class="service-tags"><span class="tag">Motion</span><span class="tag">3D</span><span class="tag">Direction</span></div>
+            </div>
+            <span class="service-icon"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FEATURED WORK
+         ============================================================ -->
+    <section class="section" id="work" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="projects-header">
+          <div>
+            <span class="section-label">Selected work</span>
+            <h2 class="section-heading" id="work-heading" data-motion="reveal">
+              Recent projects.
+            </h2>
+          </div>
+          <a href="agency-work.html" class="btn btn-outline" data-cursor="link">All Projects</a>
+        </div>
+
+        <div class="work-grid" data-motion="reveal-stagger">
+          <a href="agency-work.html" class="work-item is-featured" data-motion="tilt" data-cursor="View">
+            <img src="assets/images/portfolio/portfolio-07.jpg" alt="Helios — brand and web platform" class="work-item-img" loading="lazy">
+            <div class="work-item-overlay" aria-hidden="true">
+              <span class="work-item-cat">Brand · Web</span>
+              <span class="work-item-title">Helios — Renewable Energy Platform</span>
+            </div>
+          </a>
+          <a href="agency-work.html" class="work-item" data-motion="tilt" data-cursor="View">
+            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Northwind identity system" class="work-item-img" loading="lazy">
+            <div class="work-item-overlay" aria-hidden="true">
+              <span class="work-item-cat">Identity</span>
+              <span class="work-item-title">Northwind — Visual Identity</span>
+            </div>
+          </a>
+          <a href="agency-work.html" class="work-item" data-motion="tilt" data-cursor="View">
+            <img src="assets/images/portfolio/portfolio-02.jpg" alt="Lumina mobile product" class="work-item-img" loading="lazy">
+            <div class="work-item-overlay" aria-hidden="true">
+              <span class="work-item-cat">Product</span>
+              <span class="work-item-title">Lumina — Fintech App</span>
+            </div>
+          </a>
+          <a href="agency-work.html" class="work-item" data-motion="tilt" data-cursor="View">
+            <img src="assets/images/portfolio/portfolio-03.jpg" alt="Atelier e-commerce" class="work-item-img" loading="lazy">
+            <div class="work-item-overlay" aria-hidden="true">
+              <span class="work-item-cat">E-Commerce</span>
+              <span class="work-item-title">Atelier — Luxury Store</span>
+            </div>
+          </a>
+          <a href="agency-work.html" class="work-item" data-motion="tilt" data-cursor="View">
+            <img src="assets/images/portfolio/portfolio-04.jpg" alt="Verde sustainability campaign" class="work-item-img" loading="lazy">
+            <div class="work-item-overlay" aria-hidden="true">
+              <span class="work-item-cat">Campaign</span>
+              <span class="work-item-title">Verde — Launch Campaign</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CLIENTS / BRANDS STRIP
+         ============================================================ -->
+    <section class="section" aria-labelledby="brands-heading">
+      <div class="container">
+        <span class="section-label">Trusted by</span>
+        <h2 class="section-heading" id="brands-heading" data-motion="reveal" style="margin-bottom:var(--el-space-12)">
+          Teams we've partnered with.
+        </h2>
+        <div class="brands-strip-grid" data-motion="reveal-stagger">
+          <div class="brand-cell"><img src="assets/images/brands/brand-1.png" alt="Client logo"></div>
+          <div class="brand-cell"><img src="assets/images/brands/brand-2.png" alt="Client logo"></div>
+          <div class="brand-cell"><img src="assets/images/brands/brand-3.png" alt="Client logo"></div>
+          <div class="brand-cell"><img src="assets/images/brands/brand-4.png" alt="Client logo"></div>
+          <div class="brand-cell"><img src="assets/images/brands/brand-5.png" alt="Client logo"></div>
+          <div class="brand-cell"><img src="assets/images/brands/brand-6.png" alt="Client logo"></div>
+          <div class="brand-cell"><img src="assets/images/brands/brand-7.png" alt="Client logo"></div>
+          <div class="brand-cell"><img src="assets/images/brands/brand-1.png" alt="Client logo"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIALS
+         ============================================================ -->
+    <section class="section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <span class="section-label">Kind words</span>
+        <h2 class="section-heading" id="testimonials-heading" data-motion="reveal" style="margin-bottom:var(--el-space-12)">
+          What clients say.
+        </h2>
+        <div class="testimonials-grid" data-motion="reveal-stagger">
+          <figure class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 out of 5 stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote class="testimonial-quote">
+              Elbio rebuilt our entire brand and product in four months. The craft is unreal — every detail considered. Conversions are up 38%.
+            </blockquote>
+            <figcaption class="testimonial-author">
+              <img src="assets/images/testimonial/user-1.png" alt="" class="testimonial-avatar">
+              <div>
+                <div class="testimonial-author-name">Sarah Chen</div>
+                <div class="testimonial-author-role">VP Product, Lumina</div>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 out of 5 stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote class="testimonial-quote">
+              Working with this team felt like having an in-house studio. Responsive, strategic, and genuinely creative. We'll be back.
+            </blockquote>
+            <figcaption class="testimonial-author">
+              <img src="assets/images/testimonial/user-2.png" alt="" class="testimonial-avatar">
+              <div>
+                <div class="testimonial-author-name">Marcus Webb</div>
+                <div class="testimonial-author-role">Founder, Northwind</div>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 out of 5 stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote class="testimonial-quote">
+              The motion work alone set us apart from every competitor. Our launch site got picked up by three design galleries in a week.
+            </blockquote>
+            <figcaption class="testimonial-author">
+              <img src="assets/images/testimonial/user-3.png" alt="" class="testimonial-avatar">
+              <div>
+                <div class="testimonial-author-name">Elena Rossi</div>
+                <div class="testimonial-author-role">CMO, Verde</div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         JOURNAL TEASER
+         ============================================================ -->
+    <section class="section" aria-labelledby="journal-heading">
+      <div class="container">
+        <div class="projects-header">
+          <div>
+            <span class="section-label">Journal</span>
+            <h2 class="section-heading" id="journal-heading" data-motion="reveal">
+              Latest thinking.
+            </h2>
+          </div>
+          <a href="blog.html" class="btn btn-outline" data-cursor="link">All Articles</a>
+        </div>
+
+        <div class="blog-grid" data-motion="reveal-stagger">
+          <article class="blog-card" data-motion="tilt" data-cursor="Read">
+            <a href="blog-single.html" class="blog-card-image" data-cursor="link">
+              <img src="assets/images/blog/blog-01.jpg" alt="Design systems article" class="blog-card-img" loading="lazy">
+            </a>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Design Systems</span>
+                <span class="blog-card-date">May 28, 2026</span>
+              </div>
+              <h3 class="blog-card-title"><a href="blog-single.html" data-cursor="link">Design systems that scale without losing soul</a></h3>
+              <p class="blog-card-excerpt">How we keep component libraries flexible enough for designers and strict enough for engineers.</p>
+            </div>
+          </article>
+          <article class="blog-card" data-motion="tilt" data-cursor="Read">
+            <a href="blog-single.html" class="blog-card-image" data-cursor="link">
+              <img src="assets/images/blog/blog-02.jpg" alt="Brand strategy article" class="blog-card-img" loading="lazy">
+            </a>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Branding</span>
+                <span class="blog-card-date">May 14, 2026</span>
+              </div>
+              <h3 class="blog-card-title"><a href="blog-single.html" data-cursor="link">The case for naming before you design</a></h3>
+              <p class="blog-card-excerpt">Why a brand's name should lead the identity process, not trail behind it.</p>
+            </div>
+          </article>
+          <article class="blog-card" data-motion="tilt" data-cursor="Read">
+            <a href="blog-single.html" class="blog-card-image" data-cursor="link">
+              <img src="assets/images/blog/blog-03.jpg" alt="Motion design article" class="blog-card-img" loading="lazy">
+            </a>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Motion</span>
+                <span class="blog-card-date">Apr 30, 2026</span>
+              </div>
+              <h3 class="blog-card-title"><a href="blog-single.html" data-cursor="link">Animation that communicates, not decorates</a></h3>
+              <p class="blog-card-excerpt">A practical framework for deciding when motion earns its place in an interface.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA BAND
+         ============================================================ -->
+    <section class="section cta-band" aria-labelledby="cta-heading">
+      <div class="cta-band-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-band-inner">
+          <span class="section-label" style="justify-content:center">Let's work together</span>
+          <h2 class="cta-band-title" id="cta-heading" data-motion="word-mask">
+            <span class="word-wrap"><span class="word">Have a project</span></span>
+            <span class="word-wrap"><span class="word">in mind?</span></span>
+          </h2>
+          <p class="cta-band-sub" data-motion="reveal">
+            We take on a limited number of engagements each quarter so every client gets our full attention. Tell us what you're building.
+          </p>
+          <div class="cta-band-actions" data-motion="reveal-stagger">
+            <a href="agency-contact.html" class="btn btn-primary" data-motion="magnetic" data-cursor="link">Start a Project</a>
+            <a href="agency-work.html" class="btn btn-outline" data-motion="magnetic" data-cursor="link">See Our Work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index-4.html" class="brand-name" data-cursor="link">Elbio<span class="brand-dot">.</span></a>
+          <p class="footer-tagline">Independent creative studio</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="agency-about.html" data-cursor="link">About</a>
+          <a href="agency-services.html" data-cursor="link">Services</a>
+          <a href="agency-work.html" data-cursor="link">Work</a>
+          <a href="blog.html" data-cursor="link">Journal</a>
+          <a href="agency-contact.html" data-cursor="link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span data-year></span> Elbio Studio. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Dribbble" data-cursor="link"><i class="fa-brands fa-dribbble" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/motion/index.js?v=2"></script>
+  <script src="assets/js/main.js" type="module"></script>
+
+</body>
+</html>

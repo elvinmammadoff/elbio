@@ -345,6 +345,17 @@
   z-index: 10;
 }
 
+/* Invisible bridge across the 6px gap so the dropdown stays open
+   while the cursor travels from the trigger link down into the menu. */
+.nav-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
 .nav-item.has-dropdown:hover .nav-dropdown,
 .nav-item.has-dropdown:focus-within .nav-dropdown {
   opacity: 1;
@@ -422,7 +433,7 @@
 }
 
 .mobile-nav-item.has-dropdown.is-open .mobile-nav-sub {
-  max-height: 200px;
+  max-height: 400px;
 }
 
 .mobile-nav-sub-link {

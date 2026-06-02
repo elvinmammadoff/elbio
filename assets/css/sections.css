@@ -2335,3 +2335,532 @@
   border-color: var(--el-accent);
   box-shadow: var(--el-shadow-glow);
 }
+
+/* =============================================================
+   HOME-VARIANT — Studio Agency (index-4.html)
+   Multipage demo: real routed inner pages instead of anchors.
+   Reuses .services-list, .projects-grid, .blog-grid,
+   .testimonials-grid, .clients. New components below.
+   ============================================================= */
+
+/* ---- Reusable inner-page header (about / services / work / contact) ---- */
+.page-header {
+  position: relative;
+  padding-top: calc(var(--el-hero-pt) - var(--el-space-8));
+  padding-bottom: var(--el-space-16);
+  border-bottom: 1px solid var(--el-border-subtle);
+  overflow: hidden;
+}
+
+.page-header-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 60ch;
+}
+
+.page-header-title {
+  font-size: var(--el-fz-h1);
+  font-family: var(--el-ff-display);
+  font-weight: var(--el-fw-black);
+  letter-spacing: var(--el-ls-tight);
+  line-height: var(--el-lh-display);
+  color: var(--el-text-primary);
+  margin-bottom: var(--el-space-6);
+}
+
+.page-header-sub {
+  font-size: var(--el-fz-h5);
+  color: var(--el-text-secondary);
+  line-height: var(--el-lh-relaxed);
+  max-width: 56ch;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--el-space-3);
+  font-size: var(--el-fz-label);
+  font-weight: var(--el-fw-medium);
+  letter-spacing: var(--el-ls-wider);
+  text-transform: uppercase;
+  color: var(--el-text-muted);
+  margin-bottom: var(--el-space-6);
+}
+
+.breadcrumb a { color: var(--el-text-muted); }
+.breadcrumb a:hover { color: var(--el-accent); }
+.breadcrumb-sep { color: var(--el-border-strong); }
+.breadcrumb-current { color: var(--el-accent); }
+
+/* Decorative gradient orb behind page headers */
+.page-header-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 720px;
+  max-height: 720px;
+  background: radial-gradient(circle, var(--el-accent-glow) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ---- Agency hero (index-4) ---- */
+.agency-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--el-hero-pt);
+  padding-bottom: var(--el-space-16);
+  overflow: hidden;
+}
+
+.agency-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.agency-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+}
+
+.agency-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--el-bg-base) 0%,
+    rgba(10, 10, 10, 0.55) 40%,
+    var(--el-bg-base) 100%
+  );
+}
+
+[data-theme="light"] .agency-hero-bg::after {
+  background: linear-gradient(
+    180deg,
+    var(--el-bg-base) 0%,
+    rgba(250, 250, 249, 0.55) 40%,
+    var(--el-bg-base) 100%
+  );
+}
+
+.agency-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.agency-hero-title {
+  font-size: var(--el-fz-display);
+  font-family: var(--el-ff-display);
+  font-weight: var(--el-fw-black);
+  letter-spacing: var(--el-ls-tight);
+  line-height: var(--el-lh-display);
+  color: var(--el-text-primary);
+  margin-bottom: var(--el-space-8);
+  max-width: 16ch;
+}
+
+.agency-hero-title em {
+  font-style: normal;
+  -webkit-text-stroke: 1px var(--el-text-primary);
+  color: transparent;
+}
+
+.agency-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--el-space-6) var(--el-space-12);
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--el-border-subtle);
+  padding-top: var(--el-space-8);
+}
+
+.agency-hero-lead {
+  font-size: var(--el-fz-h5);
+  color: var(--el-text-secondary);
+  line-height: var(--el-lh-relaxed);
+  max-width: 44ch;
+}
+
+/* ---- Stat band ---- */
+.stat-band {
+  border-top: 1px solid var(--el-border-subtle);
+  border-bottom: 1px solid var(--el-border-subtle);
+}
+
+.stat-band-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--el-border-subtle);
+}
+
+.stat-band-item {
+  background: var(--el-bg-base);
+  padding: var(--el-space-12) var(--el-space-8);
+  text-align: center;
+}
+
+.stat-band-number {
+  font-family: var(--el-ff-display);
+  font-size: var(--el-fz-h2);
+  font-weight: var(--el-fw-black);
+  letter-spacing: var(--el-ls-tight);
+  color: var(--el-text-primary);
+  line-height: 1;
+  margin-bottom: var(--el-space-3);
+}
+
+.stat-band-number .text-accent { color: var(--el-accent); }
+
+.stat-band-label {
+  font-size: var(--el-fz-small);
+  color: var(--el-text-muted);
+  letter-spacing: var(--el-ls-wide);
+}
+
+/* ---- Brands strip (static logo grid) ---- */
+.brands-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--el-border-subtle);
+  border: 1px solid var(--el-border-subtle);
+  border-radius: var(--el-radius-lg);
+  overflow: hidden;
+}
+
+.brand-cell {
+  background: var(--el-bg-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--el-space-10) var(--el-space-6);
+  min-height: 120px;
+}
+
+.brand-cell img {
+  max-height: 36px;
+  width: auto;
+  opacity: 0.5;
+  filter: grayscale(1) brightness(1.8);
+  transition: opacity var(--el-transition-base), filter var(--el-transition-base);
+}
+
+.brand-cell:hover img {
+  opacity: 1;
+  filter: grayscale(0) brightness(1);
+}
+
+[data-theme="light"] .brand-cell img {
+  filter: grayscale(1) brightness(0.4);
+}
+
+[data-theme="light"] .brand-cell:hover img {
+  filter: grayscale(0) brightness(1);
+}
+
+/* ---- CTA band ---- */
+.cta-band {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--el-border-subtle);
+}
+
+.cta-band-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.cta-band-title {
+  font-size: var(--el-fz-h1);
+  font-family: var(--el-ff-display);
+  font-weight: var(--el-fw-black);
+  letter-spacing: var(--el-ls-tight);
+  line-height: var(--el-lh-heading);
+  color: var(--el-text-primary);
+  margin-bottom: var(--el-space-6);
+}
+
+.cta-band-sub {
+  font-size: var(--el-fz-h5);
+  color: var(--el-text-secondary);
+  max-width: 50ch;
+  margin: 0 auto var(--el-space-10);
+}
+
+.cta-band-actions {
+  display: flex;
+  gap: var(--el-space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-band-glow {
+  position: absolute;
+  bottom: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: 70vw;
+  max-width: 900px;
+  max-height: 900px;
+  background: radial-gradient(circle, var(--el-accent-glow) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ---- Testimonial extensions (rating + avatar image) ---- */
+.testimonial-rating {
+  display: flex;
+  gap: 2px;
+  margin-bottom: var(--el-space-5);
+  color: var(--el-accent);
+  font-size: 14px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--el-space-4);
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--el-radius-circle);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--el-border-subtle);
+}
+
+/* ---- About: value cards + approach steps ---- */
+.value-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--el-gap-md);
+}
+
+.value-card {
+  background: var(--el-bg-surface);
+  border: 1px solid var(--el-border-subtle);
+  border-radius: var(--el-radius-xl);
+  padding: var(--el-space-10);
+  transition: border-color var(--el-transition-base), transform var(--el-transition-base);
+}
+
+.value-card:hover {
+  border-color: var(--el-border-default);
+  transform: translateY(-4px);
+}
+
+.value-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--el-radius-lg);
+  background: var(--el-accent-glow);
+  color: var(--el-accent);
+  font-size: 20px;
+  margin-bottom: var(--el-space-6);
+}
+
+.value-card-title {
+  font-size: var(--el-fz-h5);
+  margin-bottom: var(--el-space-3);
+  color: var(--el-text-primary);
+}
+
+.value-card-desc {
+  font-size: var(--el-fz-small);
+  color: var(--el-text-secondary);
+  line-height: var(--el-lh-relaxed);
+}
+
+/* About split (image + copy) */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--el-gap-lg);
+  align-items: center;
+}
+
+.about-split-media {
+  border-radius: var(--el-radius-2xl);
+  overflow: hidden;
+  border: 1px solid var(--el-border-subtle);
+}
+
+.about-split-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Team grid ---- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--el-gap-md);
+}
+
+.team-card {
+  text-align: left;
+}
+
+.team-card-photo {
+  border-radius: var(--el-radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--el-space-5);
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--el-border-subtle);
+}
+
+.team-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--el-transition-slow);
+}
+
+.team-card:hover .team-card-photo img {
+  transform: scale(1.05);
+}
+
+.team-card-name {
+  font-size: var(--el-fz-h6);
+  font-weight: var(--el-fw-bold);
+  color: var(--el-text-primary);
+}
+
+.team-card-role {
+  font-size: var(--el-fz-small);
+  color: var(--el-accent);
+  letter-spacing: var(--el-ls-wide);
+}
+
+/* ---- Work grid (agency portfolio page) ---- */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--el-gap-md);
+}
+
+.work-item {
+  position: relative;
+  border-radius: var(--el-radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--el-border-subtle);
+  aspect-ratio: 4 / 3;
+}
+
+.work-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--el-transition-slow);
+}
+
+.work-item:hover .work-item-img {
+  transform: scale(1.06);
+}
+
+.work-item-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--el-space-8);
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.85) 100%);
+  opacity: 0;
+  transition: opacity var(--el-transition-base);
+}
+
+.work-item:hover .work-item-overlay {
+  opacity: 1;
+}
+
+.work-item-cat {
+  font-size: var(--el-fz-label);
+  letter-spacing: var(--el-ls-wider);
+  text-transform: uppercase;
+  color: var(--el-accent);
+  margin-bottom: var(--el-space-2);
+}
+
+.work-item-title {
+  font-size: var(--el-fz-h5);
+  color: #fff;
+}
+
+/* ---- Services page: numbered process ---- */
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--el-gap-md);
+  counter-reset: process;
+}
+
+.process-step {
+  background: var(--el-bg-surface);
+  border: 1px solid var(--el-border-subtle);
+  border-radius: var(--el-radius-xl);
+  padding: var(--el-space-10);
+}
+
+.process-step-num {
+  font-family: var(--el-ff-mono);
+  font-size: var(--el-fz-small);
+  color: var(--el-accent);
+  letter-spacing: var(--el-ls-wide);
+  margin-bottom: var(--el-space-5);
+}
+
+.process-step-title {
+  font-size: var(--el-fz-h5);
+  margin-bottom: var(--el-space-3);
+  color: var(--el-text-primary);
+}
+
+.process-step-desc {
+  font-size: var(--el-fz-small);
+  color: var(--el-text-secondary);
+  line-height: var(--el-lh-relaxed);
+}
+
+/* ---- Responsive: Studio Agency ---- */
+@media (min-width: 768px) {
+  .stat-band-grid   { grid-template-columns: repeat(4, 1fr); }
+  .brands-strip-grid{ grid-template-columns: repeat(4, 1fr); }
+  .value-grid       { grid-template-columns: repeat(3, 1fr); }
+  .team-grid        { grid-template-columns: repeat(4, 1fr); }
+  .work-grid        { grid-template-columns: repeat(2, 1fr); }
+  .process-grid     { grid-template-columns: repeat(2, 1fr); }
+  .about-split      { grid-template-columns: 1fr 1fr; }
+  .agency-hero-meta { flex-wrap: nowrap; }
+}
+
+@media (min-width: 1280px) {
+  .work-grid        { grid-template-columns: repeat(3, 1fr); }
+  .process-grid     { grid-template-columns: repeat(4, 1fr); }
+  /* First work item spans 2 cols for a featured look */
+  .work-grid .work-item.is-featured {
+    grid-column: span 2;
+    aspect-ratio: 16 / 10;
+  }
+}
