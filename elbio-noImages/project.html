@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selected Work | Elbio</title>
+  <meta name="description" content="A curated selection of product design, branding, and UX work spanning SaaS, fintech, editorial, and mobile.">
+
+  <script src="assets/js/theme-init.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Big+Shoulders+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f%5B%5D=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/motion.css" media="all" onerror="this.remove()">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* ---- Projects listing page -------------------------------- */
+    .projects-hero {
+      padding: var(--el-hero-pt) 0 var(--el-space-12);
+      border-bottom: 1px solid var(--el-border-subtle);
+    }
+
+    .projects-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: var(--el-space-8);
+    }
+
+    .projects-hero-title {
+      font-family: var(--el-ff-display);
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: var(--el-fw-black);
+      letter-spacing: var(--el-ls-tighter);
+      line-height: 1;
+      color: var(--el-text-primary);
+      margin-top: var(--el-space-4);
+    }
+
+    .projects-hero-count {
+      font-family: var(--el-ff-mono);
+      font-size: var(--el-fz-label);
+      color: var(--el-text-muted);
+      letter-spacing: var(--el-ls-wide);
+      text-transform: uppercase;
+      padding-bottom: var(--el-space-3);
+      white-space: nowrap;
+    }
+
+    .projects-listing {
+      padding: var(--el-space-16) 0 var(--el-space-32);
+    }
+
+    /* On the listing page all cards have equal-ratio images */
+    .projects-listing .project-card:first-child .project-card-image {
+      aspect-ratio: 16/9;
+    }
+
+    @media (max-width: 768px) {
+      .projects-hero-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Elbio — Home" data-cursor="link">
+        <span class="logo-text">Elbio<span class="logo-dot">.</span></span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-menu">
+          <li class="nav-item has-dropdown">
+            <a href="index.html" class="nav-link nav-link--has-dropdown" data-cursor="link" aria-haspopup="true">Home <i class="fa-solid fa-chevron-down nav-dropdown-icon" aria-hidden="true"></i></a>
+            <ul class="nav-dropdown" role="menu">
+              <li><a href="index.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio</a></li>
+              <li><a href="index-2.html" class="nav-dropdown-link" data-cursor="link">Cream Editorial</a></li>
+              <li><a href="index-3.html" class="nav-dropdown-link" data-cursor="link">Neon Cyberpunk</a></li>
+              <li><a href="index-4.html" class="nav-dropdown-link" data-cursor="link">Studio Agency</a></li>
+              <li><a href="index-5.html" class="nav-dropdown-link" data-cursor="link">Photography</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="index.html#about" class="nav-link" data-cursor="link">About</a></li>
+          <li class="nav-item"><a href="project.html" class="nav-link is-active" aria-current="page" data-cursor="link">Work</a></li>
+          <li class="nav-item"><a href="index.html#services" class="nav-link" data-cursor="link">Services</a></li>
+          <li class="nav-item"><a href="index.html#pricing" class="nav-link" data-cursor="link">Pricing</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link" data-cursor="link">Journal</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" data-cursor="link">
+          <i class="fa-regular fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-regular fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
+        <a href="contact.html" class="btn btn-primary nav-cta" data-cursor="link">Hire Me</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" data-cursor="link">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <ul class="mobile-nav-menu">
+      <li class="mobile-nav-item has-dropdown">
+        <button class="mobile-nav-toggle" aria-expanded="false">Home <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <ul class="mobile-nav-sub">
+          <li><a href="index.html" class="mobile-nav-sub-link">Creative Portfolio</a></li>
+          <li><a href="index-2.html" class="mobile-nav-sub-link">Cream Editorial</a></li>
+          <li><a href="index-3.html" class="mobile-nav-sub-link">Neon Cyberpunk</a></li>
+          <li><a href="index-4.html" class="mobile-nav-sub-link">Studio Agency</a></li>
+          <li><a href="index-5.html" class="mobile-nav-sub-link">Photography</a></li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item"><a href="index.html#about" class="mobile-nav-link">About</a></li>
+      <li class="mobile-nav-item"><a href="project.html" class="mobile-nav-link">Work</a></li>
+      <li class="mobile-nav-item"><a href="index.html#services" class="mobile-nav-link">Services</a></li>
+      <li class="mobile-nav-item"><a href="index.html#pricing" class="mobile-nav-link">Pricing</a></li>
+      <li class="mobile-nav-item"><a href="blog.html" class="mobile-nav-link">Journal</a></li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-socials">
+        <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+        <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        <a href="#" class="social-link" aria-label="Dribbble" data-cursor="link"><i class="fa-brands fa-dribbble" aria-hidden="true"></i></a>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="projects-hero" aria-label="Projects header">
+      <div class="container">
+        <div class="projects-hero-inner">
+          <div>
+            <span class="section-label">Selected Work</span>
+            <h1 class="projects-hero-title" data-motion="word-mask">
+              <span class="word-wrap"><span class="word">All Projects.</span></span>
+            </h1>
+          </div>
+          <p class="projects-hero-count">9 projects</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT LISTING -->
+    <div class="projects-listing">
+      <div class="container">
+
+        <div class="filter-chips" role="group" aria-label="Filter projects by category" data-motion="reveal-stagger">
+          <button class="filter-chip is-active" data-filter="all" type="button" data-cursor="link">All</button>
+          <button class="filter-chip" data-filter="ui design" type="button" data-cursor="link">UI Design</button>
+          <button class="filter-chip" data-filter="branding" type="button" data-cursor="link">Branding</button>
+          <button class="filter-chip" data-filter="mobile" type="button" data-cursor="link">Mobile</button>
+          <button class="filter-chip" data-filter="saas" type="button" data-cursor="link">SaaS</button>
+          <button class="filter-chip" data-filter="design system" type="button" data-cursor="link">Design System</button>
+        </div>
+
+        <div class="projects-grid" data-motion="reveal-stagger">
+
+          <!-- 1 — Lumora -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="UI Design, Design System, SaaS">
+            <a href="project-single.html?project=lumora-saas-dashboard" class="project-card-image" data-cursor="link">
+              <img src="https://placehold.co/1600x900" alt="Lumora SaaS Analytics Platform dashboard interface" class="project-card-img" loading="lazy">
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </a>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">UI Design</span>
+                <span class="tag">Design System</span>
+                <span class="tag tag-accent">SaaS</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href="project-single.html?project=lumora-saas-dashboard" data-cursor="link">Lumora — SaaS Analytics Platform</a>
+              </h2>
+              <p class="project-card-desc">End-to-end design of a real-time analytics dashboard for B2B marketing teams, built around clarity at scale.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2024</span>
+                <a href="project-single.html?project=lumora-saas-dashboard" class="project-card-arrow" aria-label="View Lumora project" data-cursor="link">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 — Vanta -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Branding, Web Design, Motion">
+            <a href="project-single.html?project=vanta-brand-identity" class="project-card-image" data-cursor="link">
+              <img src="https://placehold.co/1600x900" alt="Vanta brand identity system showcase" class="project-card-img" loading="lazy">
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </a>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Branding</span>
+                <span class="tag">Web Design</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href="project-single.html?project=vanta-brand-identity" data-cursor="link">Vanta — Brand Identity &amp; Web</a>
+              </h2>
+              <p class="project-card-desc">Full brand identity and marketing website for a Series A cybersecurity startup.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2024</span>
+                <a href="project-single.html?project=vanta-brand-identity" class="project-card-arrow" aria-label="View Vanta project" data-cursor="link">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3 — Forma -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="E-Commerce, UI Design, UX Research">
+            <a href="project-single.html?project=forma-ecommerce" class="project-card-image" data-cursor="link">
+              <img src="https://placehold.co/1600x900" alt="Forma luxury furniture e-commerce redesign" class="project-card-img" loading="lazy">
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </a>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">E-Commerce</span>
+                <span class="tag">UI Design</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href="project-single.html?project=forma-ecommerce" data-cursor="link">Forma — Luxury E-Commerce</a>
+              </h2>
+              <p class="project-card-desc">Full UX overhaul focused on the consideration-to-purchase funnel for high-ticket furniture.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2023</span>
+                <a href="project-single.html?project=forma-ecommerce" class="project-card-arrow" aria-label="View Forma project" data-cursor="link">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4 — Meridian -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Mobile, Product Design, iOS">
+            <a href="project-single.html?project=meridian-mobile-app" class="project-card-image" data-cursor="link">
+              <img src="https://placehold.co/1600x900" alt="Meridian travel app iOS screens" class="project-card-img" loading="lazy">
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </a>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Mobile</span>
+                <span class="tag">iOS</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href="project-single.html?project=meridian-mobile-app" data-cursor="link">Meridian — Travel Planning App</a>
+              </h2>
+              <p class="project-card-desc">iOS travel planning app combining itinerary management with local discovery for independent travelers.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2023</span>
+                <a href="project-single.html?project=meridian-mobile-app" class="project-card-arrow" aria-label="View Meridian project" data-cursor="link">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5 — Atlas -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Design System, UI Design, Documentation">
+            <a href="project-single.html?project=atlas-design-system" class="project-card-image" data-cursor="link">
+              <img src="https://placehold.co/1600x900" alt="Atlas design system documentation and components" class="project-card-img" loading="lazy">
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </a>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Design System</span>
+                <span class="tag">UI Design</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href="project-single.html?project=atlas-design-system" data-cursor="link">Atlas — Enterprise Design System</a>
+              </h2>
+              <p class="project-card-desc">Scalable design system serving 14 product teams across a 1,200-person enterprise software company.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2022</span>
+                <a href="project-single.html?project=atlas-design-system" class="project-card-arrow" aria-label="View Atlas project" data-cursor="link">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6 — Grove -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Editorial, Typography, Web Design">
+            <a href="project-single.html?project=grove-editorial" class="project-card-image" data-cursor="link">
+              <img src="https://placehold.co/1600x900" alt="Grove digital magazine editorial design" class="project-card-img" loading="lazy">
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </a>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Editorial</span>
+                <span class="tag">Typography</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href="project-single.html?project=grove-editorial" data-cursor="link">Grove — Digital Magazine</a>
+              </h2>
+              <p class="project-card-desc">Art direction and web design for an independent digital magazine covering architecture, craft, and slow living.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2022</span>
+                <a href="project-single.html?project=grove-editorial" class="project-card-arrow" aria-label="View Grove project" data-cursor="link">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7 — Helix -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Fintech, UX Design, Onboarding">
+            <a href="project-single.html?project=helix-fintech" class="project-card-image" data-cursor="link">
+              <img src="https://placehold.co/1600x900" alt="Helix fintech onboarding flow" class="project-card-img" loading="lazy">
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </a>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Fintech</span>
+                <span class="tag">UX Design</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href="project-single.html?project=helix-fintech" data-cursor="link">Helix — Fintech Onboarding</a>
+              </h2>
+              <p class="project-card-desc">Redesign of the onboarding flow for a neobank targeting freelancers — reducing KYC drop-off while meeting regulatory requirements.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2023</span>
+                <a href="project-single.html?project=helix-fintech" class="project-card-arrow" aria-label="View Helix project" data-cursor="link">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8 — Solstice -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Mobile, UI Design, Health">
+            <a href="project-single.html?project=solstice-wellness-app" class="project-card-image" data-cursor="link">
+              <img src="https://placehold.co/1600x900" alt="Solstice wellness and mindfulness app" class="project-card-img" loading="lazy">
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </a>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Mobile</span>
+                <span class="tag">UI Design</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href="project-single.html?project=solstice-wellness-app" data-cursor="link">Solstice — Wellness &amp; Mindfulness</a>
+              </h2>
+              <p class="project-card-desc">Meditation and sleep wellness app with personalized programs — designed to minimize cognitive load for users in distress.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2022</span>
+                <a href="project-single.html?project=solstice-wellness-app" class="project-card-arrow" aria-label="View Solstice project" data-cursor="link">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9 — Nomo -->
+          <article class="project-card" data-motion="tilt" data-cursor="View" data-tags="Branding, Web Design, Hospitality">
+            <a href="project-single.html?project=nomo-restaurant-web" class="project-card-image" data-cursor="link">
+              <img src="https://placehold.co/1600x900" alt="Nomo restaurant brand and website" class="project-card-img" loading="lazy">
+              <div class="project-card-overlay" aria-hidden="true"></div>
+              <div class="project-card-view" aria-hidden="true">View</div>
+            </a>
+            <div class="project-card-body">
+              <div class="project-card-tags">
+                <span class="tag">Branding</span>
+                <span class="tag">Web Design</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href="project-single.html?project=nomo-restaurant-web" data-cursor="link">Nomo — Restaurant Brand &amp; Web</a>
+              </h2>
+              <p class="project-card-desc">Brand identity and immersive website for a high-concept Tokyo-inspired omakase restaurant in New York.</p>
+              <div class="project-card-meta">
+                <span class="project-card-year">2021</span>
+                <a href="project-single.html?project=nomo-restaurant-web" class="project-card-arrow" aria-label="View Nomo project" data-cursor="link">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-name" data-cursor="link">Elbio<span style="color:var(--el-accent)">.</span></a>
+          <p class="footer-tagline">Product design &amp; creative direction</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="index.html#about" data-cursor="link">About</a>
+          <a href="project.html" data-cursor="link">Work</a>
+          <a href="blog.html" data-cursor="link">Journal</a>
+          <a href="contact.html" data-cursor="link">Contact</a>
+          <a href="documentation/index.html" data-cursor="link">Docs</a>
+          <a href="preview.html" data-cursor="link">Preview</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span data-year></span> Elbio. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Twitter / X" data-cursor="link"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn" data-cursor="link"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="#" class="social-link" aria-label="Dribbble" data-cursor="link"><i class="fa-brands fa-dribbble" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script type="module" src="assets/js/motion/index.js"></script>
+
+</body>
+</html>

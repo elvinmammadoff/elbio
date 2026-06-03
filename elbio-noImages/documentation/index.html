@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation — Elbio Portfolio Template</title>
+  <meta name="description" content="Complete documentation for the Elbio ThemeForest portfolio template. File structure, color and font customization, adding projects, theme switching, Web3Forms setup.">
+
+  <!-- Theme init — must run before any render to prevent FOUC -->
+  <script src="../assets/js/theme-init.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Big+Shoulders+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/nav.css">
+  <link rel="stylesheet" href="../assets/css/sections.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/motion.css" media="all" onerror="this.remove()">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* =====================================================
+       DOCS LAYOUT
+       ===================================================== */
+    .docs-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      min-height: 100vh;
+      padding-top: 80px; /* nav height */
+    }
+
+    /* Sidebar */
+    .docs-sidebar {
+      position: sticky;
+      top: 80px;
+      height: calc(100vh - 80px);
+      overflow-y: auto;
+      padding: var(--el-space-10) var(--el-space-6);
+      border-right: 1px solid var(--el-border-subtle);
+      background: var(--el-bg-base);
+      scrollbar-width: thin;
+      scrollbar-color: var(--el-border-default) transparent;
+    }
+
+    .docs-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .docs-sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .docs-sidebar::-webkit-scrollbar-thumb {
+      background: var(--el-border-default);
+      border-radius: 2px;
+    }
+
+    .docs-sidebar-label {
+      font-family: var(--el-ff-mono);
+      font-size: var(--el-fz-label);
+      letter-spacing: var(--el-ls-wider);
+      text-transform: uppercase;
+      color: var(--el-text-muted);
+      margin-bottom: var(--el-space-4);
+      margin-top: var(--el-space-6);
+    }
+
+    .docs-sidebar-label:first-child {
+      margin-top: 0;
+    }
+
+    .docs-toc {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--el-space-6);
+    }
+
+    .docs-toc li + li {
+      margin-top: 2px;
+    }
+
+    .docs-toc a {
+      display: block;
+      padding: var(--el-space-2) var(--el-space-3);
+      font-size: var(--el-fz-small);
+      color: var(--el-text-secondary);
+      border-radius: var(--el-radius-sm);
+      transition: color var(--el-transition-fast), background var(--el-transition-fast);
+      text-decoration: none;
+    }
+
+    .docs-toc a:hover,
+    .docs-toc a.is-active {
+      color: var(--el-text-primary);
+      background: var(--el-bg-surface);
+    }
+
+    .docs-toc a.is-active {
+      color: var(--el-accent);
+    }
+
+    /* Main content */
+    .docs-content {
+      padding: var(--el-space-16) var(--el-space-20) var(--el-space-32);
+      max-width: 860px;
+    }
+
+    .docs-section {
+      padding-top: var(--el-space-20);
+      border-top: 1px solid var(--el-border-subtle);
+      margin-top: var(--el-space-20);
+    }
+
+    .docs-section:first-child {
+      padding-top: 0;
+      border-top: none;
+      margin-top: 0;
+    }
+
+    .docs-section-title {
+      font-family: var(--el-ff-display);
+      font-size: var(--el-fz-h2);
+      font-weight: var(--el-fw-bold);
+      color: var(--el-text-primary);
+      letter-spacing: var(--el-ls-tight);
+      margin-bottom: var(--el-space-8);
+      line-height: var(--el-lh-heading);
+    }
+
+    .docs-section-subtitle {
+      font-family: var(--el-ff-display);
+      font-size: var(--el-fz-h4);
+      font-weight: var(--el-fw-semibold);
+      color: var(--el-text-primary);
+      margin-top: var(--el-space-10);
+      margin-bottom: var(--el-space-4);
+    }
+
+    .docs-p {
+      font-size: var(--el-fz-body);
+      color: var(--el-text-secondary);
+      line-height: var(--el-lh-body);
+      margin-bottom: var(--el-space-5);
+    }
+
+    /* Code blocks */
+    .docs-code {
+      display: block;
+      font-family: var(--el-ff-mono);
+      font-size: 13px;
+      line-height: 1.7;
+      background: var(--el-bg-surface);
+      border: 1px solid var(--el-border-subtle);
+      border-radius: var(--el-radius-md);
+      padding: var(--el-space-6);
+      overflow-x: auto;
+      color: var(--el-text-primary);
+      margin-bottom: var(--el-space-6);
+      white-space: pre;
+    }
+
+    .docs-inline-code {
+      font-family: var(--el-ff-mono);
+      font-size: 12px;
+      background: var(--el-bg-surface);
+      border: 1px solid var(--el-border-subtle);
+      border-radius: var(--el-radius-sm);
+      padding: 2px 6px;
+      color: var(--el-accent);
+    }
+
+    /* File tree */
+    .docs-filetree {
+      font-family: var(--el-ff-mono);
+      font-size: 13px;
+      line-height: 1.8;
+      background: var(--el-bg-surface);
+      border: 1px solid var(--el-border-subtle);
+      border-radius: var(--el-radius-md);
+      padding: var(--el-space-6);
+      color: var(--el-text-secondary);
+      margin-bottom: var(--el-space-6);
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    .docs-filetree .ft-dir {
+      color: var(--el-text-primary);
+      font-weight: var(--el-fw-semibold);
+    }
+
+    .docs-filetree .ft-comment {
+      color: var(--el-text-muted);
+    }
+
+    .docs-filetree .ft-accent {
+      color: var(--el-accent);
+    }
+
+    /* Swatch grid */
+    .docs-swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--el-gap-md);
+      margin-bottom: var(--el-space-8);
+    }
+
+    .docs-swatch {
+      border-radius: var(--el-radius-md);
+      overflow: hidden;
+      border: 1px solid var(--el-border-subtle);
+    }
+
+    .docs-swatch-color {
+      height: 56px;
+    }
+
+    .docs-swatch-label {
+      padding: var(--el-space-3) var(--el-space-4);
+      background: var(--el-bg-surface);
+    }
+
+    .docs-swatch-token {
+      font-family: var(--el-ff-mono);
+      font-size: 11px;
+      color: var(--el-accent);
+      display: block;
+    }
+
+    .docs-swatch-value {
+      font-family: var(--el-ff-mono);
+      font-size: 11px;
+      color: var(--el-text-muted);
+      display: block;
+    }
+
+    /* Table */
+    .docs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--el-fz-small);
+      margin-bottom: var(--el-space-8);
+    }
+
+    .docs-table th {
+      text-align: left;
+      padding: var(--el-space-3) var(--el-space-4);
+      font-family: var(--el-ff-mono);
+      font-size: 11px;
+      letter-spacing: var(--el-ls-wider);
+      text-transform: uppercase;
+      color: var(--el-text-muted);
+      border-bottom: 1px solid var(--el-border-subtle);
+    }
+
+    .docs-table td {
+      padding: var(--el-space-3) var(--el-space-4);
+      color: var(--el-text-secondary);
+      border-bottom: 1px solid var(--el-border-subtle);
+      vertical-align: top;
+    }
+
+    .docs-table td:first-child {
+      color: var(--el-accent);
+      font-family: var(--el-ff-mono);
+      font-size: 12px;
+    }
+
+    .docs-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Steps list */
+    .docs-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--el-space-6);
+      counter-reset: docs-step;
+    }
+
+    .docs-steps li {
+      counter-increment: docs-step;
+      display: flex;
+      gap: var(--el-space-5);
+      margin-bottom: var(--el-space-6);
+    }
+
+    .docs-steps li::before {
+      content: counter(docs-step);
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--el-accent);
+      color: var(--el-text-inverse);
+      font-family: var(--el-ff-mono);
+      font-size: 12px;
+      font-weight: var(--el-fw-bold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .docs-steps li > div {
+      flex: 1;
+    }
+
+    .docs-steps .step-title {
+      font-weight: var(--el-fw-semibold);
+      color: var(--el-text-primary);
+      margin-bottom: var(--el-space-2);
+    }
+
+    /* Callout */
+    .docs-callout {
+      padding: var(--el-space-5) var(--el-space-6);
+      border-left: 3px solid var(--el-accent);
+      background: var(--el-accent-glow);
+      border-radius: 0 var(--el-radius-md) var(--el-radius-md) 0;
+      margin-bottom: var(--el-space-6);
+      font-size: var(--el-fz-small);
+      color: var(--el-text-secondary);
+      line-height: var(--el-lh-body);
+    }
+
+    .docs-callout strong {
+      color: var(--el-accent);
+      font-weight: var(--el-fw-semibold);
+    }
+
+    /* Breadcrumb back link */
+    .docs-back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--el-space-2);
+      font-size: var(--el-fz-small);
+      color: var(--el-text-muted);
+      text-decoration: none;
+      margin-bottom: var(--el-space-10);
+      transition: color var(--el-transition-fast);
+    }
+
+    .docs-back:hover {
+      color: var(--el-accent);
+    }
+
+    .docs-back svg {
+      transition: transform var(--el-transition-fast);
+    }
+
+    .docs-back:hover svg {
+      transform: translateX(-3px);
+    }
+
+    /* Mobile TOC — shown only on mobile, hides at 768px+ */
+    .docs-toc-mobile {
+      display: block;
+      background: var(--el-bg-surface);
+      border: 1px solid var(--el-border-subtle);
+      border-radius: var(--el-radius-lg);
+      padding: var(--el-space-5) var(--el-space-6);
+      margin-bottom: var(--el-space-8);
+    }
+
+    .docs-toc-mobile summary {
+      font-size: var(--el-fz-label);
+      font-weight: var(--el-fw-medium);
+      letter-spacing: var(--el-ls-wide);
+      text-transform: uppercase;
+      color: var(--el-text-muted);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .docs-toc-mobile summary::-webkit-details-marker { display: none; }
+
+    .docs-toc-mobile-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--el-space-4) 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--el-space-2);
+    }
+
+    .docs-toc-mobile-list a {
+      display: block;
+      padding: var(--el-space-2) 0;
+      font-size: var(--el-fz-small);
+      color: var(--el-text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--el-border-subtle);
+      transition: color var(--el-transition-base);
+    }
+
+    .docs-toc-mobile-list a:hover {
+      color: var(--el-accent);
+    }
+
+    /* Responsive — collapse sidebar on narrow screens */
+    @media (max-width: 767px) {
+      .docs-layout {
+        grid-template-columns: 1fr;
+        padding-top: 64px;
+      }
+
+      .docs-sidebar {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+        border-right: none;
+        border-bottom: 1px solid var(--el-border-subtle);
+        padding: var(--el-space-6);
+      }
+
+      .docs-content {
+        padding: var(--el-space-10) var(--el-space-6) var(--el-space-20);
+      }
+
+      .docs-swatch-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+    }
+
+    /* Hide mobile TOC on tablet and above */
+    @media (min-width: 768px) {
+      .docs-toc-mobile {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page transition overlay -->
+  <div class="page-transition" aria-hidden="true"></div>
+  <!-- Custom cursor -->
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="../index.html" class="nav-logo" aria-label="Elbio — Home" data-cursor="link">
+        <span class="logo-text">Elbio<span class="logo-dot">.</span></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-menu" role="list">
+          <li class="nav-item has-dropdown">
+            <a href="../index.html" class="nav-link nav-link--has-dropdown" data-cursor="link" aria-haspopup="true">Home <i class="fa-solid fa-chevron-down nav-dropdown-icon" aria-hidden="true"></i></a>
+            <ul class="nav-dropdown" role="menu">
+              <li><a href="../index.html" class="nav-dropdown-link" data-cursor="link">Creative Portfolio</a></li>
+              <li><a href="../index-2.html" class="nav-dropdown-link" data-cursor="link">Cream Editorial</a></li>
+              <li><a href="../index-3.html" class="nav-dropdown-link" data-cursor="link">Neon Cyberpunk</a></li>
+              <li><a href="../index-4.html" class="nav-dropdown-link" data-cursor="link">Studio Agency</a></li>
+              <li><a href="../index-5.html" class="nav-dropdown-link" data-cursor="link">Photography</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="../index.html#about" class="nav-link" data-cursor="link">About</a></li>
+          <li class="nav-item"><a href="../project.html" class="nav-link" data-cursor="link">Work</a></li>
+          <li class="nav-item"><a href="../index.html#services" class="nav-link" data-cursor="link">Services</a></li>
+          <li class="nav-item"><a href="../index.html#pricing" class="nav-link" data-cursor="link">Pricing</a></li>
+          <li class="nav-item"><a href="../blog.html" class="nav-link" data-cursor="link">Journal</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" data-cursor="link">
+          <i class="fa-regular fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-regular fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
+        <a href="../contact.html" class="btn btn-primary nav-cta" data-cursor="link">Hire Me</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" data-cursor="link">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <ul class="mobile-nav-menu" role="list">
+      <li class="mobile-nav-item has-dropdown">
+        <button class="mobile-nav-toggle" aria-expanded="false">Home <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <ul class="mobile-nav-sub">
+          <li><a href="../index.html" class="mobile-nav-sub-link">Creative Portfolio</a></li>
+          <li><a href="../index-2.html" class="mobile-nav-sub-link">Cream Editorial</a></li>
+          <li><a href="../index-3.html" class="mobile-nav-sub-link">Neon Cyberpunk</a></li>
+          <li><a href="../index-4.html" class="mobile-nav-sub-link">Studio Agency</a></li>
+          <li><a href="../index-5.html" class="mobile-nav-sub-link">Photography</a></li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item"><a href="../index.html#about" class="mobile-nav-link">About</a></li>
+      <li class="mobile-nav-item"><a href="../project.html" class="mobile-nav-link">Work</a></li>
+      <li class="mobile-nav-item"><a href="../index.html#services" class="mobile-nav-link">Services</a></li>
+      <li class="mobile-nav-item"><a href="../index.html#pricing" class="mobile-nav-link">Pricing</a></li>
+      <li class="mobile-nav-item"><a href="../blog.html" class="mobile-nav-link">Journal</a></li>
+      <li class="mobile-nav-item"><a href="../contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       DOCS LAYOUT
+       ============================================================ -->
+  <div class="docs-layout">
+
+    <!-- Sidebar TOC -->
+    <aside class="docs-sidebar" aria-label="Documentation table of contents">
+      <p class="docs-sidebar-label">Getting Started</p>
+      <ul class="docs-toc" role="list">
+        <li><a href="#getting-started" data-cursor="link">Getting Started</a></li>
+        <li><a href="#file-structure" data-cursor="link">File Structure</a></li>
+      </ul>
+
+      <p class="docs-sidebar-label">Customization</p>
+      <ul class="docs-toc" role="list">
+        <li><a href="#colors" data-cursor="link">Customizing Colors</a></li>
+        <li><a href="#fonts" data-cursor="link">Customizing Fonts</a></li>
+        <li><a href="#adding-projects" data-cursor="link">Adding Projects</a></li>
+        <li><a href="#theme-switching" data-cursor="link">Theme Switching</a></li>
+      </ul>
+
+      <p class="docs-sidebar-label">Integrations</p>
+      <ul class="docs-toc" role="list">
+        <li><a href="#web3forms" data-cursor="link">Web3Forms Setup</a></li>
+        <li><a href="#motion-system" data-cursor="link">Motion System</a></li>
+      </ul>
+
+      <p class="docs-sidebar-label">Legal</p>
+      <ul class="docs-toc" role="list">
+        <li><a href="#credits" data-cursor="link">Credits &amp; License</a></li>
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <main class="docs-content" id="main-content">
+
+      <a href="../index.html" class="docs-back" data-cursor="link">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Back to portfolio
+      </a>
+
+      <!-- Mobile TOC — visible at 375px, hidden at 768px+ -->
+      <nav class="docs-toc-mobile" aria-label="Documentation sections">
+        <details>
+          <summary>Jump to section</summary>
+          <ul class="docs-toc-mobile-list">
+            <li><a href="#getting-started">Getting Started</a></li>
+            <li><a href="#file-structure">File Structure</a></li>
+            <li><a href="#colors">Customizing Colors</a></li>
+            <li><a href="#fonts">Customizing Fonts</a></li>
+            <li><a href="#adding-projects">Adding Projects</a></li>
+            <li><a href="#theme-switching">Theme Switching</a></li>
+            <li><a href="#web3forms">Web3Forms Setup</a></li>
+            <li><a href="#motion-system">Motion System</a></li>
+            <li><a href="#credits">Credits &amp; License</a></li>
+          </ul>
+        </details>
+      </nav>
+
+      <!-- =========================================================
+           1. GETTING STARTED
+           ========================================================= -->
+      <section id="getting-started" class="docs-section" aria-labelledby="gs-heading">
+        <h1 class="docs-section-title" id="gs-heading" data-motion="reveal">Getting Started</h1>
+
+        <p class="docs-p">
+          Elbio is a static HTML portfolio template. There is no build step, no package manager, and no server required to run it. Open any HTML file directly in a browser to preview it.
+        </p>
+
+        <h2 class="docs-section-subtitle">Opening in a browser</h2>
+        <p class="docs-p">
+          Double-click <code class="docs-inline-code">index.html</code> in your file manager to open it in your default browser. All paths are relative, so navigation between pages works out of the box from the filesystem.
+        </p>
+
+        <div class="docs-callout">
+          <strong>Local server recommended.</strong> Some browser security policies block ES module imports from <code class="docs-inline-code">file://</code> URLs. If animations do not load, serve the folder using a simple local server: <code class="docs-inline-code">npx serve .</code> (requires Node.js) or the VS Code Live Server extension.
+        </div>
+
+        <h2 class="docs-section-subtitle">Supported browsers</h2>
+        <p class="docs-p">
+          Elbio targets modern evergreen browsers. All features are tested against:
+        </p>
+        <table class="docs-table">
+          <thead>
+            <tr>
+              <th>Browser</th>
+              <th>Minimum version</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chrome / Edge</td>
+              <td>108+</td>
+            </tr>
+            <tr>
+              <td>Firefox</td>
+              <td>108+</td>
+            </tr>
+            <tr>
+              <td>Safari</td>
+              <td>16.0+</td>
+            </tr>
+            <tr>
+              <td>iOS Safari</td>
+              <td>16.0+</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="docs-p">
+          Internet Explorer is not supported. Animations degrade gracefully under <code class="docs-inline-code">prefers-reduced-motion</code>.
+        </p>
+      </section>
+
+      <!-- =========================================================
+           2. FILE STRUCTURE
+           ========================================================= -->
+      <section id="file-structure" class="docs-section" aria-labelledby="fs-heading">
+        <h2 class="docs-section-title" id="fs-heading" data-motion="reveal">File Structure</h2>
+
+        <p class="docs-p">
+          All template files live in one flat directory — no sub-projects or monorepo structure. The annotated tree below covers every file you will interact with as a buyer.
+        </p>
+
+        <div class="docs-filetree" role="img" aria-label="Annotated file tree">
+<span class="ft-dir">elbio/</span>
+├── <span class="ft-accent">index.html</span>           <span class="ft-comment">— Homepage variant 1 (Dark Industrial)</span>
+├── <span class="ft-accent">index-2.html</span>         <span class="ft-comment">— Homepage variant 2 (Cream Editorial)</span>
+├── <span class="ft-accent">index-3.html</span>         <span class="ft-comment">— Homepage variant 3 (Neon Cyberpunk)</span>
+├── <span class="ft-accent">index-4.html</span>         <span class="ft-comment">— Homepage variant 4 (Studio Agency — multipage)</span>
+├── <span class="ft-accent">index-5.html</span>         <span class="ft-comment">— Homepage variant 5 (Visual / Photography)</span>
+├── <span class="ft-accent">agency-about.html</span>    <span class="ft-comment">— Studio: About page (story, values, team)</span>
+├── <span class="ft-accent">agency-services.html</span> <span class="ft-comment">— Studio: Services page (process, pricing)</span>
+├── <span class="ft-accent">agency-work.html</span>     <span class="ft-comment">— Studio: Work page (filterable portfolio grid)</span>
+├── <span class="ft-accent">agency-contact.html</span>  <span class="ft-comment">— Studio: Contact page (enquiry form)</span>
+├── <span class="ft-accent">photo-gallery.html</span>   <span class="ft-comment">— Photography: full masonry gallery (zoom-parallax)</span>
+├── <span class="ft-accent">photo-about.html</span>     <span class="ft-comment">— Photography: About page</span>
+├── <span class="ft-accent">photo-contact.html</span>   <span class="ft-comment">— Photography: Contact / booking page</span>
+├── <span class="ft-accent">project.html</span>         <span class="ft-comment">— Full project listing page (9 projects, filterable)</span>
+├── <span class="ft-accent">project-single.html</span>  <span class="ft-comment">— Case study page (loads project data via URL param)</span>
+├── <span class="ft-accent">blog.html</span>            <span class="ft-comment">— Journal listing page (all articles)</span>
+├── <span class="ft-accent">blog-single.html</span>     <span class="ft-comment">— Single article page</span>
+├── <span class="ft-accent">preview.html</span>         <span class="ft-comment">— Theme variant preview page</span>
+├── <span class="ft-accent">contact.html</span>         <span class="ft-comment">— Standalone contact page with Web3Forms</span>
+│
+├── <span class="ft-dir">documentation/</span>
+│   └── <span class="ft-accent">index.html</span>       <span class="ft-comment">— This documentation page</span>
+│
+├── <span class="ft-dir">assets/</span>
+│   ├── <span class="ft-dir">css/</span>
+│   │   ├── <span class="ft-accent">variables.css</span>    <span class="ft-comment">— All CSS custom properties (design tokens)</span>
+│   │   ├── <span class="ft-accent">base.css</span>         <span class="ft-comment">— Reset, typography, utility classes</span>
+│   │   ├── <span class="ft-accent">nav.css</span>          <span class="ft-comment">— Header, mobile menu, theme toggle styles</span>
+│   │   ├── <span class="ft-accent">sections.css</span>     <span class="ft-comment">— All page section and component styles</span>
+│   │   ├── <span class="ft-accent">responsive.css</span>   <span class="ft-comment">— Breakpoint overrides (375/768/1280/1920px)</span>
+│   │   └── <span class="ft-accent">motion.css</span>       <span class="ft-comment">— Cursor, overlay, grain, word-wrap (team-motion)</span>
+│   │
+│   ├── <span class="ft-dir">js/</span>
+│   │   ├── <span class="ft-accent">main.js</span>          <span class="ft-comment">— Nav, mobile menu, filter chips, motion bootstrap</span>
+│   │   ├── <span class="ft-accent">forms.js</span>         <span class="ft-comment">— Web3Forms submission handler with validation</span>
+│   │   ├── <span class="ft-accent">theme-init.js</span>    <span class="ft-comment">— Inline script: reads saved theme before first paint</span>
+│   │   └── <span class="ft-dir">motion/</span>          <span class="ft-comment">— Animation subsystem (do not edit)</span>
+│   │       ├── index.js         <span class="ft-comment">— Public entry: exports initMotion()</span>
+│   │       ├── hero.js          <span class="ft-comment">— Hero word-mask, clip-circle, parallax</span>
+│   │       ├── cursor.js        <span class="ft-comment">— Magic cursor (14px → 96px ring, data-cursor label)</span>
+│   │       ├── reveals.js       <span class="ft-comment">— Scroll reveals: reveal, stagger, clip, scramble, counter</span>
+│   │       ├── scroll.js        <span class="ft-comment">— Tilt, pin-stack, marquee, magnetic, parallax</span>
+│   │       └── transitions.js   <span class="ft-comment">— Page overlay wipe on navigation</span>
+│   │
+│   ├── <span class="ft-dir">data/</span>
+│   │   └── <span class="ft-accent">projects.json</span>    <span class="ft-comment">— Portfolio items (9 entries, full case-study fields)</span>
+│   │
+│   └── <span class="ft-dir">images/</span>
+│       ├── hero-portrait.jpg
+│       ├── about-photo.jpg
+│       ├── <span class="ft-dir">blog/</span>                <span class="ft-comment">— Blog post images (post-01.jpg, post-02.jpg, …)</span>
+│       └── <span class="ft-dir">projects/</span>            <span class="ft-comment">— One subfolder per project slug</span>
+│           ├── <span class="ft-dir">lumora-saas-dashboard/</span>
+│           │   ├── cover.jpg
+│           │   ├── mockup-01.jpg
+│           │   └── …
+│           └── …
+│
+└── <span class="ft-dir">tests/</span>                   <span class="ft-comment">— Build coordination docs (not shipped to end users)</span>
+    ├── reference-analysis.md
+    └── motion-spec.md</div>
+
+        <div class="docs-callout">
+          <strong>Do not edit</strong> <code class="docs-inline-code">assets/js/motion/</code> or <code class="docs-inline-code">assets/css/motion.css</code>. These files contain the GSAP animation system and are versioned independently. All customization points are in the files listed above.
+        </div>
+      </section>
+
+      <!-- =========================================================
+           3. CUSTOMIZING COLORS
+           ========================================================= -->
+      <section id="colors" class="docs-section" aria-labelledby="colors-heading">
+        <h2 class="docs-section-title" id="colors-heading" data-motion="reveal">Customizing Colors</h2>
+
+        <p class="docs-p">
+          All colors are defined as CSS custom properties in <code class="docs-inline-code">assets/css/variables.css</code>. The dark mode tokens are declared on <code class="docs-inline-code">:root</code>. Light mode overrides live under <code class="docs-inline-code">[data-theme="light"]</code> on the <code class="docs-inline-code">&lt;html&gt;</code> element.
+        </p>
+
+        <h2 class="docs-section-subtitle">Core background tokens</h2>
+        <div class="docs-swatch-grid" data-motion="reveal-stagger">
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#0a0a0a;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-bg-base</span>
+              <span class="docs-swatch-value">#0a0a0a</span>
+            </div>
+          </div>
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#111111;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-bg-surface</span>
+              <span class="docs-swatch-value">#111111</span>
+            </div>
+          </div>
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#1a1a1a;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-bg-elevated</span>
+              <span class="docs-swatch-value">#1a1a1a</span>
+            </div>
+          </div>
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#222222;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-bg-overlay</span>
+              <span class="docs-swatch-value">#222222</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="docs-section-subtitle">Text tokens</h2>
+        <div class="docs-swatch-grid" data-motion="reveal-stagger">
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#f0ede8;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-text-primary</span>
+              <span class="docs-swatch-value">#f0ede8</span>
+            </div>
+          </div>
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#a8a49e;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-text-secondary</span>
+              <span class="docs-swatch-value">#a8a49e</span>
+            </div>
+          </div>
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#5a5754;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-text-muted</span>
+              <span class="docs-swatch-value">#5a5754</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="docs-section-subtitle">Accent tokens</h2>
+        <div class="docs-swatch-grid" data-motion="reveal-stagger">
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#e8a020;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-accent</span>
+              <span class="docs-swatch-value">#e8a020</span>
+            </div>
+          </div>
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#c47c10;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-accent-dim</span>
+              <span class="docs-swatch-value">#c47c10</span>
+            </div>
+          </div>
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#ffc040;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-accent-bright</span>
+              <span class="docs-swatch-value">#ffc040</span>
+            </div>
+          </div>
+          <div class="docs-swatch">
+            <div class="docs-swatch-color" style="background:#4a6cf7;"></div>
+            <div class="docs-swatch-label">
+              <span class="docs-swatch-token">--el-accent-cool</span>
+              <span class="docs-swatch-value">#4a6cf7</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="docs-section-subtitle">Overriding the accent color</h2>
+        <p class="docs-p">
+          To change the brand accent across the entire template, update these three tokens in <code class="docs-inline-code">assets/css/variables.css</code>:
+        </p>
+        <code class="docs-code">/* assets/css/variables.css */
+:root {
+  --el-accent:        #e8a020;   /* primary accent */
+  --el-accent-dim:    #c47c10;   /* hover / dark state */
+  --el-accent-bright: #ffc040;   /* highlight */
+  --el-accent-glow:   rgba(232, 160, 32, 0.15); /* background tint */
+}</code>
+
+        <h2 class="docs-section-subtitle">Theme variant overrides (preview.html)</h2>
+        <p class="docs-p">
+          <code class="docs-inline-code">preview.html</code> demonstrates three CSS override blocks. Each block uses a scoped class on a wrapper element to swap tokens without touching the base file:
+        </p>
+        <code class="docs-code">/* Cream Minimal variant */
+.theme-cream {
+  --el-bg-base:       #fafaf9;
+  --el-bg-surface:    #f2f1ef;
+  --el-text-primary:  #111111;
+  --el-text-secondary:#555555;
+  --el-accent:        #c07820;
+}
+
+/* Neon Cyberpunk variant */
+.theme-neon {
+  --el-bg-base:       #040408;
+  --el-accent:        #a8ff3e;
+  --el-accent-glow:   rgba(168, 255, 62, 0.12);
+}</code>
+      </section>
+
+      <!-- =========================================================
+           4. CUSTOMIZING FONTS
+           ========================================================= -->
+      <section id="fonts" class="docs-section" aria-labelledby="fonts-heading">
+        <h2 class="docs-section-title" id="fonts-heading" data-motion="reveal">Customizing Fonts</h2>
+
+        <p class="docs-p">
+          Elbio uses three typefaces loaded from external CDNs. All font references go through three CSS variables so swapping a typeface requires editing exactly two places: the <code class="docs-inline-code">&lt;link&gt;</code> tag in the HTML <code class="docs-inline-code">&lt;head&gt;</code> and the corresponding token in <code class="docs-inline-code">variables.css</code>.
+        </p>
+
+        <table class="docs-table">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Default font</th>
+              <th>Role</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>--el-ff-display</td>
+              <td>Cabinet Grotesk</td>
+              <td>Headings, section titles, display text, nav</td>
+              <td>Fontshare CDN</td>
+            </tr>
+            <tr>
+              <td>--el-ff-body</td>
+              <td>DM Sans</td>
+              <td>Paragraphs, labels, UI text</td>
+              <td>Google Fonts</td>
+            </tr>
+            <tr>
+              <td>--el-ff-mono</td>
+              <td>JetBrains Mono</td>
+              <td>Code blocks, section labels, stat numbers</td>
+              <td>Google Fonts</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="docs-section-subtitle">Swapping Cabinet Grotesk</h2>
+        <p class="docs-p">
+          Cabinet Grotesk is loaded via Fontshare. To replace it with a Google Font (e.g., <em>Plus Jakarta Sans</em>):
+        </p>
+        <ol class="docs-steps">
+          <li>
+            <div>
+              <p class="step-title">Replace the Fontshare link in every HTML file's <code class="docs-inline-code">&lt;head&gt;</code></p>
+              <code class="docs-code">&lt;!-- Remove --&gt;
+&lt;link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet"&gt;
+
+&lt;!-- Add --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet"&gt;</code>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Update the token in <code class="docs-inline-code">assets/css/variables.css</code></p>
+              <code class="docs-code">--el-ff-display: "Plus Jakarta Sans", sans-serif;</code>
+            </div>
+          </li>
+        </ol>
+
+        <h2 class="docs-section-subtitle">Type scale</h2>
+        <p class="docs-p">
+          All heading sizes use <code class="docs-inline-code">clamp()</code> for fluid scaling between mobile and desktop. The tokens are defined in <code class="docs-inline-code">variables.css</code> under the <code class="docs-inline-code">TYPOGRAPHY</code> block. <code class="docs-inline-code">--el-fz-h1</code> through <code class="docs-inline-code">--el-fz-h6</code> control the heading scale; <code class="docs-inline-code">--el-fz-display</code> (<code class="docs-inline-code">clamp(80px, 14vw, 200px)</code>) is the hero mega-text size.
+        </p>
+      </section>
+
+      <!-- =========================================================
+           5. ADDING PROJECTS
+           ========================================================= -->
+      <section id="adding-projects" class="docs-section" aria-labelledby="ap-heading">
+        <h2 class="docs-section-title" id="ap-heading" data-motion="reveal">Adding Projects</h2>
+
+        <p class="docs-p">
+          Project data lives in <code class="docs-inline-code">assets/data/projects.json</code>. The <code class="docs-inline-code">project-single.html</code> page reads the <code class="docs-inline-code">?project=&lt;slug&gt;</code> URL parameter and populates the case study from the matching JSON entry. The homepage grid is rendered statically in <code class="docs-inline-code">index.html</code> — you duplicate a card block there to add a new project to the visible list.
+        </p>
+
+        <h2 class="docs-section-subtitle">JSON schema — every field</h2>
+        <code class="docs-code">{
+  "id":          1,                          // integer, unique, used for prev/next navigation
+  "slug":        "lumora-saas-dashboard",    // string — must match the ?project= URL param
+                                             //   and the image folder name
+  "title":       "Lumora — SaaS Analytics", // string — displayed in card and page &lt;h1&gt;
+  "tags":        ["UI Design", "SaaS"],      // string[] — shown as chips; used by filter
+  "year":        "2024",                     // string — shown in card meta and case study
+  "role":        "Lead Product Designer",    // string — shown in case study metadata row
+  "description": "Short summary…",          // string — card excerpt and hero subtitle
+  "challenge":   "Problem statement…",      // string — "The Challenge" section body
+  "solution":    "How you solved it…",      // string — "The Solution" section body
+  "results": [                               // string[] — bullet list in "Results" section
+    "Metric one",
+    "Metric two"
+  ],
+  "tech":        ["Figma", "React"],         // string[] — rendered as tech-stack badges
+  "images": {
+    "cover":   "assets/images/projects/&lt;slug&gt;/cover.jpg",   // 16:9 or 4:3 recommended
+    "gallery": [                             // string[] — full-width mockup grid images
+      "assets/images/projects/&lt;slug&gt;/mockup-01.jpg",
+      "assets/images/projects/&lt;slug&gt;/mockup-02.jpg"
+    ]
+  }
+}</code>
+
+        <h2 class="docs-section-subtitle">Step-by-step: add a new project</h2>
+        <ol class="docs-steps">
+          <li>
+            <div>
+              <p class="step-title">Create an image folder</p>
+              <p>Add a new folder at <code class="docs-inline-code">assets/images/projects/your-project-slug/</code>. Place your <code class="docs-inline-code">cover.jpg</code> and any <code class="docs-inline-code">mockup-*.jpg</code> files inside.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Append an entry to projects.json</p>
+              <p>Copy an existing entry, set a new unique <code class="docs-inline-code">id</code>, and update all fields. The <code class="docs-inline-code">slug</code> must exactly match the folder name and the URL parameter you will link to.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Add a card to index.html</p>
+              <p>In the <code class="docs-inline-code">#projects</code> section, duplicate one of the existing <code class="docs-inline-code">&lt;article class="project-card"&gt;</code> blocks. Update the <code class="docs-inline-code">data-tags</code> attribute, image <code class="docs-inline-code">src</code>, title text, description, year, and the <code class="docs-inline-code">href</code> links to <code class="docs-inline-code">project-single.html?project=your-project-slug</code>.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="docs-callout">
+          <strong>Image sizes:</strong> Cover images look best at 1200×800px minimum. Mockup/gallery images can be any aspect ratio — they are displayed at full template width with <code class="docs-inline-code">object-fit: cover</code>. Use JPEG at 80% quality to keep file sizes reasonable.
+        </div>
+      </section>
+
+      <!-- =========================================================
+           6. THEME SWITCHING
+           ========================================================= -->
+      <section id="theme-switching" class="docs-section" aria-labelledby="ts-heading">
+        <h2 class="docs-section-title" id="ts-heading" data-motion="reveal">Theme Switching</h2>
+
+        <p class="docs-p">
+          Elbio ships with dark mode as the default and includes a toggle button in every page header. The system has three components: an inline script that prevents flash-of-unstyled-content (FOUC), a CSS variable override block for light mode, and a toggle button wired up by <code class="docs-inline-code">main.js</code>.
+        </p>
+
+        <h2 class="docs-section-subtitle">How theme-init.js works</h2>
+        <p class="docs-p">
+          <code class="docs-inline-code">assets/js/theme-init.js</code> is loaded as the very first script in every page's <code class="docs-inline-code">&lt;head&gt;</code> — before any CSS — so it runs synchronously before the browser paints. It:
+        </p>
+        <ol class="docs-steps">
+          <li>
+            <div>
+              <p class="step-title">Reads <code class="docs-inline-code">localStorage.getItem('el-theme')</code></p>
+              <p>If the user has previously toggled, the saved value is <code class="docs-inline-code">"light"</code> or <code class="docs-inline-code">"dark"</code>.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Falls back to <code class="docs-inline-code">prefers-color-scheme</code></p>
+              <p>If no value is saved, the OS-level preference is respected.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Sets <code class="docs-inline-code">data-theme</code> on <code class="docs-inline-code">&lt;html&gt;</code></p>
+              <p>The CSS selector <code class="docs-inline-code">[data-theme="light"]</code> in <code class="docs-inline-code">variables.css</code> overrides all background, text, and border tokens to their light-mode equivalents.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h2 class="docs-section-subtitle">Toggle button behavior</h2>
+        <p class="docs-p">
+          The <code class="docs-inline-code">.theme-toggle</code> button in the nav is handled by <code class="docs-inline-code">assets/js/main.js</code>. On click it flips the <code class="docs-inline-code">data-theme</code> attribute and writes the new value to <code class="docs-inline-code">localStorage</code>. The button's <code class="docs-inline-code">aria-label</code> is updated to reflect the current state.
+        </p>
+
+        <h2 class="docs-section-subtitle">Per-page default theme</h2>
+        <p class="docs-p">
+          Each page can declare its own default theme by adding <code class="docs-inline-code">data-theme</code> to the <code class="docs-inline-code">&lt;html&gt;</code> tag. The light-first demos (Cream Editorial and Photography) use this. The resolution order in <code class="docs-inline-code">assets/js/theme-init.js</code> is: saved user choice (localStorage) → page-level <code class="docs-inline-code">data-theme</code> → OS <code class="docs-inline-code">prefers-color-scheme</code> → dark.
+        </p>
+        <code class="docs-code">&lt;!-- Make a page light-first by default --&gt;
+&lt;html lang="en" data-theme="light"&gt;</code>
+        <p class="docs-p">
+          A visitor's explicit toggle is saved to <code class="docs-inline-code">localStorage['elbio-theme']</code> and always wins on subsequent visits. To make the whole template default to light, change the final fallback from <code class="docs-inline-code">'dark'</code> to <code class="docs-inline-code">'light'</code> in <code class="docs-inline-code">getPreferredTheme()</code>.
+        </p>
+      </section>
+
+      <!-- =========================================================
+           7. WEB3FORMS SETUP
+           ========================================================= -->
+      <section id="web3forms" class="docs-section" aria-labelledby="w3f-heading">
+        <h2 class="docs-section-title" id="w3f-heading" data-motion="reveal">Web3Forms Setup</h2>
+
+        <p class="docs-p">
+          Both <code class="docs-inline-code">contact.html</code> and the quick-contact form on <code class="docs-inline-code">index.html</code> use <a href="https://web3forms.com" target="_blank" rel="noopener" data-cursor="link">Web3Forms</a> — a free, serverless form endpoint that requires no backend. Submissions are forwarded to your email address.
+        </p>
+
+        <ol class="docs-steps">
+          <li>
+            <div>
+              <p class="step-title">Sign up at web3forms.com</p>
+              <p>Go to <a href="https://web3forms.com" target="_blank" rel="noopener" data-cursor="link">web3forms.com</a> and enter your email address. Web3Forms will send you a confirmation email with your access key. No account password required.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Copy your access key</p>
+              <p>The access key is a UUID string like <code class="docs-inline-code">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Replace the placeholder in contact.html</p>
+              <p>Open <code class="docs-inline-code">contact.html</code> and find the two placeholder values. Replace both with your key:</p>
+              <code class="docs-code">&lt;form
+  data-web3forms-key="YOUR_WEB3FORMS_ACCESS_KEY"
+  action="https://api.web3forms.com/submit"
+  ...
+&gt;
+  &lt;input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"&gt;</code>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Do the same in index.html</p>
+              <p>The quick-contact form in the <code class="docs-inline-code">#contact</code> section of <code class="docs-inline-code">index.html</code> has identical placeholders — replace them the same way.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Customise the email subject (optional)</p>
+              <p>The <code class="docs-inline-code">&lt;input type="hidden" name="subject"&gt;</code> field controls the subject line of the notification email. Change <code class="docs-inline-code">value="New inquiry from elbio.design"</code> to whatever you prefer.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p class="step-title">Test a submission</p>
+              <p>Open the page in a browser (use a local server — see Getting Started), fill out the form, and submit. You should receive a confirmation email within seconds. The form will display a success message in the <code class="docs-inline-code">.form-status</code> element.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="docs-callout">
+          <strong>Spam protection:</strong> Both forms include a hidden <code class="docs-inline-code">botcheck</code> checkbox (honeypot). Bots that fill in hidden fields are silently rejected by Web3Forms. No CAPTCHA is required.
+        </div>
+      </section>
+
+      <!-- =========================================================
+           8. MOTION SYSTEM
+           ========================================================= -->
+      <section id="motion-system" class="docs-section" aria-labelledby="ms-heading">
+        <h2 class="docs-section-title" id="ms-heading" data-motion="reveal">Motion System</h2>
+
+        <p class="docs-p">
+          Elbio's animation system lives entirely in <code class="docs-inline-code">assets/js/motion/</code> and <code class="docs-inline-code">assets/css/motion.css</code>. You activate animations by placing <code class="docs-inline-code">data-motion</code> and <code class="docs-inline-code">data-cursor</code> attributes on HTML elements — no JavaScript configuration required.
+        </p>
+
+        <h2 class="docs-section-subtitle">Required CDN script order</h2>
+        <p class="docs-p">
+          These four script tags must appear in this order just before <code class="docs-inline-code">&lt;/body&gt;</code> in every HTML page. They are already included in all template pages.
+        </p>
+        <code class="docs-code">&lt;!-- 1. Lenis smooth scroll --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer&gt;&lt;/script&gt;
+&lt;!-- 2. GSAP core --&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer&gt;&lt;/script&gt;
+&lt;!-- 3. GSAP ScrollTrigger --&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer&gt;&lt;/script&gt;
+&lt;!-- 4. Motion system entry point (ES module) --&gt;
+&lt;script type="module" src="assets/js/motion/index.js"&gt;&lt;/script&gt;</code>
+
+        <h2 class="docs-section-subtitle">Scroll behaviour (reversible)</h2>
+        <p class="docs-p">
+          Reveal animations are bidirectional: they play as an element scrolls into view and reverse as it scrolls back out of view (via GSAP ScrollTrigger <code class="docs-inline-code">toggleActions: 'play none none reverse'</code>). Stat counters reset and re-count on re-entry. The <code class="docs-inline-code">zoom-parallax</code> effect is scrubbed, so it tracks scroll position in both directions. To make any reveal play only once, set its trigger's <code class="docs-inline-code">toggleActions</code> to <code class="docs-inline-code">'play none none none'</code> in <code class="docs-inline-code">assets/js/motion/reveals.js</code>.
+        </p>
+
+        <h2 class="docs-section-subtitle">data-motion attribute reference</h2>
+        <table class="docs-table">
+          <thead>
+            <tr>
+              <th>Attribute value</th>
+              <th>Effect</th>
+              <th>Apply to</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>word-mask</td>
+              <td>Hero word-mask reveal — words slide up from clipped baseline</td>
+              <td>Hero heading container. Each word needs <code class="docs-inline-code">&lt;span class="word-wrap"&gt;&lt;span class="word"&gt;…&lt;/span&gt;&lt;/span&gt;</code></td>
+            </tr>
+            <tr>
+              <td>reveal</td>
+              <td>Single element fade-up on scroll enter (<code class="docs-inline-code">y: 40→0</code>)</td>
+              <td>Any single content element</td>
+            </tr>
+            <tr>
+              <td>reveal-stagger</td>
+              <td>Stagger reveal across direct children (same as reveal, stagger 0.12)</td>
+              <td>Card grids, list wrappers</td>
+            </tr>
+            <tr>
+              <td>reveal-clip</td>
+              <td>Clip-path wipe in from bottom (<code class="docs-inline-code">inset(100%→0%)</code>)</td>
+              <td>Images, full-width media</td>
+            </tr>
+            <tr>
+              <td>line-reveal</td>
+              <td>Paragraph lines rotate in from <code class="docs-inline-code">rotationX: -80</code></td>
+              <td>Hero description paragraph</td>
+            </tr>
+            <tr>
+              <td>clip-circle</td>
+              <td>Portrait reveal — <code class="docs-inline-code">circle(0%→55%)</code> clip-path expand</td>
+              <td>Hero portrait image wrapper</td>
+            </tr>
+            <tr>
+              <td>rule-wipe</td>
+              <td>Horizontal rule wipes in from center (<code class="docs-inline-code">scaleX: 0→1</code>)</td>
+              <td><code class="docs-inline-code">&lt;hr&gt;</code> or <code class="docs-inline-code">.rule</code> dividers in hero</td>
+            </tr>
+            <tr>
+              <td>counter</td>
+              <td>Animated number count-up on scroll enter</td>
+              <td><code class="docs-inline-code">&lt;span&gt;</code> wrapping a numeric value</td>
+            </tr>
+            <tr>
+              <td>scramble</td>
+              <td>Random character scramble resolves on hover</td>
+              <td>Nav link spans, CTA labels</td>
+            </tr>
+            <tr>
+              <td>magnetic</td>
+              <td>Button follows cursor proximity</td>
+              <td>Primary CTA buttons</td>
+            </tr>
+            <tr>
+              <td>tilt</td>
+              <td>Real-time 3D mouse-tracked tilt (±10°)</td>
+              <td>Portfolio cards, blog cards</td>
+            </tr>
+            <tr>
+              <td>parallax</td>
+              <td>Scroll-linked vertical offset</td>
+              <td>Background images, decorative elements</td>
+            </tr>
+            <tr>
+              <td>zoom-parallax</td>
+              <td>Image held at constant zoom, pans vertically on scroll (Azurio-style). Put on the <code class="docs-inline-code">&lt;img&gt;</code>; mark its overflow-hidden wrapper with <code class="docs-inline-code">data-zoom-frame</code>. Tune with <code class="docs-inline-code">data-motion-zoom</code> / <code class="docs-inline-code">data-motion-pan</code>.</td>
+              <td>Gallery / cover images (Photography demo)</td>
+            </tr>
+            <tr>
+              <td>marquee</td>
+              <td>Infinite horizontal ticker (pauses on hover)</td>
+              <td>Skills / clients track container</td>
+            </tr>
+            <tr>
+              <td>pin-stack</td>
+              <td>Sequential card stacking with scale 0.78</td>
+              <td>Portfolio stack section wrapper</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="docs-section-subtitle">data-cursor attribute reference</h2>
+        <p>
+          The magic cursor uses a single attribute. Whatever you put as the value becomes the label rendered inside the expanded ring. HTML is allowed in the value (use <code class="docs-inline-code">&lt;br&gt;</code> for two-line labels). The ring expands to ~96×96 px on hover; otherwise it sits at 14 px with <code class="docs-inline-code">mix-blend-mode: difference</code> so it stays visible on every background.
+        </p>
+        <table class="docs-table">
+          <thead>
+            <tr>
+              <th>Attribute value</th>
+              <th>Behaviour</th>
+              <th>Typical target</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="docs-inline-code">data-cursor="link"</code></td>
+              <td>Expands the ring with no label inside.</td>
+              <td>Links, nav items, CTA buttons, theme toggle, menu toggle.</td>
+            </tr>
+            <tr>
+              <td><code class="docs-inline-code">data-cursor="View"</code></td>
+              <td>Expands the ring and renders "View" inside.</td>
+              <td>Portfolio cards, project covers, blog cards.</td>
+            </tr>
+            <tr>
+              <td><code class="docs-inline-code">data-cursor="View&lt;br&gt;Demo"</code></td>
+              <td>Two-line label inside the ring (HTML allowed in the value).</td>
+              <td>Preview / demo grid cards.</td>
+            </tr>
+            <tr>
+              <td><code class="docs-inline-code">data-cursor="Drag"</code> · <code class="docs-inline-code">data-cursor="Read"</code> · any text</td>
+              <td>The value is the label — set whatever fits the affordance.</td>
+              <td>Carousel slides ("Drag"), article cards ("Read"), image lightboxes ("Open").</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="docs-callout">
+          <strong>Reduced motion:</strong> All GSAP animations are guarded by <code class="docs-inline-code">prefers-reduced-motion: reduce</code>. When the user has reduced motion enabled in their OS, all animations are skipped and elements are shown at their final state immediately. The custom cursor is hidden on touch devices (<code class="docs-inline-code">pointer: coarse</code>).
+        </div>
+      </section>
+
+      <!-- =========================================================
+           9. CREDITS & LICENSE
+           ========================================================= -->
+      <section id="credits" class="docs-section" aria-labelledby="credits-heading">
+        <h2 class="docs-section-title" id="credits-heading" data-motion="reveal">Credits &amp; License</h2>
+
+        <h2 class="docs-section-subtitle">Third-party libraries</h2>
+        <table class="docs-table">
+          <thead>
+            <tr>
+              <th>Library</th>
+              <th>Version</th>
+              <th>License</th>
+              <th>Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GSAP</td>
+              <td>3.12.5</td>
+              <td>Standard GreenSock License (free for most uses)</td>
+              <td>All animations</td>
+            </tr>
+            <tr>
+              <td>Lenis</td>
+              <td>1.0.42</td>
+              <td>MIT</td>
+              <td>Smooth scroll</td>
+            </tr>
+            <tr>
+              <td>Cabinet Grotesk</td>
+              <td>—</td>
+              <td>Fontshare Free License</td>
+              <td>Display / heading typeface</td>
+            </tr>
+            <tr>
+              <td>DM Sans</td>
+              <td>—</td>
+              <td>SIL Open Font License 1.1</td>
+              <td>Body typeface</td>
+            </tr>
+            <tr>
+              <td>JetBrains Mono</td>
+              <td>—</td>
+              <td>SIL Open Font License 1.1</td>
+              <td>Monospace typeface</td>
+            </tr>
+            <tr>
+              <td>Web3Forms</td>
+              <td>—</td>
+              <td>Free tier (250 submissions/month)</td>
+              <td>Contact form endpoint</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="docs-section-subtitle">Template license</h2>
+        <p class="docs-p">
+          This template is distributed under the standard Envato Regular / Extended License terms as applicable to your purchase. In summary:
+        </p>
+        <ul style="color: var(--el-text-secondary); font-size: var(--el-fz-body); line-height: var(--el-lh-body); padding-left: var(--el-space-6); margin-bottom: var(--el-space-6);">
+          <li style="margin-bottom: var(--el-space-3);"><strong style="color: var(--el-text-primary);">Regular License</strong> — use in one end product, free or paid, with no charge to end users. You cannot charge users for access to the template itself.</li>
+          <li style="margin-bottom: var(--el-space-3);"><strong style="color: var(--el-text-primary);">Extended License</strong> — use in one end product where end users are charged access fees (e.g., a SaaS platform or paid membership site).</li>
+        </ul>
+
+        <div class="docs-callout">
+          <strong>Attribution:</strong> Attribution to the original author is not required by the license, but is appreciated. If you redistribute or modify the template, you must comply with the licenses of the third-party libraries listed above — particularly the Fontshare and GSAP terms.
+        </div>
+
+        <h2 class="docs-section-subtitle">Support</h2>
+        <p class="docs-p">
+          Post-purchase support is provided via the ThemeForest item comments section. Include your browser, operating system, and a description of the issue. For fastest resolution, include a link to a minimal reproduction.
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-name" data-cursor="link">Elbio<span style="color:var(--el-accent)">.</span></a>
+          <p class="footer-tagline">Product design &amp; creative direction</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="../index.html#about" data-cursor="link">About</a>
+          <a href="../project-single.html" data-cursor="link">Work</a>
+          <a href="../blog.html" data-cursor="link">Journal</a>
+          <a href="../contact.html" data-cursor="link">Contact</a>
+          <a href="../preview.html" data-cursor="link">Preview</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span data-year></span> Elbio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts — CDN order required by Motion API (no defer — must be synchronous) -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="module" src="../assets/js/motion/index.js?v=2"></script>
+  <script src="../assets/js/main.js" type="module"></script>
+
+  <script>
+    // Docs sidebar — highlight active TOC link on scroll
+    (function () {
+      var sections = document.querySelectorAll('.docs-section[id]');
+      var links = document.querySelectorAll('.docs-toc a[href^="#"]');
+      if (!sections.length || !links.length) return;
+
+      function updateActive() {
+        var scrollY = window.scrollY + 120;
+        var current = '';
+        sections.forEach(function (sec) {
+          if (sec.offsetTop <= scrollY) {
+            current = sec.id;
+          }
+        });
+        links.forEach(function (link) {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + current);
+        });
+      }
+
+      window.addEventListener('scroll', updateActive, { passive: true });
+      updateActive();
+    })();
+  </script>
+
+</body>
+</html>

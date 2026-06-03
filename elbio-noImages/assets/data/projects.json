@@ -1,0 +1,316 @@
+[
+  {
+    "id": 1,
+    "slug": "lumora-saas-dashboard",
+    "title": "Lumora — SaaS Analytics Platform",
+    "tags": [
+      "UI Design",
+      "Design System",
+      "SaaS"
+    ],
+    "year": "2024",
+    "role": "Lead Product Designer",
+    "description": "End-to-end design of a real-time analytics dashboard for B2B marketing teams, built around clarity at scale.",
+    "challenge": "Marketing teams drowned in noisy data across 12 disconnected tools. The existing dashboard had a 68% abandonment rate on key insights pages — users could not extract actionable signals from the visual noise.",
+    "solution": "I consolidated the information architecture into three mental models: Overview, Drill-down, and Alert. A consistent token-based design system (600+ components) enabled the engineering team to ship at 3x their previous velocity. Key innovation: a 'Signal vs. Noise' view toggle that collapses secondary metrics with a single click.",
+    "results": [
+      "Reduced time-to-insight from 14 minutes to 2.3 minutes (measured via session replay)",
+      "Dashboard abandonment dropped from 68% to 19%",
+      "Design system adopted by 4 additional product teams within 3 months"
+    ],
+    "tech": [
+      "Figma",
+      "React",
+      "TypeScript",
+      "Recharts",
+      "Storybook",
+      "Zeroheight"
+    ],
+    "images": {
+      "cover": "https://placehold.co/1600x900",
+      "gallery": [
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "slug": "vanta-brand-identity",
+    "title": "Vanta — Brand Identity & Web",
+    "tags": [
+      "Branding",
+      "Web Design",
+      "Motion"
+    ],
+    "year": "2024",
+    "role": "Brand & Interaction Designer",
+    "description": "Full brand identity and marketing website for a Series A cybersecurity startup — designed to project trust while staying approachable.",
+    "challenge": "Cybersecurity brands default to cold blues and shield icons — visually indistinguishable in a crowded market. Vanta needed a visual identity that communicated rigorous security without the sterile enterprise aesthetic that repels SMB buyers.",
+    "solution": "I developed an identity anchored in 'structured warmth': a muted amber palette (unusual for security), geometric precision in the mark, and a typographic system pairing a condensed display font with generous body spacing. The website uses large surface areas and intentional whitespace to create calm, counter-intuitively signaling thoroughness.",
+    "results": [
+      "Brand recall doubled in user testing compared to previous identity",
+      "Website conversion rate increased 34% in the first 30 days post-launch",
+      "Featured in Fonts In Use and Awwwards nominee"
+    ],
+    "tech": [
+      "Figma",
+      "Webflow",
+      "GSAP",
+      "Lottie",
+      "Framer Motion"
+    ],
+    "images": {
+      "cover": "https://placehold.co/1600x900",
+      "gallery": [
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "slug": "forma-ecommerce",
+    "title": "Forma — Luxury E-Commerce Redesign",
+    "tags": [
+      "E-Commerce",
+      "UI Design",
+      "UX Research"
+    ],
+    "year": "2023",
+    "role": "UX/UI Designer",
+    "description": "Full UX overhaul of a mid-market furniture brand's e-commerce experience, focused on the consideration-to-purchase funnel.",
+    "challenge": "Cart abandonment sat at 81% — far above the 70% industry average. Research revealed that customers lacked material and finish confidence before committing to high-ticket items ($800–$4,000 range). Product pages felt generic, not premium.",
+    "solution": "Redesigned the product detail page around material storytelling: full-bleed texture photography, a 'Build Your Room' configurator letting users mix finishes live, and an AR placement feature. Checkout was compressed from 7 steps to 3 with address autofill and persistent cart.",
+    "results": [
+      "Cart abandonment reduced from 81% to 61%",
+      "Average order value increased 22% (mix-and-match bundles)",
+      "AR feature used in 38% of sessions — highest engagement touchpoint"
+    ],
+    "tech": [
+      "Figma",
+      "Shopify",
+      "React",
+      "Three.js",
+      "WebXR"
+    ],
+    "images": {
+      "cover": "https://placehold.co/1600x900",
+      "gallery": [
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "slug": "meridian-mobile-app",
+    "title": "Meridian — Travel Planning App",
+    "tags": [
+      "Mobile",
+      "Product Design",
+      "iOS"
+    ],
+    "year": "2023",
+    "role": "Product Designer",
+    "description": "iOS travel planning app combining itinerary management with local discovery for independent travelers in emerging destinations.",
+    "challenge": "Existing travel apps cater to either hyper-organized planners (rigid spreadsheet-like interfaces) or serendipitous explorers (discovery feeds with no structure). Solo travelers in less-documented destinations fell between both — they needed structure with flexibility.",
+    "solution": "Designed a dual-mode interface: Plan mode (structured day-by-day itinerary with time blocks) and Explore mode (map-first, card-based discovery). The key innovation was a 'gravity' system — saving a discovery item automatically pulled it toward open time blocks in the itinerary, making planning feel effortless.",
+    "results": [
+      "4.8 App Store rating from 2,400 reviews in first 6 months",
+      "Day-7 retention of 41% (industry benchmark: 25%)",
+      "Featured by Apple in 'Apps We Love' editorial"
+    ],
+    "tech": [
+      "Figma",
+      "Swift (design specs)",
+      "Protopie",
+      "Principle"
+    ],
+    "images": {
+      "cover": "https://placehold.co/1600x900",
+      "gallery": [
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "slug": "helix-fintech",
+    "title": "Helix — Fintech Onboarding",
+    "tags": [
+      "Fintech",
+      "UX Design",
+      "Onboarding"
+    ],
+    "year": "2023",
+    "role": "UX Designer",
+    "description": "Redesign of the onboarding flow for a neobank targeting freelancers — reducing KYC drop-off while meeting regulatory requirements.",
+    "challenge": "KYC (Know Your Customer) onboarding in financial products is notoriously friction-heavy. Helix was losing 71% of signups during the verification step — a 40-screen flow that felt indistinguishable from a government form.",
+    "solution": "I mapped all 40 screens to emotional states in user research, identifying that anxiety peaks at document upload and again at 'awaiting review'. The redesign introduced a visual progress metaphor (a timeline, not a step counter), split long waits with micro-wins (instant card reveal during verification), and rewrote all error messages in plain language.",
+    "results": [
+      "KYC completion rate improved from 29% to 58%",
+      "Support tickets during onboarding dropped 44%",
+      "Regulatory review passed with zero accessibility violations"
+    ],
+    "tech": [
+      "Figma",
+      "Maze",
+      "Dovetail",
+      "Lottie"
+    ],
+    "images": {
+      "cover": "https://placehold.co/1600x900",
+      "gallery": [
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "slug": "grove-editorial",
+    "title": "Grove — Digital Magazine",
+    "tags": [
+      "Editorial",
+      "Typography",
+      "Web Design"
+    ],
+    "year": "2022",
+    "role": "Art Director & Web Designer",
+    "description": "Art direction and web design for an independent digital magazine covering architecture, craft, and slow living.",
+    "challenge": "Most editorial websites treat the web as a PDF renderer — fixed columns, predictable grids, no expressive use of the medium. Grove wanted to publish work that feels as considered as the subjects it covers, without sacrificing readability at scale.",
+    "solution": "Built a modular editorial system where each issue gets a bespoke layout 'skin' (custom grid, color palette, and typographic scale) while sharing a common reading engine underneath. Longform articles use a variable font that subtly increases weight as users scroll deeper — a subtle reward for engagement.",
+    "results": [
+      "Average reading time increased from 2:10 to 6:40 (3x improvement)",
+      "Subscriber conversion from free readers increased 18%",
+      "Won Communications Arts Interactive Award 2023"
+    ],
+    "tech": [
+      "Figma",
+      "Nuxt.js",
+      "Sanity CMS",
+      "Variable Fonts",
+      "GSAP"
+    ],
+    "images": {
+      "cover": "https://placehold.co/1600x900",
+      "gallery": [
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "slug": "atlas-design-system",
+    "title": "Atlas — Enterprise Design System",
+    "tags": [
+      "Design System",
+      "UI Design",
+      "Documentation"
+    ],
+    "year": "2022",
+    "role": "Design Systems Lead",
+    "description": "Built Atlas from scratch — a scalable design system serving 14 product teams across a 1,200-person enterprise software company.",
+    "challenge": "Fourteen product teams, zero consistency. New features took 3+ weeks to design because every designer was rebuilding the same patterns. The existing 'design system' was a 3-year-old Sketch file no one trusted.",
+    "solution": "Led a 6-month discovery phase (interviewing 40+ designers and engineers) before writing a single component. Prioritized ruthlessly: Atlas launched with 48 components covering 90% of use cases, not 200 covering everything. Pair programmed with engineering leads to ensure Figma tokens mapped 1:1 to CSS variables.",
+    "results": [
+      "New feature design time reduced from 3 weeks to 4 days (average)",
+      "System adopted by all 14 teams within 8 months",
+      "Design-to-dev handoff errors dropped 76% in first quarter of adoption"
+    ],
+    "tech": [
+      "Figma",
+      "React",
+      "Storybook",
+      "Style Dictionary",
+      "Chromatic"
+    ],
+    "images": {
+      "cover": "https://placehold.co/1600x900",
+      "gallery": [
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "slug": "solstice-wellness-app",
+    "title": "Solstice — Wellness & Mindfulness",
+    "tags": [
+      "Mobile",
+      "UI Design",
+      "Health"
+    ],
+    "year": "2022",
+    "role": "Product Designer",
+    "description": "Meditation and sleep wellness app with personalized programs — designed to minimize cognitive load for users in distress.",
+    "challenge": "Users open wellness apps when they're already overwhelmed. Existing apps paradoxically added cognitive load: too many choices, too much gamification, too many notifications. Users felt guilty for not using the app 'correctly'.",
+    "solution": "Designed around three principles: one tap to start, no streaks or guilt mechanics, and ambient rather than alert-based nudges. The onboarding learns your schedule passively (via calendar permission) and surfaces the right session type at natural pause points in your day.",
+    "results": [
+      "Week-4 retention rate of 52% vs 31% industry average",
+      "NPS of 74 (exceptional for wellness category)",
+      "App Store 'Editor's Choice' awarded at launch"
+    ],
+    "tech": [
+      "Figma",
+      "Protopie",
+      "Swift (design)",
+      "Lottie",
+      "Haptic API specs"
+    ],
+    "images": {
+      "cover": "https://placehold.co/1600x900",
+      "gallery": [
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "slug": "nomo-restaurant-web",
+    "title": "Nomo — Restaurant Brand & Web",
+    "tags": [
+      "Branding",
+      "Web Design",
+      "Hospitality"
+    ],
+    "year": "2021",
+    "role": "Creative Director",
+    "description": "Brand identity and immersive website for a high-concept Tokyo-inspired omakase restaurant in New York.",
+    "challenge": "High-end restaurants rely on word-of-mouth and editorial coverage — their web presence is typically an afterthought. Nomo needed a digital experience that justified its $180 prix-fixe price point before guests arrived.",
+    "solution": "Designed a cinematic website experience: a dark, textured canvas that loads the menu as a slow-motion video essay rather than a static list. Each dish has a micro-documentary (30s) that plays on hover. Reservations are embedded without leaving the page. The brand identity borrows from Japanese packaging — minimal, precise, meaningful negative space.",
+    "results": [
+      "Reservation wait list grew from 2 weeks to 3 months within 60 days of launch",
+      "Press coverage in The New York Times, Eater NY, and Bon Appétit",
+      "Website named in Awwwards 'Best Restaurant Sites of 2021'"
+    ],
+    "tech": [
+      "Figma",
+      "Nuxt.js",
+      "GSAP",
+      "Video API",
+      "OpenTable integration"
+    ],
+    "images": {
+      "cover": "https://placehold.co/1600x900",
+      "gallery": [
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000",
+        "https://placehold.co/1600x1000"
+      ]
+    }
+  }
+]
