@@ -1,0 +1,243 @@
+================================================================
+ELBIO — THEMEFOREST UPLOAD FORM
+Upload type: Site Templates
+Form: https://themeforest.net/content/upload/form?type=site-templates
+================================================================
+NOTE: The "Description" field is in description.txt — paste it
+      there directly. Everything else is filled in below.
+================================================================
+
+
+────────────────────────────────────────────────────────────────
+1. ITEM TITLE
+────────────────────────────────────────────────────────────────
+
+Title:
+Elbio - Creative Portfolio & Agency HTML Template
+
+  ↳ Rules: max ~70 chars, no keyword stuffing, no "Best / #1 /
+    Ultimate" superlatives, must reflect what the item actually is.
+    Format convention seen across top sellers:
+    [Product Name] - [Main Purpose] HTML Template
+
+
+────────────────────────────────────────────────────────────────
+2. CATEGORY
+────────────────────────────────────────────────────────────────
+
+Category Path:
+Site Templates  >  Creative  >  Portfolio
+
+  ↳ "Creative > Portfolio" is the correct path for personal
+    portfolio and creative agency HTML templates. Do NOT use
+    "Business > Corporate" — that targets corporate sites, not
+    creative portfolios.
+
+
+────────────────────────────────────────────────────────────────
+3. TAGS  (15 tags, lowercase, comma-separated)
+────────────────────────────────────────────────────────────────
+
+Tags:
+portfolio, creative portfolio, agency, personal portfolio, animated, dark mode, gsap, designer, developer, freelancer, photographer, minimal, modern, multipage, clean
+
+  ↳ Tag rationale:
+    portfolio              — #1 highest-volume search in category
+    creative portfolio     — key phrase for the target buyer
+    personal portfolio     — key phrase (individual / freelancer)
+    agency                 — captures studio & agency buyers
+    animated               — Elbio's strongest differentiator;
+                             heavily searched 2024-2026
+    dark mode              — one of the top filter/search terms
+                             right now; Elbio ships dark by default
+    gsap                   — converts highly among developers who
+                             know what GSAP is; low competition
+    designer               — persona tag
+    developer              — persona tag
+    freelancer             — persona tag
+    photographer           — persona tag; Photography demo (v5)
+                             directly covers this buyer segment
+    minimal                — design-style tag, very popular
+    modern                 — broad quality signal
+    multipage              — feature tag (2 of 5 demos are multipage)
+    clean                  — quality / code signal; used by top sellers
+
+  ↳ Tags intentionally NOT included vs InBio comparison:
+    cv / resume / vcard    — Elbio is NOT a CV/resume template
+    onepage                — Elbio is primarily multipage/hybrid
+    bootstrap              — Elbio uses zero frameworks (would
+                             mislead Bootstrap buyers)
+
+
+────────────────────────────────────────────────────────────────
+4. DESCRIPTION
+────────────────────────────────────────────────────────────────
+
+→ Paste the full content of description.txt here.
+  (Already written — do not duplicate in this file.)
+
+
+────────────────────────────────────────────────────────────────
+5. HIGH RESOLUTION
+────────────────────────────────────────────────────────────────
+
+High Resolution: Yes
+
+  ↳ Elbio is built with fluid/clamp typography, vector icons
+    (SVG / Font Awesome), CSS-only decorative elements, and
+    pixel-perfect layouts at 1x, 2x, and 4K viewports.
+
+
+────────────────────────────────────────────────────────────────
+6. COMPATIBLE BROWSERS
+────────────────────────────────────────────────────────────────
+
+Compatible Browsers:
+  ✓  Firefox
+  ✓  Safari
+  ✓  Opera
+  ✓  Chrome
+  ✓  Edge
+  ✗  IE11  (NOT compatible)
+
+  ↳ IE11 is intentionally excluded. Elbio uses CSS custom
+    properties (:root variables), CSS clamp(), CSS grid,
+    GSAP 3 (ES module build), and the Lenis scroll library —
+    none of which work in IE11. Marking IE11 compatibility would
+    be a misrepresentation and grounds for rejection.
+    IE11 reached end-of-life June 2022; Envato reviewers
+    accept exclusion for modern template builds.
+
+
+────────────────────────────────────────────────────────────────
+7. COMPATIBLE WITH  (frameworks / libraries)
+────────────────────────────────────────────────────────────────
+
+Compatible With: (none — leave field empty / uncheck all)
+
+  ↳ Elbio has zero framework dependencies. It does NOT use
+    Bootstrap, jQuery, Foundation, Vue, React, or any other
+    selectable framework. All JavaScript is vanilla ES6+.
+    External libraries (GSAP, Lenis, Font Awesome, Web3Forms)
+    are loaded via CDN and are not "compatible with" options
+    on the ThemeForest form.
+
+    Do NOT tick Bootstrap to appear broader — the template
+    doesn't ship Bootstrap CSS/JS and reviewers test for this.
+
+
+────────────────────────────────────────────────────────────────
+8. THEMEFOREST FILES INCLUDED
+────────────────────────────────────────────────────────────────
+
+ThemeForest Files Included:
+  ✓  HTML Files
+  ✓  CSS Files
+  ✓  SCSS Files
+  ✓  JS Files
+  ✗  PHP Files  (not included — pure HTML, no server-side code)
+  ✗  PSD Files  (not included)
+
+  ↳ SCSS is correctly ticked: assets/scss/ ships with the template
+    (21 SCSS source files with full 7-1 partial architecture,
+    abstracts, mixins, and package.json compile scripts).
+
+
+────────────────────────────────────────────────────────────────
+9. COLUMNS
+────────────────────────────────────────────────────────────────
+
+Columns: 4+
+
+  ↳ The projects grid, skills grid, pricing grid, and team grid
+    all render in 3-4 columns at desktop widths. The 1920px
+    breakpoint takes projects to 3 cols. 4+ is the correct value.
+
+
+────────────────────────────────────────────────────────────────
+10. DOCUMENTATION
+────────────────────────────────────────────────────────────────
+
+Documentation: Well Documented
+
+  ↳ A dedicated documentation/index.html is included covering:
+    getting started, file structure, colour/font customisation,
+    theme switching, adding projects (full JSON schema),
+    Web3Forms setup, and the full GSAP motion-attribute reference.
+    "Well Documented" is the highest tier — correct choice.
+
+
+────────────────────────────────────────────────────────────────
+11. LAYOUT
+────────────────────────────────────────────────────────────────
+
+Layout: Responsive
+
+  ↳ Four breakpoints: 375px / 768px / 1280px / 1920px.
+    No fixed-width or adaptive (discrete snap) layout — all
+    fluid with CSS clamp() for type and spacing.
+
+
+────────────────────────────────────────────────────────────────
+12. WIDGET READY  (if shown — typically WordPress only)
+────────────────────────────────────────────────────────────────
+
+Widget Ready: N/A  (HTML template, not WordPress)
+
+  ↳ This field only appears for WordPress themes. If shown for
+    site templates, leave unchecked / select "No".
+
+
+────────────────────────────────────────────────────────────────
+13. PREVIEW IMAGE SPECS  (reminder — not a form text field)
+────────────────────────────────────────────────────────────────
+
+Main Preview (01_preview.jpg):    590 × 300 px
+Thumbnail    (80x80.jpg):          80 ×  80 px
+Additional previews (02_, 03_…):  max 900 px on longest side,
+                                   same aspect ratio as main
+
+  ↳ Pack all preview images into preview.zip before uploading.
+    File naming convention: 01_elbio-preview.jpg, 02_…, etc.
+
+
+────────────────────────────────────────────────────────────────
+14. SUGGESTED RETAIL PRICE  (set in the price field)
+────────────────────────────────────────────────────────────────
+
+Suggested Price: $19
+
+  ↳ Comparable positioning:
+    — InBio (36+ demos, Bootstrap): $14 regular
+    — Templates with 3-5 demos, no framework, advanced motion:
+      typically $19–$24 at launch.
+    — Elbio's GSAP motion system, SCSS architecture, and
+      5-demo range justify $19 as the starting price.
+      Can raise to $24 after first positive reviews come in.
+    ↳ This is a recommendation only — final price is yours.
+
+
+────────────────────────────────────────────────────────────────
+15. QUICK PRE-SUBMISSION CHECKLIST
+────────────────────────────────────────────────────────────────
+
+Before clicking "Submit for Review":
+
+  [ ] All HTML pages pass W3C validation (zero errors, zero warnings)
+  [ ] Fontshare URL uses %5B%5D encoding (already fixed)
+  [ ] All demo images replaced with placehold.co (elbio-noImages/)
+  [ ] No .md, .py, tests/, node_modules/ inside the upload ZIP
+  [ ] description.txt pasted into Description field
+  [ ] SCSS files present (assets/scss/ — 21 files)
+  [ ] documentation/index.html exists and is readable
+  [ ] preview.zip contains 590×300 main + 80×80 thumbnail
+  [ ] ZIP file is the elbio-noImages/ folder contents
+  [ ] No broken links in any HTML page
+  [ ] Contact form tested (Web3Forms access key configured)
+  [ ] Reviewed against Envato Theme Check (HTML equivalent)
+  [ ] No console errors in Chrome DevTools on any page
+  [ ] Tested on mobile (375px), tablet (768px), desktop (1280px)
+
+================================================================
+END OF UPLOAD-FORM.TXT
+================================================================
