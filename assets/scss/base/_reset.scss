@@ -1,0 +1,79 @@
+// =============================================================
+// ELBIO — Reset
+// =============================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto; // Lenis handles smooth scroll
+}
+
+body {
+  font-family: var(--el-ff-body);
+  font-size: var(--el-fz-body);
+  font-weight: var(--el-fw-regular);
+  line-height: var(--el-lh-body);
+  letter-spacing: var(--el-ls-normal);
+  color: var(--el-text-primary);
+  background-color: var(--el-bg-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: var(--el-ff-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--el-ff-body);
+  font-size: var(--el-fz-body);
+}
+
+:focus-visible {
+  outline: 2px solid var(--el-accent);
+  outline-offset: 3px;
+  border-radius: var(--el-radius-sm);
+}
+
+::selection {
+  background: var(--el-accent-glow);
+  color: var(--el-text-primary);
+}
+
+// ── Custom scrollbar ───────────────────────────────────────
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--el-bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--el-border-default);
+  border-radius: var(--el-radius-pill);
+
+  &:hover { background: var(--el-border-strong); }
+}

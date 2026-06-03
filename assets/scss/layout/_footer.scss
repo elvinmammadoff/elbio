@@ -1,0 +1,85 @@
+// =============================================================
+// ELBIO — Footer
+// =============================================================
+
+.footer {
+  padding: var(--el-space-20) 0 var(--el-space-10);
+  border-top: 1px solid var(--el-border-subtle);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--el-space-10);
+  align-items: end;
+  margin-bottom: var(--el-space-10);
+}
+
+.footer-brand {
+  .brand-name {
+    font-family: var(--el-ff-display);
+    font-size: var(--el-fz-h3);
+    font-weight: var(--el-fw-black);
+    letter-spacing: var(--el-ls-tight);
+    color: var(--el-text-primary);
+    display: block;
+    margin-bottom: var(--el-space-3);
+  }
+}
+
+.footer-tagline {
+  color: var(--el-text-muted);
+  font-size: var(--el-fz-small);
+}
+
+.footer-nav {
+  display: flex;
+  gap: var(--el-space-8);
+
+  a {
+    font-size: var(--el-fz-small);
+    color: var(--el-text-muted);
+    transition: color var(--el-transition-base);
+
+    &:hover { color: var(--el-text-primary); }
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--el-space-8);
+  border-top: 1px solid var(--el-border-subtle);
+  gap: var(--el-space-6);
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: var(--el-fz-small);
+  color: var(--el-text-muted);
+}
+
+.footer-socials {
+  display: flex;
+  gap: var(--el-space-4);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--el-radius-circle);
+  border: 1px solid var(--el-border-subtle);
+  color: var(--el-text-muted);
+  font-size: 14px;
+  transition: all var(--el-transition-base);
+
+  &:hover {
+    border-color: var(--el-accent);
+    color: var(--el-accent);
+    background: var(--el-accent-glow);
+  }
+}

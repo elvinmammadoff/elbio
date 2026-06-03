@@ -1,0 +1,24 @@
+// =============================================================
+// ELBIO — Tags / Chips
+// =============================================================
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: var(--el-fz-label);
+  font-weight: var(--el-fw-medium);
+  letter-spacing: var(--el-ls-wide);
+  text-transform: uppercase;
+  background: var(--el-bg-elevated);
+  color: var(--el-text-secondary);
+  border-radius: var(--el-radius-pill);
+  border: 1px solid var(--el-border-subtle);
+  white-space: nowrap;
+
+  &-accent {
+    background: var(--el-accent-glow);
+    color: var(--el-accent);
+    border-color: rgba(232, 160, 32, 0.2);
+  }
+}

@@ -1,0 +1,77 @@
+// =============================================================
+// ELBIO — Typography
+// =============================================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--el-ff-display);
+  font-weight: var(--el-fw-black);
+  line-height: var(--el-lh-heading);
+  letter-spacing: var(--el-ls-tight);
+  color: var(--el-text-primary);
+}
+
+h1 { font-size: var(--el-fz-h1); }
+h2 { font-size: var(--el-fz-h2); }
+h3 { font-size: var(--el-fz-h3); }
+h4 { font-size: var(--el-fz-h4); }
+h5 { font-size: var(--el-fz-h5); }
+h6 { font-size: var(--el-fz-h6); }
+
+p {
+  color: var(--el-text-secondary);
+  max-width: 68ch;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--el-transition-base);
+
+  &:hover { color: var(--el-accent); }
+}
+
+strong,
+b {
+  font-weight: var(--el-fw-bold);
+  color: var(--el-text-primary);
+}
+
+em,
+i { font-style: italic; }
+
+code,
+kbd,
+pre {
+  font-family: var(--el-ff-mono);
+  font-size: 0.875em;
+}
+
+pre {
+  background: var(--el-bg-surface);
+  border: 1px solid var(--el-border-subtle);
+  border-radius: var(--el-radius-md);
+  padding: var(--el-space-6);
+  overflow-x: auto;
+}
+
+blockquote {
+  border-left: 3px solid var(--el-accent);
+  padding-left: var(--el-space-6);
+  margin: var(--el-space-8) 0;
+  color: var(--el-text-secondary);
+  font-style: italic;
+}
+
+ul,
+ol { padding-left: var(--el-space-6); }
+
+li {
+  color: var(--el-text-secondary);
+  margin-bottom: var(--el-space-2);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--el-border-subtle);
+  margin: var(--el-space-10) 0;
+}

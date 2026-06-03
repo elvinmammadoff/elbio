@@ -1,9 +1,16 @@
-@charset "UTF-8";
+// =============================================================
+// ELBIO — Section-Level Styles
+// Hero, About, Skills, Projects, Services, Clients,
+// Pricing, Blog, Contact, Project Single, Blog Single,
+// Home Variants (Cream, Neon, Agency, Photography)
+// =============================================================
+
 /* =============================================================
    ELBIO — Section-Level Styles
    Hero, About, Skills, Projects, Services, Clients,
    Pricing, Blog, Contact, Project Single, Blog Single
    ============================================================= */
+
 /* =============================================================
    HERO
    ============================================================= */
@@ -44,15 +51,10 @@
 }
 
 @keyframes pulse-dot {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.6);
-    opacity: 0.5;
-  }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.6); opacity: 0.5; }
 }
+
 /* Display name — uses word-wrap spans for M-02 mask reveal */
 .hero-name {
   font-size: var(--el-fz-display);
@@ -185,22 +187,12 @@
 }
 
 @keyframes scroll-line {
-  0% {
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-  50% {
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-  51% {
-    transform-origin: bottom;
-  }
-  100% {
-    transform: scaleY(0);
-    transform-origin: bottom;
-  }
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
 }
+
 /* =============================================================
    ABOUT
    ============================================================= */
@@ -427,7 +419,8 @@
   border: 1px solid var(--el-border-subtle);
   border-radius: var(--el-radius-xl);
   overflow: hidden;
-  transition: border-color var(--el-transition-base), box-shadow var(--el-transition-base);
+  transition: border-color var(--el-transition-base),
+              box-shadow var(--el-transition-base);
   cursor: pointer;
 }
 
@@ -463,7 +456,11 @@
 .project-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(10, 10, 10, 0.7) 100%);
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(10, 10, 10, 0.7) 100%
+  );
   opacity: 0;
   transition: opacity var(--el-transition-base);
 }
@@ -610,6 +607,8 @@
 .service-item:hover .service-number {
   color: var(--el-accent);
 }
+
+.service-content {}
 
 .service-title {
   font-family: var(--el-ff-display);
@@ -845,7 +844,8 @@
   border: 1px solid var(--el-border-subtle);
   border-radius: var(--el-radius-xl);
   overflow: hidden;
-  transition: border-color var(--el-transition-base), box-shadow var(--el-transition-base);
+  transition: border-color var(--el-transition-base),
+              box-shadow var(--el-transition-base);
 }
 
 .blog-card:hover {
@@ -959,6 +959,8 @@
   align-items: start;
 }
 
+.contact-info {}
+
 .contact-info-item {
   display: flex;
   align-items: flex-start;
@@ -1004,6 +1006,8 @@
 }
 
 /* Form */
+.contact-form {}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1037,7 +1041,8 @@
   color: var(--el-text-primary);
   font-size: var(--el-fz-body);
   font-family: var(--el-ff-body);
-  transition: border-color var(--el-transition-base), box-shadow var(--el-transition-base);
+  transition: border-color var(--el-transition-base),
+              box-shadow var(--el-transition-base);
   outline: none;
   -webkit-appearance: none;
 }
@@ -1129,6 +1134,8 @@
   border-top: 1px solid var(--el-border-subtle);
   border-bottom: 1px solid var(--el-border-subtle);
 }
+
+.project-meta-item {}
 
 .project-meta-label {
   font-size: var(--el-fz-label);
@@ -1563,46 +1570,19 @@
 }
 
 /* Dark Industrial swatches */
-.swatch-dark-1 {
-  background: #0a0a0a;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.swatch-dark-2 {
-  background: #e8a020;
-}
-
-.swatch-dark-3 {
-  background: #f0ede8;
-}
+.swatch-dark-1 { background: #0a0a0a; border: 1px solid rgba(255,255,255,0.2); }
+.swatch-dark-2 { background: #e8a020; }
+.swatch-dark-3 { background: #f0ede8; }
 
 /* Cream Minimal swatches */
-.swatch-cream-1 {
-  background: #faf6f0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.swatch-cream-2 {
-  background: #c47c10;
-}
-
-.swatch-cream-3 {
-  background: #1a1612;
-}
+.swatch-cream-1 { background: #faf6f0; border: 1px solid rgba(0,0,0,0.1); }
+.swatch-cream-2 { background: #c47c10; }
+.swatch-cream-3 { background: #1a1612; }
 
 /* Neon Cyberpunk swatches */
-.swatch-neon-1 {
-  background: #030308;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.swatch-neon-2 {
-  background: #a8ff3e;
-}
-
-.swatch-neon-3 {
-  background: #00e5ff;
-}
+.swatch-neon-1 { background: #030308; border: 1px solid rgba(255,255,255,0.1); }
+.swatch-neon-2 { background: #a8ff3e; }
+.swatch-neon-3 { background: #00e5ff; }
 
 /* =============================================================
    CONTACT PAGE (standalone)
@@ -1619,6 +1599,8 @@
   align-items: start;
   margin-top: var(--el-space-12);
 }
+
+.contact-sidebar {}
 
 .contact-sidebar-card {
   background: var(--el-bg-surface);
@@ -1786,6 +1768,7 @@
 /* =============================================================
    LAYOUT UTILITY CLASSES (replaces inline styles)
    ============================================================= */
+
 /* Services header — two-column split with heading + description */
 .services-header {
   display: grid;
@@ -1856,6 +1839,7 @@
 /* =============================================================
    PROJECT SINGLE — CSS classes replacing inline styles
    ============================================================= */
+
 /* Full-bleed cover image container */
 .project-cover-wrap {
   width: 100%;
@@ -1943,6 +1927,7 @@
    HOME-VARIANT — Cream Editorial (index-2.html)
    Centered hero, projects-as-list, testimonials
    ============================================================= */
+
 /* Centered editorial hero — no portrait, name centered */
 .hero-centered {
   min-height: 100vh;
@@ -2075,7 +2060,7 @@
   right: 18%;
   transform: translateY(-50%) scale(0.85);
   width: 240px;
-  aspect-ratio: 4/3;
+  aspect-ratio: 4 / 3;
   border-radius: var(--el-radius-md);
   overflow: hidden;
   opacity: 0;
@@ -2102,13 +2087,10 @@
     gap: var(--el-space-4);
     padding: var(--el-space-6) 0;
   }
-  .projects-list-tags {
-    display: none;
-  }
-  .projects-list-thumb {
-    display: none;
-  }
+  .projects-list-tags { display: none; }
+  .projects-list-thumb { display: none; }
 }
+
 /* Testimonials */
 .testimonials-grid {
   display: grid;
@@ -2169,10 +2151,13 @@
     grid-template-columns: 1fr;
   }
 }
+
+
 /* =============================================================
    HOME-VARIANT — Neon Cyberpunk (index-3.html)
    Asymmetric monospace hero, scan-line portrait
    ============================================================= */
+
 .hero-neon {
   min-height: 100vh;
   display: grid;
@@ -2203,7 +2188,7 @@
 }
 
 .hero-neon-tag::before {
-  content: "";
+  content: '';
   width: 8px;
   height: 8px;
   background: var(--el-accent);
@@ -2212,13 +2197,10 @@
 }
 
 @keyframes el-pulse-neon {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
 }
+
 .hero-neon-heading {
   font-family: var(--el-ff-mono);
   font-size: clamp(48px, 8vw, 128px);
@@ -2261,7 +2243,7 @@
 /* Portrait with scan-line overlay */
 .hero-neon-portrait {
   position: relative;
-  aspect-ratio: 3/4;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 8%);
   background: var(--el-bg-elevated);
@@ -2276,21 +2258,31 @@
 
 .hero-neon-portrait::before,
 .hero-neon-portrait::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
 .hero-neon-portrait::before {
-  background: linear-gradient(180deg, transparent 0%, transparent 50%, rgba(168, 255, 62, 0.04) 50%, rgba(168, 255, 62, 0.04) 51%, transparent 51%, transparent 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 50%,
+    rgba(168, 255, 62, 0.04) 50%,
+    rgba(168, 255, 62, 0.04) 51%,
+    transparent 51%,
+    transparent 100%
+  );
   background-size: 100% 4px;
   mix-blend-mode: screen;
   z-index: 2;
 }
 
 .hero-neon-portrait::after {
-  background: linear-gradient(180deg, rgba(168, 255, 62, 0.05), transparent 30%, transparent 70%, rgba(168, 255, 62, 0.05)), linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.06));
+  background:
+    linear-gradient(180deg, rgba(168, 255, 62, 0.05), transparent 30%, transparent 70%, rgba(168, 255, 62, 0.05)),
+    linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.06));
   z-index: 3;
 }
 
@@ -2302,33 +2294,10 @@
   z-index: 4;
 }
 
-.hero-neon-corner.tl {
-  top: 0;
-  left: 0;
-  border-top: 2px solid;
-  border-left: 2px solid;
-}
-
-.hero-neon-corner.tr {
-  top: 0;
-  right: 0;
-  border-top: 2px solid;
-  border-right: 2px solid;
-}
-
-.hero-neon-corner.bl {
-  bottom: 0;
-  left: 0;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
-}
-
-.hero-neon-corner.br {
-  bottom: 0;
-  right: 0;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
-}
+.hero-neon-corner.tl { top: 0; left: 0; border-top: 2px solid; border-left: 2px solid; }
+.hero-neon-corner.tr { top: 0; right: 0; border-top: 2px solid; border-right: 2px solid; }
+.hero-neon-corner.bl { bottom: 0; left: 0; border-bottom: 2px solid; border-left: 2px solid; }
+.hero-neon-corner.br { bottom: 0; right: 0; border-bottom: 2px solid; border-right: 2px solid; }
 
 /* Vertical SCROLL affordance */
 .hero-neon-scroll {
@@ -2348,7 +2317,7 @@
 }
 
 .hero-neon-scroll::after {
-  content: "";
+  content: '';
   width: 60px;
   height: 1px;
   background: var(--el-accent);
@@ -2359,21 +2328,17 @@
     grid-template-columns: 1fr;
     gap: var(--el-space-8);
   }
-  .hero-neon-portrait {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  .hero-neon-scroll {
-    display: none;
-  }
+  .hero-neon-portrait { max-width: 400px; margin: 0 auto; }
+  .hero-neon-scroll { display: none; }
 }
+
 /* Project cards — neon hover edge variant */
-[data-variant=neon-cyberpunk] .project-card {
+[data-variant="neon-cyberpunk"] .project-card {
   border: 1px solid rgba(168, 255, 62, 0.1);
   transition: border-color var(--el-trans-base), box-shadow var(--el-trans-base);
 }
 
-[data-variant=neon-cyberpunk] .project-card:hover {
+[data-variant="neon-cyberpunk"] .project-card:hover {
   border-color: var(--el-accent);
   box-shadow: var(--el-shadow-glow);
 }
@@ -2384,6 +2349,7 @@
    Reuses .services-list, .projects-grid, .blog-grid,
    .testimonials-grid, .clients. New components below.
    ============================================================= */
+
 /* ---- Reusable inner-page header (about / services / work / contact) ---- */
 .page-header {
   position: relative;
@@ -2428,21 +2394,10 @@
   margin-bottom: var(--el-space-6);
 }
 
-.breadcrumb a {
-  color: var(--el-text-muted);
-}
-
-.breadcrumb a:hover {
-  color: var(--el-accent);
-}
-
-.breadcrumb-sep {
-  color: var(--el-border-strong);
-}
-
-.breadcrumb-current {
-  color: var(--el-accent);
-}
+.breadcrumb a { color: var(--el-text-muted); }
+.breadcrumb a:hover { color: var(--el-accent); }
+.breadcrumb-sep { color: var(--el-border-strong); }
+.breadcrumb-current { color: var(--el-accent); }
 
 /* Decorative gradient orb behind page headers */
 .page-header-glow {
@@ -2486,11 +2441,21 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--el-bg-base) 0%, rgba(10, 10, 10, 0.55) 40%, var(--el-bg-base) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--el-bg-base) 0%,
+    rgba(10, 10, 10, 0.55) 40%,
+    var(--el-bg-base) 100%
+  );
 }
 
-[data-theme=light] .agency-hero-bg::after {
-  background: linear-gradient(180deg, var(--el-bg-base) 0%, rgba(250, 250, 249, 0.55) 40%, var(--el-bg-base) 100%);
+[data-theme="light"] .agency-hero-bg::after {
+  background: linear-gradient(
+    180deg,
+    var(--el-bg-base) 0%,
+    rgba(250, 250, 249, 0.55) 40%,
+    var(--el-bg-base) 100%
+  );
 }
 
 .agency-hero-inner {
@@ -2562,9 +2527,7 @@
   margin-bottom: var(--el-space-3);
 }
 
-.stat-band-number .text-accent {
-  color: var(--el-accent);
-}
+.stat-band-number .text-accent { color: var(--el-accent); }
 
 .stat-band-label {
   font-size: var(--el-fz-small);
@@ -2605,11 +2568,11 @@
   filter: grayscale(0) brightness(1);
 }
 
-[data-theme=light] .brand-cell img {
+[data-theme="light"] .brand-cell img {
   filter: grayscale(1) brightness(0.4);
 }
 
-[data-theme=light] .brand-cell:hover img {
+[data-theme="light"] .brand-cell:hover img {
   filter: grayscale(0) brightness(1);
 }
 
@@ -2770,7 +2733,7 @@
   border-radius: var(--el-radius-xl);
   overflow: hidden;
   margin-bottom: var(--el-space-5);
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   border: 1px solid var(--el-border-subtle);
 }
 
@@ -2809,7 +2772,7 @@
   border-radius: var(--el-radius-xl);
   overflow: hidden;
   border: 1px solid var(--el-border-subtle);
-  aspect-ratio: 4/3;
+  aspect-ratio: 4 / 3;
 }
 
 .work-item-img {
@@ -2889,48 +2852,31 @@
 
 /* ---- Responsive: Studio Agency ---- */
 @media (min-width: 768px) {
-  .stat-band-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .brands-strip-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .value-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .team-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .work-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .about-split {
-    grid-template-columns: 1fr 1fr;
-  }
-  .agency-hero-meta {
-    flex-wrap: nowrap;
-  }
+  .stat-band-grid   { grid-template-columns: repeat(4, 1fr); }
+  .brands-strip-grid{ grid-template-columns: repeat(4, 1fr); }
+  .value-grid       { grid-template-columns: repeat(3, 1fr); }
+  .team-grid        { grid-template-columns: repeat(4, 1fr); }
+  .work-grid        { grid-template-columns: repeat(2, 1fr); }
+  .process-grid     { grid-template-columns: repeat(2, 1fr); }
+  .about-split      { grid-template-columns: 1fr 1fr; }
+  .agency-hero-meta { flex-wrap: nowrap; }
 }
+
 @media (min-width: 1280px) {
-  .work-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .process-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .work-grid        { grid-template-columns: repeat(3, 1fr); }
+  .process-grid     { grid-template-columns: repeat(4, 1fr); }
   /* First work item spans 2 cols for a featured look */
   .work-grid .work-item.is-featured {
     grid-column: span 2;
-    aspect-ratio: 16/10;
+    aspect-ratio: 16 / 10;
   }
 }
+
 /* =============================================================
    HOME-VARIANT — Visual / Photography (index-5.html)
    Light-first, full-bleed imagery, minimal UI, masonry gallery.
    ============================================================= */
+
 /* ---- Visual hero: oversized type + tall editorial portrait ---- */
 .visual-hero {
   position: relative;
@@ -2941,9 +2887,7 @@
   padding-bottom: var(--el-space-16);
 }
 
-.visual-hero .container {
-  width: 100%;
-}
+.visual-hero .container { width: 100%; }
 
 .visual-hero-grid {
   display: grid;
@@ -2984,7 +2928,7 @@
   position: relative;
   border-radius: var(--el-radius-lg);
   overflow: hidden;
-  aspect-ratio: 3/4;
+  aspect-ratio: 3 / 4;
 }
 
 .visual-hero-media img {
@@ -3064,7 +3008,7 @@
 .visual-about-media {
   border-radius: var(--el-radius-lg);
   overflow: hidden;
-  aspect-ratio: 4/5;
+  aspect-ratio: 4 / 5;
 }
 
 .visual-about-media img {
@@ -3114,15 +3058,10 @@
 
 /* ---- Responsive: Visual / Photography ---- */
 @media (min-width: 768px) {
-  .visual-hero-grid {
-    grid-template-columns: 1.1fr 0.9fr;
-  }
-  .gallery {
-    column-count: 2;
-  }
+  .visual-hero-grid   { grid-template-columns: 1.1fr 0.9fr; }
+  .gallery            { column-count: 2; }
 }
+
 @media (min-width: 1280px) {
-  .gallery {
-    column-count: 3;
-  }
+  .gallery            { column-count: 3; }
 }

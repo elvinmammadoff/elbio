@@ -1,0 +1,24 @@
+// =============================================================
+// ELBIO — Container System
+// =============================================================
+
+.container {
+  width: 100%;
+  max-width: var(--el-container-max);
+  margin-inline: auto;
+  padding-inline: var(--el-container-pad);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--el-container-pad);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+  padding-inline: var(--el-container-pad);
+}

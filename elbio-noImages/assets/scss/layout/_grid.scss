@@ -1,0 +1,29 @@
+// =============================================================
+// ELBIO — Grid & Flex Utilities
+// =============================================================
+
+// ── Grid ───────────────────────────────────────────────────
+.grid {
+  display: grid;
+  gap: var(--el-gap-md);
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.grid-auto {
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+}
+
+// ── Flex ───────────────────────────────────────────────────
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col     { display: flex; flex-direction: column; }
+.flex-wrap    { flex-wrap: wrap; }
+
+// ── Gap shortcuts ──────────────────────────────────────────
+.gap-sm { gap: var(--el-gap-sm); }
+.gap-md { gap: var(--el-gap-md); }
+.gap-lg { gap: var(--el-gap-lg); }

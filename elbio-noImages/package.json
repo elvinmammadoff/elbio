@@ -1,0 +1,13 @@
+{
+  "name": "elbio",
+  "version": "1.0.0",
+  "description": "Elbio — Creative Portfolio HTML Template",
+  "scripts": {
+    "sass:watch": "sass --watch assets/scss:assets/css --no-source-map",
+    "sass:build": "sass assets/scss:assets/css --no-source-map",
+    "sass:prod":  "sass assets/scss:assets/css --no-source-map --style=compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}

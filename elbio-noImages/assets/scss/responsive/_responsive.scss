@@ -1,0 +1,230 @@
+// =============================================================
+// ELBIO — Responsive Overrides
+// Uses breakpoint mixins from abstracts/_mixins.scss.
+// Mobile-first. Breakpoints: 375 / 768 / 1280 / 1920 px.
+// =============================================================
+
+@use '../abstracts/mixins' as *;
+
+// =============================================================
+// DEFAULT (0 – 767px) — Mobile layout
+// =============================================================
+
+.nav-menu    { display: none; }
+.menu-toggle { display: flex; }
+
+.hero-portrait {
+  position: relative;
+  width: 100%;
+  height: 50vw;
+  max-height: 300px;
+  clip-path: none;
+  border-radius: var(--el-radius-xl);
+  margin-top: var(--el-space-10);
+}
+
+.hero-portrait-img { clip-path: none; height: 100%; }
+
+.hero-name   { font-size: clamp(52px, 13vw, 80px); }
+.hero-meta   { gap: var(--el-space-6); }
+.hero-stats  { gap: var(--el-space-6); }
+
+.stat-number { font-size: clamp(32px, 8vw, 48px); }
+
+.about-grid          { grid-template-columns: 1fr; }
+.about-image-wrap    { aspect-ratio: 4/3; }
+.skills-grid         { grid-template-columns: 1fr; }
+.projects-grid       { grid-template-columns: 1fr; }
+.services-header     { grid-template-columns: 1fr; }
+.section-header-flex { flex-direction: column; align-items: flex-start; }
+.pricing-grid        { grid-template-columns: 1fr; }
+.blog-grid           { grid-template-columns: 1fr; }
+.contact-inner       { grid-template-columns: 1fr; }
+.form-row            { grid-template-columns: 1fr; }
+.mockup-grid-row     { grid-template-columns: 1fr; }
+.project-nav         { grid-template-columns: 1fr; }
+.variants-grid       { grid-template-columns: 1fr; }
+.contact-page-grid   { grid-template-columns: 1fr; }
+.footer-inner        { grid-template-columns: 1fr; gap: var(--el-space-8); }
+.footer-bottom       { flex-direction: column; align-items: flex-start; gap: var(--el-space-4); }
+.docs-layout         { grid-template-columns: 1fr; }
+.docs-sidebar        { display: none; }
+.docs-toc-mobile     { display: block; }
+.scroll-indicator    { display: none; }
+
+.projects-grid {
+  .project-card:first-child {
+    grid-column: span 1;
+
+    .project-card-image { aspect-ratio: 16/9; }
+  }
+}
+
+.service-item {
+  grid-template-columns: 1fr;
+  gap: var(--el-space-4);
+}
+
+.service-number { display: none; }
+.service-icon   { display: none; }
+
+.section {
+  padding-top: clamp(60px, 10vw, 80px);
+  padding-bottom: clamp(60px, 10vw, 80px);
+}
+
+.hero {
+  padding-top: clamp(100px, 20vw, 140px);
+  padding-bottom: clamp(60px, 10vw, 80px);
+}
+
+// =============================================================
+// TABLET — 768px
+// =============================================================
+
+@include respond-to('md') {
+  .nav-menu    { display: flex; }
+  .menu-toggle { display: none; }
+  .nav-cta     { display: inline-flex; }
+
+  .hero-portrait {
+    position: absolute;
+    width: 45%;
+    height: auto;
+    bottom: 0;
+    top: 0;
+    max-height: none;
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  .hero-portrait-img {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .hero-name { font-size: clamp(60px, 10vw, 120px); }
+
+  .about-grid        { grid-template-columns: 1fr 1fr; }
+  .skills-grid       { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid     { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid         { grid-template-columns: repeat(2, 1fr); }
+  .contact-inner     { grid-template-columns: 1fr 1fr; }
+  .form-row          { grid-template-columns: 1fr 1fr; }
+  .mockup-grid-row   { grid-template-columns: repeat(2, 1fr); }
+  .project-nav       { grid-template-columns: 1fr 1fr; }
+  .variants-grid     { grid-template-columns: repeat(2, 1fr); }
+  .contact-page-grid { grid-template-columns: 320px 1fr; }
+  .scroll-indicator  { display: flex; }
+  .docs-layout       { grid-template-columns: 240px 1fr; }
+  .docs-sidebar      { display: block; }
+  .docs-toc-mobile   { display: none; }
+
+  .projects-grid .project-card:first-child { grid-column: span 2; }
+
+  .service-item {
+    grid-template-columns: 64px 1fr auto;
+    gap: var(--el-gap-md);
+  }
+
+  .service-number { display: block; }
+  .service-icon   { display: flex; }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .footer-inner  { grid-template-columns: 1fr auto; }
+  .footer-bottom { flex-direction: row; align-items: center; }
+}
+
+// =============================================================
+// DESKTOP — 1280px
+// =============================================================
+
+@include respond-to('lg') {
+  .skills-grid       { grid-template-columns: repeat(3, 1fr); }
+  .blog-grid         { grid-template-columns: repeat(3, 1fr); }
+  .variants-grid     { grid-template-columns: repeat(3, 1fr); }
+  .contact-page-grid { grid-template-columns: 380px 1fr; }
+  .docs-layout       { grid-template-columns: 280px 1fr; }
+
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .service-item { padding: var(--el-space-12) 0; }
+}
+
+// =============================================================
+// WIDE — 1920px
+// =============================================================
+
+@include respond-to('xl') {
+  .container { max-width: 1440px; }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+
+    .project-card:first-child { grid-column: span 3; }
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--el-gap-lg);
+  }
+
+  .pricing-card { padding: var(--el-space-12) var(--el-space-10); }
+
+  .docs-layout {
+    grid-template-columns: 320px 1fr;
+    gap: var(--el-gap-xl);
+  }
+}
+
+// =============================================================
+// REDUCED MOTION
+// =============================================================
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  body::after { animation: none; }
+
+  .scroll-indicator-line { animation: none; }
+}
+
+// =============================================================
+// PRINT
+// =============================================================
+
+@media print {
+  .site-header,
+  .cursor-ball,
+  .cursor-dot,
+  .mobile-nav,
+  .page-transition,
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 40px;
+  }
+}

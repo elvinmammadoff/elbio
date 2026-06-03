@@ -1,0 +1,58 @@
+// =============================================================
+// ELBIO — Utilities
+// =============================================================
+
+.overflow-hidden { overflow: hidden; }
+
+// ── Text colour helpers ────────────────────────────────────
+.text-accent    { color: var(--el-accent); }
+.text-muted     { color: var(--el-text-muted); }
+.text-secondary { color: var(--el-text-secondary); }
+
+// ── Visually hidden (accessibility) ───────────────────────
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ── Custom cursor elements ─────────────────────────────────
+.cursor-ball,
+.cursor-dot {
+  position: fixed;
+  pointer-events: none;
+  z-index: var(--el-z-cursor);
+  border-radius: var(--el-radius-circle);
+  mix-blend-mode: difference;
+}
+
+.cursor-ball {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--el-border-strong);
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--el-text-primary);
+  transform: translate(-50%, -50%);
+}
+
+// ── Page transition overlay ────────────────────────────────
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: var(--el-bg-overlay);
+  z-index: var(--el-z-transition);
+  transform-origin: center left;
+  transform: scaleX(0);
+  pointer-events: none;
+}

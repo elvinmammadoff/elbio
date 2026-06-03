@@ -1,0 +1,63 @@
+// =============================================================
+// ELBIO — Section Helpers
+// =============================================================
+
+.section {
+  padding-top: var(--el-section-pt);
+  padding-bottom: var(--el-section-pb);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--el-space-3);
+  font-size: var(--el-fz-label);
+  font-weight: var(--el-fw-medium);
+  letter-spacing: var(--el-ls-wider);
+  text-transform: uppercase;
+  color: var(--el-accent);
+  margin-bottom: var(--el-space-5);
+
+  &::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--el-accent);
+    flex-shrink: 0;
+  }
+}
+
+.section-heading {
+  font-size: var(--el-fz-h2);
+  font-family: var(--el-ff-display);
+  font-weight: var(--el-fw-black);
+  letter-spacing: var(--el-ls-tight);
+  line-height: var(--el-lh-heading);
+  color: var(--el-text-primary);
+  margin-bottom: var(--el-space-6);
+}
+
+.section-subheading {
+  font-size: var(--el-fz-body);
+  color: var(--el-text-secondary);
+  max-width: 60ch;
+  line-height: var(--el-lh-relaxed);
+  margin-bottom: var(--el-space-12);
+}
+
+// ── Word-wrap spans for M-02 hero mask reveal ──────────────
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.word { display: inline-block; }
+
+// ── Divider line ───────────────────────────────────────────
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--el-border-subtle);
+}
